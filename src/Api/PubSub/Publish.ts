@@ -8,5 +8,4 @@ export default function Publish(event: string, data: any): void {
       ...data
     }
   })
-  parent.postMessage('{"pluginName": "livereaction","action": "publish-event", "data": { "eventName": "lol"}}', 'https://app.livestorm.local')  
 }

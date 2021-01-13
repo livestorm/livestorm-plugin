@@ -6,7 +6,6 @@ function Publish(event, data) {
         action: 'publish-event',
         data: Object.assign({ eventName: event }, data)
     });
-    parent.postMessage('{"pluginName": "livereaction","action": "publish-event", "data": { "eventName": "lol"}}', 'https://app.livestorm.local');
 }
 exports.default = Publish;
 //# sourceMappingURL=Publish.js.map

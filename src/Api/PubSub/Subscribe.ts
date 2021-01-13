@@ -1,10 +1,8 @@
 import sendEvent from '../../IO/sendEvent'
+import subscribeToEvent from '../../IO/subscribeToEvent'
 
 export default function Subscribe(eventName: string, onEventReceived: (message: any) => any): void {
-  window.addEventListener('message', (message) => {
-    console.log('DZAOIDZAOO', message)
-    onEventReceived(message)
-  })
+  subscribeToEvent(eventName, (message) => onEventReceived(message))
 
   sendEvent({
     action: 'subscribe-event',

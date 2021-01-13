@@ -1,11 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const sendEvent_1 = require("../../IO/sendEvent");
+const subscribeToEvent_1 = require("../../IO/subscribeToEvent");
 function Subscribe(eventName, onEventReceived) {
-    window.addEventListener('message', (message) => {
-        console.log('DZAOIDZAOO', message);
-        onEventReceived(message);
-    });
+    subscribeToEvent_1.default(eventName, (message) => onEventReceived(message));
     sendEvent_1.default({
         action: 'subscribe-event',
         data: { eventName }

@@ -3,5 +3,5 @@ export default function sendEvent(payload: { action: string, data: any }): void 
     pluginName: 'livereaction',
     ...payload
   }
-  parent.postMessage(JSON.stringify(messageData), 'https://app.livestorm.local')
+  parent.postMessage(JSON.stringify(messageData), '*')
 }
