@@ -8,16 +8,9 @@ $$ |      $$ |  \$$$  /  $$   ____| \____$$\   $$ |$$\ $$ |  $$ |$$ |      $$ | 
 $$$$$$$$\ $$ |   \$  /   \$$$$$$$\ $$$$$$$  |  \$$$$  |\$$$$$$  |$$ |      $$ | $$ | $$ |
 \________|\__|    \_/     \_______|\_______/    \____/  \______/ \__|      \__| \__| \__|
                                                                                          
-
-    This repo hosts the Livestorm plugin
-
-
-    create              -> Generate a new plugin
-    push                -> Build and push the plugin
 ```
 
 Install 
 ---
 
-`yarn add global git+ssh://git@github.com:livestorm/livestorm-plugin.git`
-`livestorm`
+`yarn add git+ssh://git@github.com:livestorm/livestorm-plugin.git`
