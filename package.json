@@ -1,5 +1,5 @@
 {
-  "name": "livestorm-plugin",
+  "name": "@livestorm/plugin",
   "version": "0.0.1",
   "description": "All classes and utilities you will need to create a Livestorm plugin",
   "main": "dist/index.js",
