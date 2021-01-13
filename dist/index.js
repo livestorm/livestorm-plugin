@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Publish_1 = require("./Publish");
-const Subscribe_1 = require("./Subscribe");
+const PubSub_1 = require("./src/Api/PubSub");
+const RegisterShareButton_1 = require("./src/Api/RegisterShareButton");
 exports.default = {
-    publish: Publish_1.default,
-    subscribe: Subscribe_1.default
+    PubSub: PubSub_1.default,
+    RegisterShareButton: RegisterShareButton_1.default
 };
+//# sourceMappingURL=index.js.map

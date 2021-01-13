@@ -1,0 +1,1 @@
+{"version":3,"file":"RegisterShareButton.js","sourceRoot":"","sources":["../../../src/Api/RegisterShareButton.ts"],"names":[],"mappings":";;AAAA,+CAAuC;AAEvC,kBAAe;IACb,QAAQ,EAAE,CAAC,EAAE,KAAK,EAAE,IAAI,EAAE,OAAO,EAIhC,EAAQ,EAAE;QACT,mBAAS,CAAC;YACR,MAAM,EAAE,uBAAuB;YAC/B,IAAI,EAAG,EAAE,KAAK,EAAE,IAAI,EAAE;SACvB,CAAC,CAAA;IACJ,CAAC;CACF,CAAA"}
