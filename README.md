@@ -56,7 +56,7 @@ import Livestorm from '@livestorm/plugin'
 * The `Livestorm` object contains all of the exposed APIs that allow 
 * you to act and build on top of Livestorm room
 *
-* Do not hesitate to console.log or use the autocompletion of your editor 
+* Do not hesitate to console.log(Livestorm) or use the autocompletion of your editor 
 * to understand what is inside and what are the exposed APIs
 *
 */
@@ -68,9 +68,8 @@ import Livestorm from '@livestorm/plugin'
 * in the room is going to subscribe to
 *
 */
-Livestorm.PubSub.subscribe('hello', (payload) => {
+Livestorm.PubSub.subscribe('say-hello', (payload) => {
   console.log('Someone said :', payload.message) 
-  // Will print 'Hello world' in everybody's console
 })
 
 /*
@@ -80,7 +79,9 @@ Livestorm.PubSub.subscribe('hello', (payload) => {
 * ie: everyone who is in the room will receive the message
 *
 */
-Livestorm.PubSub.publish('hello', { message: 'Hello world' })
+Livestorm.PubSub.publish('say-hello', { message: 'Hello world' })
+
+
 ```
 
 ## Publishing
