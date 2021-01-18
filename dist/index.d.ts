@@ -1,5 +1,6 @@
 import register from './src/Api/Register';
 declare const _default: {
+    Configuration: any;
     PubSub: {
         publish: typeof import("./src/Api/PubSub/Publish").default;
         subscribe: typeof import("./src/Api/PubSub/Subscribe").default;

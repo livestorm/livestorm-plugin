@@ -4,8 +4,8 @@ const config = {
     data: {
         url: '*'
     },
-    set(config) {
-        this.data = Object.assign(Object.assign({}, this.data), config);
+    set(newConfig) {
+        this.data = Object.assign(Object.assign({}, this.data), newConfig);
     }
 };
 exports.default = config;

@@ -3,10 +3,10 @@ const config: any = {
     url: '*'
   },
 
-  set(config) {
+  set(newConfig) {
     this.data = {
       ...this.data,
-      ...config
+      ...newConfig
     }
   }
 }
