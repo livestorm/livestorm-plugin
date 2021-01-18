@@ -13,11 +13,16 @@ declare const _default: {
         }) => void;
     };
     RegisterStageButton: {
-        register: ({ label, icon, tooltip, onClick }: {
+        register: ({ iframe, dropdownActions, label, icon, tooltip, onClick }: {
             label: string;
             tooltip?: string;
             icon?: string;
-            onClick: () => unknown;
+            dropdownActions?: [{
+                label: any;
+                onClick: () => unknown;
+            }];
+            iframe?: string;
+            onClick?: () => unknown;
         }) => void;
     };
     register: typeof register;
