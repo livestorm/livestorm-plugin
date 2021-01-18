@@ -1,1 +1,1 @@
-export default function register(): void;
+export default function register(main: () => unknown): void;

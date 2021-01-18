@@ -2,8 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const subscribeToEvent_1 = require("../IO/subscribeToEvent");
 const Configuration_1 = require("../Configuration");
-function register() {
-    subscribeToEvent_1.default('register', (data) => Configuration_1.default.set(data));
+function register(main) {
+    subscribeToEvent_1.default('register', (data) => {
+        Configuration_1.default.set(data);
+        main();
+    });
 }
 exports.default = register;
 //# sourceMappingURL=Register.js.map
