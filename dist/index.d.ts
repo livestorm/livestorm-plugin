@@ -12,6 +12,14 @@ declare const _default: {
             onClick: () => unknown;
         }) => void;
     };
+    RegisterStageButton: {
+        register: ({ label, icon, tooltip, onClick }: {
+            label: string;
+            tooltip?: string;
+            icon?: string;
+            onClick: () => unknown;
+        }) => void;
+    };
     register: typeof register;
 };
 export default _default;
