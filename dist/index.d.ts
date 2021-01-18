@@ -8,7 +8,7 @@ declare const _default: {
     RegisterShareButton: {
         register: ({ label, icon, onClick }: {
             label: string;
-            icon: string;
+            icon?: string;
             onClick: () => unknown;
         }) => void;
     };
