@@ -13,17 +13,21 @@ declare const _default: {
         }) => void;
     };
     RegisterStageButton: {
-        register: ({ iframe, dropdownActions, label, icon, tooltip, onClick }: {
+        register: ({ iframe, dropdownActions, dropdownActionsTextClasses, label, icon, tooltip, onClick }: {
             label: string;
             tooltip?: string;
             icon?: string;
-            dropdownActions?: [{
+            dropdownActions?: {
                 label: any;
                 onClick: () => unknown;
-            }];
+            }[];
+            dropdownActionsTextClasses?: string;
             iframe?: string;
-            onClick?: () => unknown;
+            onClick?: (payload?: any) => unknown;
         }) => void;
+    };
+    NotificationCenter: {
+        showIframe(template: string, variables: any): void;
     };
     register: typeof register;
 };

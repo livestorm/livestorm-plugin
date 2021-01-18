@@ -3,20 +3,21 @@ import sendEvent from '../IO/sendEvent'
 import subscribeToEvent from '../IO/subscribeToEvent'
 
 export default {
-  register: ({ iframe, dropdownActions, label, icon, tooltip, onClick }: {
+  register: ({ iframe, dropdownActions, dropdownActionsTextClasses, label, icon, tooltip, onClick }: {
     label: string,
     tooltip?: string,
     icon?: string,
-    dropdownActions?: [{ label: any, onClick: () => unknown }]
+    dropdownActions?: Array<{ label: any, onClick: () => unknown }>,
+    dropdownActionsTextClasses?: string,
     iframe?: string
-    onClick?: () => unknown
+    onClick?: (payload?: any) => unknown
   }): void => {
     const uuid = uuidv4()
     sendEvent({
       action: 'register-stage-button',
-      data:  { label, icon, tooltip,  id: uuid, iframe, dropdownActions }
+      data:  { label, icon, tooltip,  id: uuid, iframe, dropdownActions, dropdownActionsTextClasses }
     })
 
-    subscribeToEvent(`register-stage-button-${uuid}`, () => onClick())
+    subscribeToEvent(`register-stage-button-${uuid}`, (data) => onClick(data))
   }
 }

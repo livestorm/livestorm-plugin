@@ -1,14 +1,15 @@
 declare const _default: {
-    register: ({ iframe, dropdownActions, label, icon, tooltip, onClick }: {
+    register: ({ iframe, dropdownActions, dropdownActionsTextClasses, label, icon, tooltip, onClick }: {
         label: string;
         tooltip?: string;
         icon?: string;
-        dropdownActions?: [{
+        dropdownActions?: {
             label: any;
             onClick: () => unknown;
-        }];
+        }[];
+        dropdownActionsTextClasses?: string;
         iframe?: string;
-        onClick?: () => unknown;
+        onClick?: (payload?: any) => unknown;
     }) => void;
 };
 export default _default;
