@@ -1,3 +1,4 @@
+import register from './src/Api/Register';
 declare const _default: {
     PubSub: {
         publish: typeof import("./src/Api/PubSub/Publish").default;
@@ -10,5 +11,6 @@ declare const _default: {
             onClick: () => unknown;
         }) => void;
     };
+    register: typeof register;
 };
 export default _default;
