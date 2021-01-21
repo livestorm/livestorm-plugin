@@ -29,6 +29,9 @@ declare const _default: {
     NotificationCenter: {
         showIframe(template: string, variables: any): void;
     };
+    Modal: {
+        showIframe(template: string, variables: any): void;
+    };
     register: typeof register;
 };
 export default _default;
