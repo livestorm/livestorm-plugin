@@ -1,4 +1,8 @@
 declare const _default: {
-    showIframe(template: string, variables: any): void;
+    showIframe(data: {
+        template: string;
+        variables?: any;
+        onMessage?: Function;
+    }): void;
 };
 export default _default;
