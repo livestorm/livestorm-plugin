@@ -5,6 +5,9 @@ declare const _default: {
         publish: typeof import("./src/Api/PubSub/Publish").default;
         subscribe: typeof import("./src/Api/PubSub/Subscribe").default;
     };
+    Streams: {
+        addStream(data: any): Promise<unknown>;
+    };
     RegisterShareButton: {
         register: ({ label, icon, onClick }: {
             label: string;
