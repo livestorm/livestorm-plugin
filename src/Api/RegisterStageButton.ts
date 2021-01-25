@@ -4,10 +4,10 @@ import subscribeToEvent from '../IO/subscribeToEvent'
 
 export default {
   register: ({ iframe, dropdownActions, dropdownActionsTextClasses, label, icon, tooltip, onClick }: {
-    label: string,
+    label?: string,
     tooltip?: string,
     icon?: string,
-    dropdownActions?: Array<{ label: any, onClick: () => unknown }>,
+    dropdownActions?: Array<{ name?: string, label: any }>,
     dropdownActionsTextClasses?: string,
     iframe?: string
     onClick?: (payload?: any) => unknown

@@ -14,12 +14,12 @@ declare const _default: {
     };
     RegisterStageButton: {
         register: ({ iframe, dropdownActions, dropdownActionsTextClasses, label, icon, tooltip, onClick }: {
-            label: string;
+            label?: string;
             tooltip?: string;
             icon?: string;
             dropdownActions?: {
+                name?: string;
                 label: any;
-                onClick: () => unknown;
             }[];
             dropdownActionsTextClasses?: string;
             iframe?: string;
