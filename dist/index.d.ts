@@ -6,7 +6,11 @@ declare const _default: {
         subscribe: typeof import("./src/Api/PubSub/Subscribe").default;
     };
     Streams: {
-        addStream(data: any): Promise<unknown>;
+        addStream(data: {
+            template: string;
+            variables: any;
+            onMessage: Function;
+        }): Promise<unknown>;
     };
     RegisterShareButton: {
         register: ({ label, icon, onClick }: {

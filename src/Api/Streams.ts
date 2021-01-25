@@ -20,7 +20,7 @@ const createStream = (id) => ({
 })
 
 export default {
-  addStream(data) {
+  addStream(data: { template: string, variables: any, onMessage: Function }) {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 
