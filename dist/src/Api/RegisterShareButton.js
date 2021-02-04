@@ -4,11 +4,11 @@ const uuid_1 = require("uuid");
 const sendEvent_1 = require("../IO/sendEvent");
 const subscribeToEvent_1 = require("../IO/subscribeToEvent");
 exports.default = {
-    register: ({ label, icon, onClick }) => {
+    register: ({ label, icon, imageSource, onClick }) => {
         const uuid = uuid_1.v4();
         sendEvent_1.default({
             action: 'register-share-button',
-            data: { label, icon, id: uuid }
+            data: { label, icon, imageSource, id: uuid }
         });
         subscribeToEvent_1.default(`register-share-button-${uuid}`, () => onClick());
     }

@@ -13,20 +13,23 @@ declare const _default: {
         }): Promise<unknown>;
     };
     RegisterShareButton: {
-        register: ({ label, icon, onClick }: {
+        register: ({ label, icon, imageSource, onClick }: {
             label: string;
             icon?: string;
+            imageSource?: string;
             onClick: () => unknown;
         }) => void;
     };
     RegisterStageButton: {
-        register: ({ iframe, dropdownActions, dropdownActionsTextClasses, label, icon, tooltip, onClick }: {
+        register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: {
             label?: string;
             tooltip?: string;
             icon?: string;
+            imageSource?: string;
             dropdownActions?: {
                 name?: string;
                 label: any;
+                imageSource?: string;
             }[];
             dropdownActionsTextClasses?: string;
             iframe?: string;
