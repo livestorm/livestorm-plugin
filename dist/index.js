@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const PubSub_1 = require("./src/Api/PubSub");
+const Chat_1 = require("./src/Api/Chat");
 const Streams_1 = require("./src/Api/Streams");
 const RegisterShareButton_1 = require("./src/Api/RegisterShareButton");
 const RegisterStageButton_1 = require("./src/Api/RegisterStageButton");
@@ -16,6 +17,7 @@ exports.default = {
     RegisterStageButton: RegisterStageButton_1.default,
     NotificationCenter: NotificationCenter_1.default,
     Modal: Modal_1.default,
+    Chat: Chat_1.default,
     register: Register_1.default
 };
 //# sourceMappingURL=index.js.map

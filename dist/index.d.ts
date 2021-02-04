@@ -46,6 +46,9 @@ declare const _default: {
             onMessage?: Function;
         }): void;
     };
+    Chat: {
+        listen: typeof import("./src/Api/Chat/Listen").default;
+    };
     register: typeof register;
 };
 export default _default;

@@ -1,4 +1,5 @@
 import PubSub from './src/Api/PubSub'
+import Chat from './src/Api/Chat'
 import Streams from './src/Api/Streams'
 import RegisterShareButton from './src/Api/RegisterShareButton'
 import RegisterStageButton from './src/Api/RegisterStageButton'
@@ -16,5 +17,6 @@ export default {
   RegisterStageButton,
   NotificationCenter,
   Modal,
+  Chat,
   register
 }
