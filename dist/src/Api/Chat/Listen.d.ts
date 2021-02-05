@@ -1,1 +1,1 @@
-export default function Listen(callback: (message: any) => Boolean): void;
+export default function Listen(callback: (message: any) => void): void;

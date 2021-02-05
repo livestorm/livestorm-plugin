@@ -48,6 +48,7 @@ declare const _default: {
     };
     Chat: {
         listen: typeof import("./src/Api/Chat/Listen").default;
+        intercept: typeof import("./src/Api/Chat/Intercept").default;
     };
     register: typeof register;
 };
