@@ -6,7 +6,7 @@ import subscribeToEvent from '../IO/subscribeToEvent'
 export default {
   showIframe(data: { template: string, variables?: any, onMessage?: Function }) {
     const uuid = uuidv4()
-    subscribeToEvent(`modal-show-iframe-message-for-${uuid}`, (response) => data.onMessage(response))
+    subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
     sendEvent({
       action: 'modal-show-iframe',
       data: { template: processTemplate(data.template, data.variables), id: uuid }
