@@ -4,6 +4,7 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
 
 interface MessageParam {
   user: {
+    id?: String,
     firstName?: String,
     lastName?: String,
     tag?: String,
