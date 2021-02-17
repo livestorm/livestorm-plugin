@@ -46,6 +46,7 @@ declare const _default: {
             onMessage?: Function;
         }): void;
     };
+    Users: import("./src/Api/Users").Users;
     Chat: {
         listen: typeof import("./src/Api/Chat/Listen").default;
         intercept: typeof import("./src/Api/Chat/Intercept").default;

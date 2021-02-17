@@ -6,6 +6,7 @@ const Streams_1 = require("./src/Api/Streams");
 const RegisterShareButton_1 = require("./src/Api/RegisterShareButton");
 const RegisterStageButton_1 = require("./src/Api/RegisterStageButton");
 const NotificationCenter_1 = require("./src/Api/NotificationCenter");
+const Users_1 = require("./src/Api/Users");
 const Modal_1 = require("./src/Api/Modal");
 const Configuration_1 = require("./src/Configuration");
 const Register_1 = require("./src/Api/Register");
@@ -17,6 +18,7 @@ exports.default = {
     RegisterStageButton: RegisterStageButton_1.default,
     NotificationCenter: NotificationCenter_1.default,
     Modal: Modal_1.default,
+    Users: Users_1.default,
     Chat: Chat_1.default,
     register: Register_1.default
 };

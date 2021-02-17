@@ -14,7 +14,7 @@ interface User {
     prepare_enable_camera: Boolean;
     prepare_enable_microphone: Boolean;
 }
-interface Users {
+export interface Users {
     me: User;
     teamMembers: User;
     everyone: () => Promise<Array<User>>;
