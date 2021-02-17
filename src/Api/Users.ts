@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import sendEvent from '../IO/sendEvent'
 import subscribeToEvent from '../IO/subscribeToEvent'
-import Configuration from '../Configuration'
 
 interface User {
   avatar: String,
@@ -21,14 +20,33 @@ interface User {
 }
 
 export interface Users {
-  me: () => User,
-  teamMembers: () => Array<User>,
+  me: () => Promise<User>
+  teamMembers: () => Promise<Array<User>>
   everyone: () => Promise<Array<User>>
 }
 
 const users: Users = {
-  me: () => Configuration.data.event.users.me,
-  teamMembers: () => Configuration.data.event.users.teamMembers,
+  me: () => {
+    return new Promise((resolve, reject) => {
+      const uuid = uuidv4()
+      subscribeToEvent(`users-me-${uuid}`, ({ users }) => resolve(users))
+      sendEvent({
+        action: 'users-me',
+        data: { id: uuid }
+      })
+    })
+  },
+
+  teamMembers: () => {
+    return new Promise((resolve, reject) => {
+      const uuid = uuidv4()
+      subscribeToEvent(`users-team-members-${uuid}`, ({ users }) => resolve(users))
+      sendEvent({
+        action: 'users-team-members',
+        data: { id: uuid }
+      })
+    })
+  },
 
   everyone() {
     return new Promise((resolve, reject) => {
