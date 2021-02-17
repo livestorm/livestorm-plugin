@@ -5,8 +5,8 @@ const sendEvent_1 = require("../IO/sendEvent");
 const subscribeToEvent_1 = require("../IO/subscribeToEvent");
 const Configuration_1 = require("../Configuration");
 const users = {
-    me: Configuration_1.default.data.event.users.me,
-    teamMembers: Configuration_1.default.data.event.users.teamMembers,
+    me: () => Configuration_1.default.data.event.users.me,
+    teamMembers: () => Configuration_1.default.data.event.users.teamMembers,
     everyone() {
         return new Promise((resolve, reject) => {
             const uuid = uuid_1.v4();

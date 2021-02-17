@@ -21,14 +21,14 @@ interface User {
 }
 
 export interface Users {
-  me: User,
-  teamMembers: User,
+  me: () => User,
+  teamMembers: () => Array<User>,
   everyone: () => Promise<Array<User>>
 }
 
 const users: Users = {
-  me: Configuration.data.event.users.me,
-  teamMembers: Configuration.data.event.users.teamMembers,
+  me: () => Configuration.data.event.users.me,
+  teamMembers: () => Configuration.data.event.users.teamMembers,
 
   everyone() {
     return new Promise((resolve, reject) => {

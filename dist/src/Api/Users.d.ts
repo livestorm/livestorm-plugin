@@ -15,8 +15,8 @@ interface User {
     prepare_enable_microphone: Boolean;
 }
 export interface Users {
-    me: User;
-    teamMembers: User;
+    me: () => User;
+    teamMembers: () => Array<User>;
     everyone: () => Promise<Array<User>>;
 }
 declare const users: Users;
