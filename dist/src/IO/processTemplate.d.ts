@@ -1,1 +1,1 @@
-export default function processTemplate(content: string, variables: any): string;
+export default function processTemplate(content: string, userVariables: any): string;
