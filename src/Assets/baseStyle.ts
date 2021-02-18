@@ -1,4 +1,5 @@
 export default `
+<style>
 /* Global style */
 body {
   margin: 0px;
@@ -104,4 +105,5 @@ textarea.input {
   color: #515054;
   margin-bottom: 5px;
 }
+</style>
 `

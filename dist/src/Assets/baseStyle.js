@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = `
+<style>
 /* Global style */
 body {
   margin: 0px;
@@ -106,5 +107,6 @@ textarea.input {
   color: #515054;
   margin-bottom: 5px;
 }
+</style>
 `;
 //# sourceMappingURL=baseStyle.js.map
