@@ -5,6 +5,7 @@ const Chat_1 = require("./src/Api/Chat");
 const Streams_1 = require("./src/Api/Streams");
 const RegisterShareButton_1 = require("./src/Api/RegisterShareButton");
 const RegisterStageButton_1 = require("./src/Api/RegisterStageButton");
+const Theme_1 = require("./src/Api/Theme");
 const NotificationCenter_1 = require("./src/Api/NotificationCenter");
 const Users_1 = require("./src/Api/Users");
 const Modal_1 = require("./src/Api/Modal");
@@ -20,6 +21,7 @@ exports.default = {
     Modal: Modal_1.default,
     Users: Users_1.default,
     Chat: Chat_1.default,
+    Theme: Theme_1.default,
     register: Register_1.default
 };
 //# sourceMappingURL=index.js.map

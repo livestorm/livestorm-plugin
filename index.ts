@@ -3,6 +3,7 @@ import Chat from './src/Api/Chat'
 import Streams from './src/Api/Streams'
 import RegisterShareButton from './src/Api/RegisterShareButton'
 import RegisterStageButton from './src/Api/RegisterStageButton'
+import Theme from './src/Api/Theme'
 import NotificationCenter from './src/Api/NotificationCenter'
 import Users from './src/Api/Users'
 import Modal from './src/Api/Modal'
@@ -20,5 +21,6 @@ export default {
   Modal,
   Users,
   Chat,
+  Theme,
   register
 }

@@ -52,6 +52,12 @@ declare const _default: {
         intercept: typeof import("./src/Api/Chat/Intercept").default;
         send: typeof import("./src/Api/Chat/Send").default;
     };
+    Theme: {
+        setBackground({ hue, saturation }: {
+            hue: Number;
+            saturation: Number;
+        }): void;
+    };
     register: typeof register;
 };
 export default _default;
