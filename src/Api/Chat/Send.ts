@@ -20,6 +20,20 @@ interface MessageInstance {
   onIframeMessage: (Function) => void
 }
 
+/**
+  * Send a message in the chat.
+  * By default message will be sent locally to the connected user
+  *
+  * @example Chat.send({
+  *   user: {
+  *     firstName: 'Michael'
+  *   },
+  *   text: 'Hello world',
+  *   html: '<p>Hi</p>'
+  * })
+  * @returns An instance of the created Message that you can use to delete the message or be notified whenever the HTML posts message
+  * 
+*/
 export default function Send(data: MessageParam): MessageInstance {
   const id = uuidv4()
   sendEvent({
