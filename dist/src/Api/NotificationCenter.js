@@ -11,7 +11,7 @@ exports.default = {
       *
       * The background is transparent to allow completely custom UI.
       *
-      * @example NotificationCenter.showIframe('<p>{{ content }}</p>', { content: 'lol' s})
+      * @example NotificationCenter.showIframe('<p>{{ content }}</p>', { content: 'lol' })
       *
       * @param template - The HTML content you want to display in the modal (can contain CSS or JS)
       * @param variables - Hash of variables you can interpolate into the HTML template
