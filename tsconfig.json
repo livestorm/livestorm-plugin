@@ -4,6 +4,7 @@
     "target": "es2015",
     "declaration": true,
     "sourceMap": true,
+    "removeComments": false,
     "outDir": "./dist"
   },
   "include": [

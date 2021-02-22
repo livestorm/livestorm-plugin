@@ -4,7 +4,8 @@ const sendEvent_1 = require("../IO/sendEvent");
 exports.default = {
     /**
     * Allows you to customize the background color of the Room.
-    * Color is defined with an HSL style
+    * Color is defined with an HSL style.
+    * Luminance is fixed in order to assert Room colors legibility
     *
     * @example Livestorm.Theme.setBackground({ hue: 255, saturation: 100 })
     *
