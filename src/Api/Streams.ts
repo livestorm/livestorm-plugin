@@ -98,7 +98,12 @@ export default {
 
     sendEvent({
       action: 'stream-register-video-effect',
-      data: { template: processTemplate(data.template, data.variables), id: uuid }
+      data: {
+        label: data.label,
+        imageUrl: data.imageUrl,
+        template: processTemplate(data.template, data.variables),
+        id: uuid
+      }
     })
   },
 }
