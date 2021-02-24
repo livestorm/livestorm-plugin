@@ -71,7 +71,7 @@ export default {
     * This API can be used to create stream with effects such as (background blur, filters, OSD, etc)
     * 
     * Registering a video effect consists of 2 steps : 
-    * - calling the registerVideoEffect function
+    * - calling the registerCameraEffect function
     * - creating the video stream from an HTML template
     * 
     * The HTML template is a document that will be executed in a sandboxed iframe. From there, you can query permission
@@ -79,7 +79,7 @@ export default {
     * 
     * Inside the iframe you need to declare a function `setupStream`. It will be called when the user selects your video effect.
     *
-    * @example Streams.registerVideoEffect({
+    * @example Streams.registerCameraEffect({
     *   template: `<script>window.setupStream = () => publishStream()</script>`,
     *   variables: { foo: 'bar' }
     * })
@@ -93,7 +93,7 @@ export default {
     * @beta
     * 
   */
-  registerVideoEffect(data: { label?: string, imageUrl?: string, template: string, variables: any }) {
+  registerCameraEffect(data: { label?: string, imageUrl?: string, template: string, variables: any }) {
     const uuid = uuidv4()
 
     sendEvent({
