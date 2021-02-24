@@ -33,7 +33,7 @@ const createStream = (id) => ({
 
 export default {
   /**
-    * Add a custom HTML stream to the stage.
+    * Add a custom HTML media stream to the stage.
     * This allows you to display completely custom content to everyone in the room.
     * You can use this API to build things such as : Embed website / video, Live feed, Live coding, games, etc
     *
@@ -64,5 +64,41 @@ export default {
 
       resolve(createStream(uuid))
     })
-  }
+  },
+
+  /**
+    * Expose a custom video effect. Gives the ability to the user to select an input stream effect.
+    * This API can be used to create stream with effects such as (background blur, filters, OSD, etc)
+    * 
+    * Registering a video effect consists of 2 steps : 
+    * - calling the registerVideoEffect function
+    * - creating the video stream from an HTML template
+    * 
+    * The HTML template is a document that will be executed in a sandboxed iframe. From there, you can query permission
+    * for the user's webcam and use it inside a canvas to enhance the initial stream with custom effect.
+    * 
+    * Inside the iframe you need to declare a function `setupStream`. It will be called when the user selects your video effect.
+    *
+    * @example Streams.registerVideoEffect({
+    *   template: `<script>window.setupStream = () => publishStream()</script>`,
+    *   variables: { foo: 'bar' }
+    * })
+    *
+    * @param label - A label to indicate the purpose of your video effect
+    * @param imageUrl - An image to illustrate your plugin
+    * @param template - The HTML document that creates the video stream
+    * @param variables - A hash of variables that you want to interpolate within the document
+    * 
+    * @see https://webrtc.github.io/samples/src/content/capture/canvas-pc/
+    * @beta
+    * 
+  */
+  registerVideoEffect(data: { label?: string, imageUrl?: string, template: string, variables: any }) {
+    const uuid = uuidv4()
+
+    sendEvent({
+      action: 'stream-register-video-effect',
+      data: { template: processTemplate(data.template, data.variables), id: uuid }
+    })
+  },
 }
