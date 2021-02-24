@@ -97,7 +97,7 @@ export default {
     const uuid = uuidv4()
 
     sendEvent({
-      action: 'stream-register-video-effect',
+      action: 'stream-register-camera-effect',
       data: {
         label: data.label,
         imageUrl: data.imageUrl,
