@@ -78,6 +78,8 @@ export default {
     * for the user's webcam and use it inside a canvas to enhance the initial stream with custom effect.
     * 
     * Inside the iframe you need to declare a function `setupStream`. It will be called when the user selects your video effect.
+    * 
+    * Please be aware that canvas exposed via this API must not make cross origin calls.
     *
     * @example Streams.registerCameraEffect({
     *   template: `<script>window.setupStream = () => publishStream()</script>`,
@@ -110,25 +112,31 @@ export default {
   /**
     * 
     * Expose multiple effects with a single template.
-    * This allows to get a quicker feedback when selecting a template
+    * This allows to get a quicker feedback when selecting a template by switching effect without reloading the 
+    * entire iframe component.
+    * 
+    * The internal of this API is similar to registerCameraEffect, please refer to its documentation for a better understanding
     *
-    * @example Streams.registerCameraEffect({
+    * @example Streams.registerMultipleCameraEffects({
     *   template: `<script>window.setupStream = () => publishStream()</script>`,
-    *   variables: { foo: 'bar' }
+    *   effects: [
+    *     {
+    *       variables: { foo: bar },
+    *       label: 'Moon',
+    *       id: 'Moon'
+    *     }
+    *   ]
     * })
     *
-    * @param label - A label to indicate the purpose of your video effect
-    * @param imageUrl - An image to illustrate your plugin
     * @param template - The HTML document that creates the video stream
-    * @param variables - A hash of variables that you want to interpolate within the document
+    * @param effects - An array of effect under format Array<{ variables: {}, label: string, id: string }>
     * 
-    * @see https://webrtc.github.io/samples/src/content/capture/canvas-pc/
     * @beta
     * 
   */
   registerMultipleCameraEffects(data: {
     template: string,
-    effects: Array<any>
+    effects: Array<{ variables: any, label: string, id: string, imageUrl: string }>
   }) {
     const batchId = uuidv4()
     
