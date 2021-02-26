@@ -57,5 +57,28 @@ declare const _default: {
         template: string;
         variables: any;
     }): void;
+    /**
+      *
+      * Expose multiple effects with a single template.
+      * This allows to get a quicker feedback when selecting a template
+      *
+      * @example Streams.registerCameraEffect({
+      *   template: `<script>window.setupStream = () => publishStream()</script>`,
+      *   variables: { foo: 'bar' }
+      * })
+      *
+      * @param label - A label to indicate the purpose of your video effect
+      * @param imageUrl - An image to illustrate your plugin
+      * @param template - The HTML document that creates the video stream
+      * @param variables - A hash of variables that you want to interpolate within the document
+      *
+      * @see https://webrtc.github.io/samples/src/content/capture/canvas-pc/
+      * @beta
+      *
+    */
+    registerMultipleCameraEffects(data: {
+        template: string;
+        effects: Array<any>;
+    }): void;
 };
 export default _default;
