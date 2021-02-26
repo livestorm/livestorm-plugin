@@ -139,6 +139,7 @@ export default {
           label: effect.label,
           imageUrl: effect.imageUrl,
           template: processTemplate(data.template, effect.variables),
+          variables: effect.variables,
           isMultiple: true,
           id: uuid
         }
