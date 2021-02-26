@@ -120,6 +120,7 @@ exports.default = {
       *
     */
     registerMultipleCameraEffects(data) {
+        const batchId = uuid_1.v4();
         data.effects.forEach((effect) => {
             const uuid = uuid_1.v4();
             sendEvent_1.default({
@@ -130,6 +131,7 @@ exports.default = {
                     template: processTemplate_1.default(data.template, effect.variables),
                     variables: effect.variables,
                     isMultiple: true,
+                    batchId,
                     id: uuid
                 }
             });

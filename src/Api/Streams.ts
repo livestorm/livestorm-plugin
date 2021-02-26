@@ -130,6 +130,7 @@ export default {
     template: string,
     effects: Array<any>
   }) {
+    const batchId = uuidv4()
     
     data.effects.forEach((effect) => {
       const uuid = uuidv4()
@@ -141,6 +142,7 @@ export default {
           template: processTemplate(data.template, effect.variables),
           variables: effect.variables,
           isMultiple: true,
+          batchId,
           id: uuid
         }
       })
