@@ -5,6 +5,7 @@ import RegisterShareButton from './src/Api/RegisterShareButton'
 import RegisterStageButton from './src/Api/RegisterStageButton'
 import Theme from './src/Api/Theme'
 import NotificationCenter from './src/Api/NotificationCenter'
+import Storage from './src/Api/Storage'
 import Users from './src/Api/Users'
 import Modal from './src/Api/Modal'
 import Configuration from './src/Configuration'
@@ -14,6 +15,7 @@ export { 
   Configuration,
   PubSub,
   Streams,
+  Storage,
   RegisterShareButton,
   RegisterStageButton,
   NotificationCenter,

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = exports.Theme = exports.Chat = exports.Users = exports.Modal = exports.NotificationCenter = exports.RegisterStageButton = exports.RegisterShareButton = exports.Streams = exports.PubSub = exports.Configuration = void 0;
+exports.register = exports.Theme = exports.Chat = exports.Users = exports.Modal = exports.NotificationCenter = exports.RegisterStageButton = exports.RegisterShareButton = exports.Storage = exports.Streams = exports.PubSub = exports.Configuration = void 0;
 const PubSub_1 = require("./src/Api/PubSub");
 exports.PubSub = PubSub_1.default;
 const Chat_1 = require("./src/Api/Chat");
@@ -15,6 +15,8 @@ const Theme_1 = require("./src/Api/Theme");
 exports.Theme = Theme_1.default;
 const NotificationCenter_1 = require("./src/Api/NotificationCenter");
 exports.NotificationCenter = NotificationCenter_1.default;
+const Storage_1 = require("./src/Api/Storage");
+exports.Storage = Storage_1.default;
 const Users_1 = require("./src/Api/Users");
 exports.Users = Users_1.default;
 const Modal_1 = require("./src/Api/Modal");
