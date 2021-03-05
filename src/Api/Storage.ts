@@ -25,7 +25,7 @@ export default {
       },
       body: JSON.stringify({
         key,
-        value: JSON.stringify(value),
+        value,
         organization_id: organizationId,
         session_id: sessionId,
         plugin_id: pluginId
