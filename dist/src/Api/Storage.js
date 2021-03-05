@@ -30,6 +30,9 @@ exports.default = {
             const { organizationId, sessionId, pluginId, pluginHost } = Configuration_1.default.data;
             return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify({
                     key,
                     value: JSON.stringify(value),
@@ -55,8 +58,8 @@ exports.default = {
     */
     getItem(key) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, sessionId, pluginId, pluginsHost } = Configuration_1.default.data;
-            const res = yield fetch(`${pluginsHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`);
+            const { organizationId, sessionId, pluginId, pluginHost } = Configuration_1.default.data;
+            const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`);
             const body = yield res.json();
             return body.storageKey.value;
         });

@@ -20,6 +20,9 @@ export default {
 
     return await fetch(`${pluginHost}/api/v1/storage_keys`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         key,
         value: JSON.stringify(value),
@@ -44,9 +47,9 @@ export default {
     * 
   */
   async getItem(key: string): Promise<string> {
-    const { organizationId, sessionId, pluginId, pluginsHost } = Configuration.data
+    const { organizationId, sessionId, pluginId, pluginHost } = Configuration.data
 
-    const res = await fetch(`${pluginsHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`)
+    const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`)
     const body = await res.json()
 
     return body.storageKey.value
