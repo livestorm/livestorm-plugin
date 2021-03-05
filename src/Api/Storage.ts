@@ -16,9 +16,9 @@ export default {
     * 
   */
   async setItem(key: string, value: string) {
-    const { organizationId, sessionId, pluginId, pluginsHost } = Configuration.data
+    const { organizationId, sessionId, pluginId, pluginHost } = Configuration.data
 
-    return await fetch(`${pluginsHost}/api/v1/storage_keys`, {
+    return await fetch(`${pluginHost}/api/v1/storage_keys`, {
       method: 'POST',
       body: JSON.stringify({
         key,

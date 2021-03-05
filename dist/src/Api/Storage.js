@@ -27,8 +27,8 @@ exports.default = {
     */
     setItem(key, value) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, sessionId, pluginId, pluginsHost } = Configuration_1.default.data;
-            return yield fetch(`${pluginsHost}/api/v1/storage_keys`, {
+            const { organizationId, sessionId, pluginId, pluginHost } = Configuration_1.default.data;
+            return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
                 method: 'POST',
                 body: JSON.stringify({
                     key,
