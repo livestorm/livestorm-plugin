@@ -14,7 +14,7 @@ const subscribeToEvent_1 = require("../../IO/subscribeToEvent");
   * @returns An instance of the created Message that you can use to delete the message or be notified whenever the HTML posts message
   *
 */
-function Send(data) {
+function Broadcast(data) {
     const id = uuid_1.v4();
     sendEvent_1.default({
         action: 'chat-broadcast',
@@ -27,5 +27,5 @@ function Send(data) {
         }
     };
 }
-exports.default = Send;
+exports.default = Broadcast;
 //# sourceMappingURL=Broadcast.js.map

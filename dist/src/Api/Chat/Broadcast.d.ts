@@ -13,8 +13,8 @@ interface BroadcastedMessageInstance {
   * @returns An instance of the created Message that you can use to delete the message or be notified whenever the HTML posts message
   *
 */
-export default function Send(data: {
-    text: string;
-    html: string;
+export default function Broadcast(data: {
+    text?: string;
+    html?: string;
 }): BroadcastedMessageInstance;
 export {};
