@@ -4,13 +4,10 @@ const uuid_1 = require("uuid");
 const sendEvent_1 = require("../../IO/sendEvent");
 const subscribeToEvent_1 = require("../../IO/subscribeToEvent");
 /**
-  * Adds a message in the chat.
-  * Message will be sent locally to the connected user
+  * Broadcasts a message in the chat.
+  * Message will be displayed to all the recipients of the chat
   *
-  * @example Chat.send({
-  *   user: {
-  *     firstName: 'Michael'
-  *   },
+  * @example Chat.broadcast({
   *   text: 'Hello world',
   *   html: '<p>Hi</p>'
   * })
@@ -20,21 +17,15 @@ const subscribeToEvent_1 = require("../../IO/subscribeToEvent");
 function Send(data) {
     const id = uuid_1.v4();
     sendEvent_1.default({
-        action: 'chat-send',
+        action: 'chat-broadcast',
         data: Object.assign({ id }, data)
     });
     return {
         id,
-        destroy() {
-            sendEvent_1.default({
-                action: `chat-delete-${id}`,
-                data: Object.assign({ id }, data)
-            });
-        },
         onIframeMessage(callback) {
             subscribeToEvent_1.default(`iframe-message-for-${id}`, (response) => callback(response));
         }
     };
 }
 exports.default = Send;
-//# sourceMappingURL=Send.js.map
+//# sourceMappingURL=Broadcast.js.map

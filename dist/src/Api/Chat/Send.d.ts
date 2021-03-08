@@ -15,8 +15,8 @@ interface MessageInstance {
     onIframeMessage: (Function: any) => void;
 }
 /**
-  * Send a message in the chat.
-  * By default message will be sent locally to the connected user
+  * Adds a message in the chat.
+  * Message will be sent locally to the connected user
   *
   * @example Chat.send({
   *   user: {
