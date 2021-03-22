@@ -61,7 +61,7 @@ exports.default = {
             const { organizationId, sessionId, pluginId, pluginHost } = Configuration_1.default.data;
             const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`);
             const body = yield res.json();
-            return body.storageKey.value;
+            return body.storageKey ? body.storageKey.value : null;
         });
     }
 };

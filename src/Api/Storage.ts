@@ -52,6 +52,6 @@ export default {
     const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`)
     const body = await res.json()
 
-    return body.storageKey.value
+    return body.storageKey ? body.storageKey.value : null
   }
 }
