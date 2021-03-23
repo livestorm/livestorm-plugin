@@ -136,7 +136,7 @@ export default {
   */
   registerMultipleCameraEffects(data: {
     template: string,
-    effects: Array<{ variables: any, label: string, id: string, imageUrl: string }>
+    effects: Array<{ variables: any, label: string, id: string, imageUrl?: string }>
   }) {
     const batchId = uuidv4()
     
