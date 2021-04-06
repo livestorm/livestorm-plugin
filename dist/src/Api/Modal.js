@@ -10,11 +10,13 @@ exports.default = {
       * Useful for many use cases including : forms, call to actions, information box, etc
       *
       * @example Modal.showIframe({
+      *    size: 'large',
       *    template: '<p>{{ content }}</p>',
       *    variables: { content: 'hello' }
       *    onMessage: (message) => {}
       *  })
       *
+      * @param size - Customize the width of the modal (normal, large, extraLarge)
       * @param template - The HTML content you want to display in the modal (can contain CSS or JS)
       * @param variables - Hash of variables you can interpolate into the HTML template
       * @param onMessage - Function called whenever the postMessage({}) function is called within the HTML
@@ -26,7 +28,7 @@ exports.default = {
         subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => data.onMessage(response));
         sendEvent_1.default({
             action: 'modal-show-iframe',
-            data: { template: processTemplate_1.default(data.template, data.variables), id: uuid }
+            data: { template: processTemplate_1.default(data.template, data.variables), size: data.size, id: uuid }
         });
     }
 };
