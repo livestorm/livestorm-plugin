@@ -90,7 +90,7 @@ declare const _default: {
             variables: any;
             label: string;
             id: string;
-            imageUrl: string;
+            imageUrl?: string;
         }>;
     }): void;
 };
