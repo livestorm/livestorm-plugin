@@ -9,6 +9,7 @@ import Storage from './src/Api/Storage'
 import Users from './src/Api/Users'
 import Modal from './src/Api/Modal'
 import Configuration from './src/Configuration'
+import When from './src/Api/When'
 import register from './src/Api/Register'
 
 export { 
@@ -23,5 +24,6 @@ export { 
   Users,
   Chat,
   Theme,
+  When,
   register,
 }
