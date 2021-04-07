@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = exports.Theme = exports.Chat = exports.Users = exports.Modal = exports.NotificationCenter = exports.RegisterStageButton = exports.RegisterShareButton = exports.Storage = exports.Streams = exports.PubSub = exports.Configuration = void 0;
+exports.register = exports.When = exports.Theme = exports.Chat = exports.Users = exports.Modal = exports.NotificationCenter = exports.RegisterStageButton = exports.RegisterShareButton = exports.Storage = exports.Streams = exports.PubSub = exports.Configuration = void 0;
 const PubSub_1 = require("./src/Api/PubSub");
 exports.PubSub = PubSub_1.default;
 const Chat_1 = require("./src/Api/Chat");
@@ -23,6 +23,8 @@ const Modal_1 = require("./src/Api/Modal");
 exports.Modal = Modal_1.default;
 const Configuration_1 = require("./src/Configuration");
 exports.Configuration = Configuration_1.default;
+const When_1 = require("./src/Api/When");
+exports.When = When_1.default;
 const Register_1 = require("./src/Api/Register");
 exports.register = Register_1.default;
 //# sourceMappingURL=apis.js.map
