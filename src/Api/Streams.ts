@@ -43,6 +43,8 @@ export default {
     *   onMessage: (message) => console.log('the stream send a message')
     * })
     *
+    * @param title - title of the stream
+    * @param imageUrl - Image to be used when stream is minimized
     * @param template - The HTML document
     * @param variables - A hash of variables that you want to interpolate within the document
     * @param onMessage - Method called whenever the stream posts a message
@@ -52,14 +54,19 @@ export default {
     * @beta
     * 
   */
-  addStream(data: { template: string, variables: any, onMessage: Function }) {
+  addStream(data: { title: string, imageUrl: string, template: string, variables: any, onMessage: Function }) {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 
       subscribeToEvent(`stream-message-for-${uuid}`, (response) => data.onMessage(response))
       sendEvent({
         action: 'add-stream',
-        data: { template: processTemplate(data.template, data.variables), id: uuid }
+        data: {
+          template: processTemplate(data.template, data.variables),
+          imageUrl: data.imageUrl,
+          title: data.title,
+          id: uuid
+        }
       })
 
       resolve(createStream(uuid))

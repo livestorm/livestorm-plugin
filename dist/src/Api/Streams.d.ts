@@ -10,6 +10,8 @@ declare const _default: {
       *   onMessage: (message) => console.log('the stream send a message')
       * })
       *
+      * @param title - title of the stream
+      * @param imageUrl - Image to be used when stream is minimized
       * @param template - The HTML document
       * @param variables - A hash of variables that you want to interpolate within the document
       * @param onMessage - Method called whenever the stream posts a message
@@ -20,6 +22,8 @@ declare const _default: {
       *
     */
     addStream(data: {
+        title: string;
+        imageUrl: string;
         template: string;
         variables: any;
         onMessage: Function;
