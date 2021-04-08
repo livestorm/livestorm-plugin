@@ -12,7 +12,7 @@ const createInstance = (id) => ({
       * @param data - Any data you want to send to the iframe
       *
     */
-    notify(data) {
+    sendMessage(data) {
         sendEvent_1.default({
             action: `iframe-message-to-${id}`,
             data: { data, id }

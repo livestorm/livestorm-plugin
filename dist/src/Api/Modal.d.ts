@@ -1,5 +1,5 @@
 interface ModalInstance {
-    notify: (any: any) => void;
+    sendMessage: (any: any) => void;
 }
 declare const _default: {
     /**
