@@ -1,3 +1,6 @@
+interface ModalInstance {
+    notify: (any: any) => void;
+}
 declare const _default: {
     /**
       * Display a modal with custom HTML content.
@@ -22,6 +25,6 @@ declare const _default: {
         template: string;
         variables?: any;
         onMessage?: Function;
-    }): void;
+    }): Promise<ModalInstance>;
 };
 export default _default;

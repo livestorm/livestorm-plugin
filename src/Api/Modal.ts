@@ -3,6 +3,26 @@ import sendEvent from '../IO/sendEvent'
 import processTemplate from '../IO/processTemplate'
 import subscribeToEvent from '../IO/subscribeToEvent'
 
+const createInstance = (id) => ({
+  /**
+    * Send a message to the modal.
+    * Can be catched via a window.addEventListener('message', () => {}).
+    * 
+    * @param data - Any data you want to send to the iframe
+    * 
+  */
+  sendMessage(data) {
+    sendEvent({
+      action: `iframe-message-to-${id}`,
+      data: { data, id }
+    })
+  }
+})
+
+interface ModalInstance {
+  sendMessage: (any) => void 
+}
+
 export default {
   /**
     * Display a modal with custom HTML content. 
@@ -22,12 +42,15 @@ export default {
     * 
     * 
   */
-  showIframe(data: { size?: string, template: string, variables?: any, onMessage?: Function }) {
-    const uuid = uuidv4()
-    subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
-    sendEvent({
-      action: 'modal-show-iframe',
-      data: { template: processTemplate(data.template, data.variables), size: data.size, id: uuid }
+  showIframe(data: { size?: string, template: string, variables?: any, onMessage?: Function }): Promise<ModalInstance> {
+    return new Promise((resolve) => {
+      const uuid = uuidv4()
+      subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
+      sendEvent({
+        action: 'modal-show-iframe',
+        data: { template: processTemplate(data.template, data.variables), size: data.size, id: uuid }
+      })
+      resolve(createInstance(uuid))
     })
   }
 }
