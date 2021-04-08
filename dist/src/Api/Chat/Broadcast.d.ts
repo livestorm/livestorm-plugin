@@ -1,6 +1,7 @@
 interface BroadcastedMessageInstance {
     id: String;
     onIframeMessage: (Function: any) => void;
+    sendMessage: (any: any) => void;
 }
 /**
   * Broadcasts a message in the chat.

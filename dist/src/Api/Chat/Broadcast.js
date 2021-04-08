@@ -24,6 +24,19 @@ function Broadcast(data) {
         id,
         onIframeMessage(callback) {
             subscribeToEvent_1.default(`iframe-message-for-${id}`, (response) => callback(response));
+        },
+        /**
+        * Send a message to the iframe.
+        * Can be catched via a window.addEventListener('message', () => {}).
+        *
+        * @param data - Any data you want to send to the iframe
+        *
+        */
+        sendMessage(data) {
+            sendEvent_1.default({
+                action: `iframe-message-to-${id}`,
+                data: { data, id }
+            });
         }
     };
 }

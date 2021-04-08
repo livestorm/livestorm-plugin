@@ -13,6 +13,7 @@ interface MessageInstance {
     id: String;
     destroy: () => void;
     onIframeMessage: (Function: any) => void;
+    sendMessage: (any: any) => void;
 }
 /**
   * Adds a message in the chat.

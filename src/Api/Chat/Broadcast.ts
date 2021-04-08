@@ -4,7 +4,8 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
 
 interface BroadcastedMessageInstance {
   id: String,
-  onIframeMessage: (Function) => void
+  onIframeMessage: (Function) => void,
+  sendMessage: (any) => void 
 }
 
 /**
@@ -32,6 +33,19 @@ export default function Broadcast(data: { text?: string, html?: string}): Broadc
     id,
     onIframeMessage(callback) {
       subscribeToEvent(`iframe-message-for-${id}`, (response) => callback(response))
+    },
+    /**
+    * Send a message to the iframe.
+    * Can be catched via a window.addEventListener('message', () => {}).
+    * 
+    * @param data - Any data you want to send to the iframe
+    * 
+    */
+    sendMessage(data) {
+      sendEvent({
+        action: `iframe-message-to-${id}`,
+        data: { data, id }
+      })
     }
   }
 }
