@@ -16,7 +16,7 @@ declare const _default: {
       * @param onClick - Function called whenever someone clicks on your button
       *
     */
-    register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: {
+    register: ({ iframe, onIframeMessage, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: {
         label?: string;
         tooltip?: string;
         icon?: string;
@@ -28,6 +28,7 @@ declare const _default: {
         }[];
         dropdownActionsTextClasses?: string;
         iframe?: string;
+        onIframeMessage?: (payload?: any) => unknown;
         onClick?: (payload?: any) => unknown;
     }) => void;
 };

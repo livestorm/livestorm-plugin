@@ -21,12 +21,13 @@ exports.default = {
       * @param onClick - Function called whenever someone clicks on your button
       *
     */
-    register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }) => {
+    register: ({ iframe, onIframeMessage, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }) => {
         const uuid = uuid_1.v4();
         sendEvent_1.default({
             action: 'register-stage-button',
             data: { label, icon, imageSource, tooltip, id: uuid, iframe, dropdownActions, dropdownActionsTextClasses }
         });
+        subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => onIframeMessage(response));
         subscribeToEvent_1.default(`register-stage-button-${uuid}`, (data) => onClick(data));
     }
 };
