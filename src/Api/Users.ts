@@ -11,6 +11,7 @@ interface User {
   is_connected: Boolean,
   is_guest_speaker: Boolean,
   is_team_member: Boolean,
+  is_host?: Boolean,
   job_title: String,
   last_name: String,
   pending: String,
