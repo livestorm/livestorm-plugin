@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
 const sendEvent_1 = require("../IO/sendEvent");
+const processTemplate_1 = require("../IO/processTemplate");
 const subscribeToEvent_1 = require("../IO/subscribeToEvent");
 exports.default = {
     /**
@@ -21,13 +22,26 @@ exports.default = {
       * @param onClick - Function called whenever someone clicks on your button
       *
     */
-    register: ({ iframe, onIframeMessage, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }) => {
+    register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }) => {
         const uuid = uuid_1.v4();
         sendEvent_1.default({
             action: 'register-stage-button',
-            data: { label, icon, imageSource, tooltip, id: uuid, iframe, dropdownActions, dropdownActionsTextClasses }
+            data: {
+                label,
+                icon,
+                imageSource,
+                tooltip,
+                id: uuid,
+                iframe: iframe ? {
+                    width: iframe.width,
+                    height: iframe.height,
+                    template: processTemplate_1.default(iframe.template, iframe.variables)
+                } : undefined,
+                dropdownActions,
+                dropdownActionsTextClasses
+            }
         });
-        subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => onIframeMessage(response));
+        subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => iframe.onMessage(response));
         subscribeToEvent_1.default(`register-stage-button-${uuid}`, (data) => onClick(data));
     }
 };
