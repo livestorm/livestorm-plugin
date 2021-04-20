@@ -25,7 +25,15 @@ function registeMessageAction({ label, icon, imageSource, onClick }) {
         action: 'chat-register-message-action',
         data: { label, icon, imageSource, id: uuid }
     });
-    subscribeToEvent_1.default(`chat-register-message-action-${uuid}`, (data) => onClick(data));
+    subscribeToEvent_1.default(`chat-register-message-action-${uuid}`, (data) => {
+        data.update = (newData) => {
+            sendEvent_1.default({
+                action: `chat-register-message-action-update-${data.id}`,
+                data: newData
+            });
+        };
+        onClick(data);
+    });
 }
 exports.default = registeMessageAction;
 //# sourceMappingURL=RegisterMessageAction.js.map

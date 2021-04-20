@@ -30,5 +30,14 @@ export default function registeMessageAction ({ label, icon, imageSource, onClic
     data:  { label, icon, imageSource, id: uuid }
   })
 
-  subscribeToEvent(`chat-register-message-action-${uuid}`, (data) => onClick(data))
+  subscribeToEvent(`chat-register-message-action-${uuid}`, (data) => {
+    data.update = (newData: { text?: string, html?: string }) => {
+      sendEvent({
+        action: `chat-register-message-action-update-${data.id}`,
+        data: newData
+      })
+    }
+
+    onClick(data)
+  })
 }
