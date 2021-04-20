@@ -19,7 +19,7 @@ const subscribeToEvent_1 = require("../../IO/subscribeToEvent");
   * @param onClick - Function called whenever someone clicks on your button
   *
 */
-function registeMessageAction({ label, icon, imageSource, onClick }) {
+function registerMessageAction({ label, icon, imageSource, onClick }) {
     const uuid = uuid_1.v4();
     sendEvent_1.default({
         action: 'chat-register-message-action',
@@ -35,5 +35,5 @@ function registeMessageAction({ label, icon, imageSource, onClick }) {
         onClick(data);
     });
 }
-exports.default = registeMessageAction;
+exports.default = registerMessageAction;
 //# sourceMappingURL=RegisterMessageAction.js.map

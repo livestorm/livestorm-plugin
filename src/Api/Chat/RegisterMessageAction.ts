@@ -18,7 +18,7 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
   * @param onClick - Function called whenever someone clicks on your button
   * 
 */
-export default function registeMessageAction ({ label, icon, imageSource, onClick }: {
+export default function registerMessageAction ({ label, icon, imageSource, onClick }: {
     label: string,
     icon?: string,
     imageSource?: string,
