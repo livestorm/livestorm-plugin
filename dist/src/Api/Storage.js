@@ -10,6 +10,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Configuration_1 = require("../Configuration");
+function getScopeId(scope = 'event') {
+    if (scope === 'event')
+        return Configuration_1.default.data.eventTypeId;
+    else if (scope === 'session')
+        return Configuration_1.default.data.sessionId;
+    else if (scope === 'organization')
+        return Configuration_1.default.data.organizationId;
+    else
+        return Configuration_1.default.data.eventTypeId;
+}
 exports.default = {
     /**
       *
@@ -25,9 +35,9 @@ exports.default = {
       *
       *
     */
-    setItem(key, value) {
+    setItem(key, value, options = { scope: 'event' }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, sessionId, pluginId, pluginHost } = Configuration_1.default.data;
+            const { organizationId, pluginId, pluginHost } = Configuration_1.default.data;
             return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
                 method: 'POST',
                 headers: {
@@ -37,7 +47,7 @@ exports.default = {
                     key,
                     value,
                     organization_id: organizationId,
-                    session_id: sessionId,
+                    session_id: getScopeId(options.scope),
                     plugin_id: pluginId
                 })
             });
@@ -56,10 +66,10 @@ exports.default = {
       *
       *
     */
-    getItem(key) {
+    getItem(key, options = { scope: 'event' }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, sessionId, pluginId, pluginHost } = Configuration_1.default.data;
-            const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`);
+            const { organizationId, pluginId, pluginHost } = Configuration_1.default.data;
+            const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`);
             const body = yield res.json();
             return body.storageKey ? body.storageKey.value : null;
         });

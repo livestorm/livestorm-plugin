@@ -13,7 +13,9 @@ declare const _default: {
       *
       *
     */
-    setItem(key: string, value: string): Promise<Response>;
+    setItem(key: string, value: string, options?: {
+        scope: string;
+    }): Promise<Response>;
     /**
       *
       * Retrieve a value set at a specific key. This storage is persistant and shared across participants of the event
@@ -27,6 +29,8 @@ declare const _default: {
       *
       *
     */
-    getItem(key: string): Promise<string>;
+    getItem(key: string, options?: {
+        scope: string;
+    }): Promise<string>;
 };
 export default _default;

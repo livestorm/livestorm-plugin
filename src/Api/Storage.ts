@@ -1,5 +1,12 @@
 import Configuration from '../Configuration'
 
+function getScopeId(scope = 'event') {
+  if (scope === 'event') return Configuration.data.eventTypeId
+  else if (scope === 'session') return Configuration.data.sessionId
+  else if (scope === 'organization') return Configuration.data.organizationId
+  else return Configuration.data.eventTypeId
+}
+
 export default {
   /**
     * 
@@ -15,8 +22,8 @@ export default {
     * 
     * 
   */
-  async setItem(key: string, value: string) {
-    const { organizationId, sessionId, pluginId, pluginHost } = Configuration.data
+  async setItem(key: string, value: string, options = { scope: 'event' }) {
+    const { organizationId, pluginId, pluginHost } = Configuration.data
 
     return await fetch(`${pluginHost}/api/v1/storage_keys`, {
       method: 'POST',
@@ -27,7 +34,7 @@ export default {
         key,
         value,
         organization_id: organizationId,
-        session_id: sessionId,
+        session_id: getScopeId(options.scope),
         plugin_id: pluginId
       })
     })
@@ -46,10 +53,10 @@ export default {
     * 
     * 
   */
-  async getItem(key: string): Promise<string> {
-    const { organizationId, sessionId, pluginId, pluginHost } = Configuration.data
+  async getItem(key: string, options = { scope: 'event' }): Promise<string> {
+    const { organizationId, pluginId, pluginHost } = Configuration.data
 
-    const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${sessionId}&plugin_id=${pluginId}&key=${key}`)
+    const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`)
     const body = await res.json()
 
     return body.storageKey ? body.storageKey.value : null

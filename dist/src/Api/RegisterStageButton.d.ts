@@ -11,6 +11,7 @@ declare const _default: {
       * })
       *
       * @param label - The label of the action
+      * @param tooltip - A tooltip to show over
       * @param icon - An icon from the https://feathericons.com library (not recommended)
       * @param imageSource - URL of an icon (png, svg) that will be displayed next to your button
       * @param onClick - Function called whenever someone clicks on your button
