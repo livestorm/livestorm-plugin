@@ -44,6 +44,14 @@ exports.default = {
         });
         subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => iframe.onMessage(response));
         subscribeToEvent_1.default(`register-stage-button-${uuid}`, (data) => onClick(data));
+        return {
+            remove() {
+                sendEvent_1.default({
+                    action: 'register-stage-button-remove',
+                    data: { id: uuid }
+                });
+            }
+        };
     }
 };
 //# sourceMappingURL=RegisterStageButton.js.map

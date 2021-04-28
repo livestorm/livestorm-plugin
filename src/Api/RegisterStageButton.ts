@@ -37,7 +37,7 @@ export default {
       onMessage?: (payload?: any) => unknown,
     },
     onClick?: (payload?: any) => unknown
-  }): void => {
+  }): { remove: () => void } => {
     const uuid = uuidv4()
     sendEvent({
       action: 'register-stage-button',
@@ -58,5 +58,14 @@ export default {
     })
     subscribeToEvent(`iframe-message-for-${uuid}`, (response) => iframe.onMessage(response))
     subscribeToEvent(`register-stage-button-${uuid}`, (data) => onClick(data))
+
+    return {
+      remove() {
+        sendEvent({
+          action: 'register-stage-button-remove',
+          data:  { id: uuid }
+        })
+      }
+    }
   }
 }

@@ -36,6 +36,8 @@ declare const _default: {
             onMessage?: (payload?: any) => unknown;
         };
         onClick?: (payload?: any) => unknown;
-    }) => void;
+    }) => {
+        remove: () => void;
+    };
 };
 export default _default;
