@@ -16,7 +16,7 @@
     "url": "git+https://github.com/livestorm/livestorm-plugin.git"
   },
   "author": "Livestorm",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/livestorm/livestorm-plugin/issues"
   },
