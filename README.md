@@ -25,7 +25,7 @@ This is a library that allows to build plugin on top of Livestorm
 First off, install the Livestorm plugin CLI : 
 
 ```
-yarn global add git+ssh://git@github.com/livestorm/livestorm-plugin-cli.git
+yarn global add @livestorm/cli
 ``` 
 
 Then run :
