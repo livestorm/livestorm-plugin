@@ -1,95 +1,13 @@
-```
-$$\       $$\                                  $$\                                       
-$$ |      \__|                                 $$ |                                      
-$$ |      $$\ $$\    $$\  $$$$$$\   $$$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$$$$$\$$$$\  
-$$ |      $$ |\$$\  $$  |$$  __$$\ $$  _____|\_$$  _|  $$  __$$\ $$  __$$\ $$  _$$  _$$\ 
-$$ |      $$ | \$$\$$  / $$$$$$$$ |\$$$$$$\    $$ |    $$ /  $$ |$$ |  \__|$$ / $$ / $$ |
-$$ |      $$ |  \$$$  /  $$   ____| \____$$\   $$ |$$\ $$ |  $$ |$$ |      $$ | $$ | $$ |
-$$$$$$$$\ $$ |   \$  /   \$$$$$$$\ $$$$$$$  |  \$$$$  |\$$$$$$  |$$ |      $$ | $$ | $$ |
-\________|\__|    \_/     \_______|\_______/    \____/  \______/ \__|      \__| \__| \__|
-                                                                                         
-```
 
-# Livestorm plugin API
+<img src="https://raw.githubusercontent.com/livestorm/livestorm-plugin-cli/master/src/assets/sdk-header.png" width="500px">
 
-This is a library that allows to build plugin on top of Livestorm
+Take your events to the next level with Livestorm plugins, a powerful SDK designed to let you build amazing experiences, on top of a platform you already love.
 
-## Requirements
+Our APIs make it easy to create complex live interactions. Messaging, websockets, WebRTC, let us worry about complex stuff, focus on the plugin experience.
 
-- NodeJS (any recent version >12 will do)
-- npm
-- yarn (this is optionnal but below commands use it)
+Plugins is the best way to create powerful live integrations and interactions with 3rd party services you already use !
 
-## Create your Livestorm plugin
+Get started building your own plugins and leverage the power of livestorm or discover our API QuickStart Guides.
 
-First off, install the Livestorm plugin CLI : 
-
-```
-yarn global add git+ssh://git@github.com/livestorm/livestorm-plugin-cli.git
-``` 
-
-Then run :
-```
-livestorm create
-```
-
-This will guide through a few steps required to configure your plugin.
-
-In general, since this is a regular npm package you have access to pretty standard npm commands that allow you to manage your dependencies and run your test suite.
-
-```
-yarn
-yarn test
-```
-
-## Start building
-
-Once you have completed the above steps, you should be ready to start coding. 
-Open you project folder and open the `index.ts` file.
-
-This is entry point of your Livestorm plugin. This code is executed in a sandboxed Javascript environment which communicates directly to Livestorm via a standard iframe <> DOM communication.
-
-```javascript
-import Livestorm from '@livestorm/plugin'
-/*
-*
-* The `Livestorm` object contains all of the exposed APIs that allow 
-* you to act and build on top of Livestorm room
-*
-* Do not hesitate to console.log(Livestorm) or use the autocompletion of your editor 
-* to understand what is inside and what are the exposed APIs
-*
-*/
-
-
-/*
-*
-* A simple Hello world example consists in publishing an event that everyone
-* in the room is going to subscribe to
-*
-*/
-Livestorm.PubSub.subscribe('say-hello', (payload) => {
-  console.log('Someone said :', payload.message) 
-})
-
-/*
-*
-* Then, once you have subscribed to the said event
-* You will be able to publish it to all of the subscribers
-* ie: everyone who is in the room will receive the message
-*
-*/
-Livestorm.PubSub.publish('say-hello', { message: 'Hello world' })
-
-
-```
-
-## Publishing
-
-Whenever you want to try your plugin or publish it for good, simply run : 
-```
-livestorm publish
-```
-
-This will publish your plugin based on the API key and version number you set in the `package.json`
+[<img src="https://raw.githubusercontent.com/livestorm/livestorm-plugin-cli/master/src/assets/docs-link.png" width="120px">](https://developers.livestorm.co/docs/getting-started-with-plugins-sdk/)
 
