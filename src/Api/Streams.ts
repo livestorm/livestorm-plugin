@@ -90,12 +90,13 @@ export default {
     * @param imageUrl - An image to illustrate your plugin
     * @param template - The HTML document that creates the video stream
     * @param variables - A hash of variables that you want to interpolate within the document
+    * @param disabled - A boolean to disable the effect
     * 
     * @see https://webrtc.github.io/samples/src/content/capture/canvas-pc/
     * @beta
     * 
   */
-  registerCameraEffect(data: { label?: string, imageUrl?: string, template: string, variables: any }) {
+  registerCameraEffect(data: { label?: string, imageUrl?: string, disabled?: boolean, template: string, variables: any }) {
     const uuid = uuidv4()
 
     sendEvent({
@@ -103,6 +104,7 @@ export default {
       data: {
         label: data.label,
         imageUrl: data.imageUrl,
+        disabled: !!data.disabled,
         template: processTemplate(data.template, data.variables),
         id: uuid
       }
@@ -122,13 +124,13 @@ export default {
     *   effects: [
     *     {
     *       variables: { foo: bar },
-    *       label: 'Moon',
-    *       id: 'Moon'
+    *       label: 'Moon'
     *     }
     *   ]
     * })
     *
     * @param template - The HTML document that creates the video stream
+    * @param disabled - A boolean to disable the effects
     * @param effects - An array of effect under format Array<{ variables: {}, label: string, id: string }>
     * 
     * @beta
@@ -136,7 +138,8 @@ export default {
   */
   registerMultipleCameraEffects(data: {
     template: string,
-    effects: Array<{ variables: any, label: string, id: string, imageUrl?: string }>
+    disabled?: boolean,
+    effects: Array<{ variables: any, label: string, imageUrl?: string }>
   }) {
     const batchId = uuidv4()
     
@@ -147,6 +150,7 @@ export default {
         data: {
           label: effect.label,
           imageUrl: effect.imageUrl,
+          disabled: !!data.disabled,
           template: processTemplate(data.template, effect.variables),
           variables: effect.variables,
           isMultiple: true,
