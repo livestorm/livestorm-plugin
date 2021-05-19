@@ -4,16 +4,16 @@ interface User {
     company_name: string;
     first_name: string;
     id: string;
-    is_connected: Boolean;
-    is_guest_speaker: Boolean;
-    is_team_member: Boolean;
-    is_host?: Boolean;
+    is_connected: boolean;
+    is_guest_speaker: boolean;
+    is_team_member: boolean;
+    is_host?: boolean;
     job_title: string;
     last_name: string;
     pending: string;
-    prepare: Boolean;
-    prepare_enable_camera: Boolean;
-    prepare_enable_microphone: Boolean;
+    prepare: boolean;
+    prepare_enable_camera: boolean;
+    prepare_enable_microphone: boolean;
 }
 export interface Users {
     /**
