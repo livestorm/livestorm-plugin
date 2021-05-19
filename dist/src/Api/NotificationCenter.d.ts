@@ -1,3 +1,4 @@
+import { Variables } from '../../types/common';
 declare const _default: {
     /**
       * Displays custom HTML content within the Notification aera of the Room.
@@ -13,6 +14,6 @@ declare const _default: {
       *
       *
     */
-    showIframe(template: string, variables: any): void;
+    showIframe(template: string, variables: Variables): void;
 };
 export default _default;

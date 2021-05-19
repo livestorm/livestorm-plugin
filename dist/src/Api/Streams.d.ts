@@ -1,3 +1,4 @@
+import { Variables } from '../../types/common';
 declare const _default: {
     /**
       * Add a custom HTML media stream to the stage.
@@ -21,7 +22,7 @@ declare const _default: {
     */
     addStream(data: {
         template: string;
-        variables: any;
+        variables: Variables;
         onMessage: Function;
     }): Promise<unknown>;
     /**
@@ -59,7 +60,7 @@ declare const _default: {
         imageUrl?: string;
         disabled?: boolean;
         template: string;
-        variables: any;
+        variables: Variables;
     }): void;
     /**
       *
@@ -90,7 +91,7 @@ declare const _default: {
         template: string;
         disabled?: boolean;
         effects: Array<{
-            variables: any;
+            variables: Variables;
             label: string;
             imageUrl?: string;
         }>;

@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import sendEvent from '../IO/sendEvent'
 import processTemplate from '../IO/processTemplate'
 import subscribeToEvent from '../IO/subscribeToEvent'
+import { Variables } from '../../types/common';
 
 export default {
   /**
@@ -31,7 +32,7 @@ export default {
     dropdownActionsTextClasses?: string,
     iframe?: {
       template: string,
-      variables: any,
+      variables: Variables,
       width: number,
       height: number,
       onMessage?: (payload?: any) => unknown,

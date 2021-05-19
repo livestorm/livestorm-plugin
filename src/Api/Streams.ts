@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import sendEvent from '../IO/sendEvent'
 import processTemplate from '../IO/processTemplate'
 import subscribeToEvent from '../IO/subscribeToEvent'
+import { Variables } from '../../types/common';
 
 const createStream = (id) => ({
   /**
@@ -52,7 +53,7 @@ export default {
     * @beta
     * 
   */
-  addStream(data: { template: string, variables: any, onMessage: Function }) {
+  addStream(data: { template: string, variables: Variables, onMessage: Function }) {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 
@@ -96,7 +97,7 @@ export default {
     * @beta
     * 
   */
-  registerCameraEffect(data: { label?: string, imageUrl?: string, disabled?: boolean, template: string, variables: any }) {
+  registerCameraEffect(data: { label?: string, imageUrl?: string, disabled?: boolean, template: string, variables: Variables }): void {
     const uuid = uuidv4()
 
     sendEvent({
@@ -139,8 +140,8 @@ export default {
   registerMultipleCameraEffects(data: {
     template: string,
     disabled?: boolean,
-    effects: Array<{ variables: any, label: string, imageUrl?: string }>
-  }) {
+    effects: Array<{ variables: Variables, label: string, imageUrl?: string }>
+  }): void {
     const batchId = uuidv4()
     
     data.effects.forEach((effect) => {

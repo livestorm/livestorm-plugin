@@ -1,3 +1,4 @@
+import { Variables } from '../../types/common';
 declare const _default: {
     /**
       * Register an entry in the stage actions (for contributors and participants)
@@ -30,7 +31,7 @@ declare const _default: {
         dropdownActionsTextClasses?: string;
         iframe?: {
             template: string;
-            variables: any;
+            variables: Variables;
             width: number;
             height: number;
             onMessage?: (payload?: any) => unknown;
