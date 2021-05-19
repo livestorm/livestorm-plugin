@@ -8,8 +8,7 @@ Take your events to the next level with Livestorm plugins, a powerful SDK design
 Our APIs make it easy to create complex live interactions. Messaging, websockets, WebRTC, let us worry about complex stuff, focus on the plugin experience.
 Plugins is the best way to create powerful live integrations and interactions with 3rd party services you already use.
 
-[Getting started Guide](https://developers.livestorm.co/docs/getting-started-with-plugins-sdk/)
-[Offical video course](https://fast.wistia.net/embed/channel/azooxwj070)
+Check out our [getting started Guide](https://developers.livestorm.co/docs/getting-started-with-plugins-sdk/) and our [offical video course](https://fast.wistia.net/embed/channel/azooxwj070).
 
 
 ### You need a hand or want to contribute?
