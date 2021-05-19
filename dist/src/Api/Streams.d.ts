@@ -38,7 +38,7 @@ declare const _default: {
     addStream(data: {
         template: string;
         variables: Variables;
-        onMessage: Function;
+        onMessage: (arg: unknown) => unknown;
     }): Promise<ReturnType<typeof createStream>>;
     /**
       * Expose a custom video effect. Gives the ability to the user to select an input stream effect.

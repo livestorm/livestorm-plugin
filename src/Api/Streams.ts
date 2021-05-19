@@ -53,7 +53,7 @@ export default {
     * @beta
     * 
   */
-  addStream(data: { template: string, variables: Variables, onMessage: Function }): Promise<ReturnType<typeof createStream>> {
+  addStream(data: { template: string, variables: Variables, onMessage: (arg: unknown) => unknown }): Promise<ReturnType<typeof createStream>> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 

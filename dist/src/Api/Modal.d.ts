@@ -24,7 +24,7 @@ declare const _default: {
         size?: string;
         template: string;
         variables?: any;
-        onMessage?: Function;
+        onMessage?: (arg: unknown) => unknown;
     }): Promise<ModalInstance>;
 };
 export default _default;

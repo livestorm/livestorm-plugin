@@ -42,7 +42,7 @@ export default {
     * 
     * 
   */
-  showIframe(data: { size?: string, template: string, variables?: any, onMessage?: Function }): Promise<ModalInstance> {
+  showIframe(data: { size?: string, template: string, variables?: any, onMessage?: (arg: unknown) => unknown }): Promise<ModalInstance> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
