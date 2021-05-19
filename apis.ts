@@ -12,7 +12,7 @@ import Configuration from './src/Configuration'
 import When from './src/Api/When'
 import register from './src/Api/Register'
 
-export { 
+export {
   Configuration,
   PubSub,
   Streams,
