@@ -1,4 +1,19 @@
 import { Variables } from '../../types/common';
+declare const createStream: (id: any) => {
+    /**
+      * Update the content of a stream
+      *
+      * @param template - The HTML document
+      * @param variables - A hash of variables that you want to interpolate within the document
+      *
+    */
+    update(params: any): void;
+    /**
+      * Remove the stream from the stage
+      *
+    */
+    destroy(): void;
+};
 declare const _default: {
     /**
       * Add a custom HTML media stream to the stage.
@@ -24,7 +39,7 @@ declare const _default: {
         template: string;
         variables: Variables;
         onMessage: Function;
-    }): Promise<unknown>;
+    }): Promise<ReturnType<typeof createStream>>;
     /**
       * Expose a custom video effect. Gives the ability to the user to select an input stream effect.
       * This API can be used to create stream with effects such as (background blur, filters, OSD, etc)

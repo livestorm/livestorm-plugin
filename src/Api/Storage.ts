@@ -22,7 +22,7 @@ export default {
     * 
     * 
   */
-  async setItem(key: string, value: string, options = { scope: 'event' }) {
+  async setItem(key: string, value: string, options = { scope: 'event' }): Promise<Response> {
     const { organizationId, pluginId, pluginHost } = Configuration.data
 
     return await fetch(`${pluginHost}/api/v1/storage_keys`, {

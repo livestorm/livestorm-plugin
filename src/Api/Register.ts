@@ -15,7 +15,7 @@ import Configuration from '../Configuration'
   * 
   * 
 */
-export default function register(main: () => unknown) {
+export default function register(main: () => unknown): void {
   subscribeToEvent('register', (data) => {
     Configuration.set(data)
     main()
