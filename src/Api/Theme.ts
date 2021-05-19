@@ -13,8 +13,8 @@ export default {
   * 
   */
   setBackground({ hue, saturation }: {
-    hue: Number,
-    saturation: Number
+    hue: number,
+    saturation: number
   }): void {
     sendEvent({
       action: 'theme-set-background',

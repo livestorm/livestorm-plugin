@@ -11,8 +11,8 @@ declare const _default: {
     *
     */
     setBackground({ hue, saturation }: {
-        hue: Number;
-        saturation: Number;
+        hue: number;
+        saturation: number;
     }): void;
 };
 export default _default;
