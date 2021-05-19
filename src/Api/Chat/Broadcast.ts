@@ -3,7 +3,7 @@ import sendEvent from '../../IO/sendEvent'
 import subscribeToEvent from '../../IO/subscribeToEvent'
 
 interface BroadcastedMessageInstance {
-  id: String,
+  id: string,
   onIframeMessage: (Function) => void,
   sendMessage: (any) => void 
 }

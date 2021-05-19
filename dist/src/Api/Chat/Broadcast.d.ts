@@ -1,5 +1,5 @@
 interface BroadcastedMessageInstance {
-    id: String;
+    id: string;
     onIframeMessage: (Function: any) => void;
     sendMessage: (any: any) => void;
 }

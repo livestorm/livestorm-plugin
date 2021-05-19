@@ -4,18 +4,18 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
 
 interface MessageParam {
   user: {
-    id?: String,
-    firstName?: String,
-    lastName?: String,
-    tag?: String,
-    avatarUrl?: String
+    id?: string,
+    firstName?: string,
+    lastName?: string,
+    tag?: string,
+    avatarUrl?: string
   },
-  text?: String,
-  html?: String
+  text?: string,
+  html?: string
 }
 
 interface MessageInstance {
-  id: String,
+  id: string,
   destroy: () => void,
   onIframeMessage: (Function) => void,
   sendMessage: (any) => void
