@@ -1,6 +1,8 @@
 
 <img src="https://raw.githubusercontent.com/livestorm/livestorm-plugin-cli/master/src/assets/sdk-header.png" width="500px">
 
+<img src="https://github.com/livestorm/livestorm-plugin/actions/workflows/ci.yml/badge.svg">
+
 ### Livestorm Plugins
 
 Take your events to the next level with Livestorm plugins, a powerful SDK designed to let you build amazing experiences, on top of a platform you already love.
