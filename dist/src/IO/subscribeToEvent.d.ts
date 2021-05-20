@@ -1,1 +1,1 @@
-export default function subscribeToEvent(eventName: any, callback: any): void;
+export default function subscribeToEvent<T>(eventName: string, callback: (data: T) => void): void;

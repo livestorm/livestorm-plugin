@@ -55,7 +55,7 @@ export interface Users {
 
 const users: Users = {
   me: () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`users-me-${uuid}`, ({ users }) => resolve(users))
       sendEvent({
@@ -67,7 +67,7 @@ const users: Users = {
 
   
   teamMembers: () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`users-team-members-${uuid}`, ({ users }) => resolve(users))
       sendEvent({
@@ -78,7 +78,7 @@ const users: Users = {
   },
 
   everyone() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`users-everyone-${uuid}`, ({ users }) => resolve(users))
       sendEvent({

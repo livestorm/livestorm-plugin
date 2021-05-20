@@ -11,7 +11,7 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
   * @param callback - Function that will be called whenever the user posts a message
   * 
 */
-export default function Listen(callback: (message: any) => void) {
+export default function Listen(callback: (message: any) => void): void {
   const uuid = uuidv4()
   sendEvent({
     action: 'chat-listen',

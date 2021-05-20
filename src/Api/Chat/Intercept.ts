@@ -13,7 +13,7 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
   * @param callback - A function that will be called whenever a message matches your criteria
   * 
 */
-export default function Intercept(matcher: RegExp, callback: (message: any) => void) {
+export default function Intercept(matcher: RegExp, callback: (message: any) => void): void {
   const uuid = uuidv4()
   sendEvent({
     action: 'chat-intercept',

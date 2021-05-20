@@ -30,8 +30,8 @@ export default function registerMessageAction ({ label, icon, imageSource, onCli
     data:  { label, icon, imageSource, id: uuid }
   })
 
-  subscribeToEvent(`chat-register-message-action-${uuid}`, (data) => {
-    data.update = (newData: { text?: string, html?: string }) => {
+  subscribeToEvent<{ id: string, update: (data: Record<string, unknown>) => void }>(`chat-register-message-action-${uuid}`, (data) => {
+    data.update = (newData) => {
       sendEvent({
         action: `chat-register-message-action-update-${data.id}`,
         data: newData

@@ -5,7 +5,7 @@ const sendEvent_1 = require("../IO/sendEvent");
 const subscribeToEvent_1 = require("../IO/subscribeToEvent");
 const users = {
     me: () => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const uuid = uuid_1.v4();
             subscribeToEvent_1.default(`users-me-${uuid}`, ({ users }) => resolve(users));
             sendEvent_1.default({
@@ -15,7 +15,7 @@ const users = {
         });
     },
     teamMembers: () => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const uuid = uuid_1.v4();
             subscribeToEvent_1.default(`users-team-members-${uuid}`, ({ users }) => resolve(users));
             sendEvent_1.default({
@@ -25,7 +25,7 @@ const users = {
         });
     },
     everyone() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const uuid = uuid_1.v4();
             subscribeToEvent_1.default(`users-everyone-${uuid}`, ({ users }) => resolve(users));
             sendEvent_1.default({
