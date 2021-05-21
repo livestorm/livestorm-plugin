@@ -2,7 +2,7 @@ import PubSub from './src/api/pubSub';
 import Chat from './src/api/chat';
 import Streams from './src/api/streams';
 import RegisterShareButton from './src/api/registerShareButton';
-import RegisterStageButton from './src/api/RegisterStageButton';
+import RegisterStageButton from './src/api/registerStageButton';
 import Theme from './src/api/theme';
 import NotificationCenter from './src/api/notificationCenter';
 import Storage from './src/api/storage';

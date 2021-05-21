@@ -3,8 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
 const sendEvent_1 = require("@/io/sendEvent");
 const subscribeToEvent_1 = require("@/io/subscribeToEvent");
-const users = {
-    me: () => {
+class default_1 {
+    /**
+    * Returns the current user information
+    *
+    * @example await Livestorm.Users.me()
+    *
+    * @returns a promise that resolves with the user information as a hash
+    *
+    */
+    static me() {
         return new Promise((resolve) => {
             const uuid = uuid_1.v4();
             // TODO: There is a mix between users and user
@@ -14,8 +22,14 @@ const users = {
                 data: { id: uuid }
             });
         });
-    },
-    teamMembers: () => {
+    }
+    /**
+    * @example await Livestorm.Users.teamMembers()
+    *
+    * @example await Livestorm.Users.teamMembers()
+    * @returns a promise that resolves with the users information as an array
+    */
+    static teamMembers() {
         return new Promise((resolve) => {
             const uuid = uuid_1.v4();
             subscribeToEvent_1.default(`users-team-members-${uuid}`, ({ users }) => resolve(users));
@@ -24,8 +38,17 @@ const users = {
                 data: { id: uuid }
             });
         });
-    },
-    everyone() {
+    }
+    /**
+    * Returns an array containing all the currently connected people in the Room.
+    * This list may change during the lifecycle of an event
+    *
+    * @example await Livestorm.Users.everyone()
+    *
+    * @returns a promise that resolves with the users information as an array
+    *
+    */
+    static everyone() {
         return new Promise((resolve) => {
             const uuid = uuid_1.v4();
             subscribeToEvent_1.default(`users-everyone-${uuid}`, ({ users }) => resolve(users));
@@ -35,6 +58,6 @@ const users = {
             });
         });
     }
-};
-exports.default = users;
+}
+exports.default = default_1;
 //# sourceMappingURL=users.js.map

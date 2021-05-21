@@ -54,4 +54,4 @@ exports.default = {
         };
     }
 };
-//# sourceMappingURL=RegisterStageButton.js.map
+//# sourceMappingURL=registerStageButton.js.map
