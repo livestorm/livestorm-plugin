@@ -20,41 +20,16 @@ interface User {
   prepare_enable_microphone: boolean,
 }
 
-export interface Users {
+export default class {
   /**
-   * Returns the current user information
-   *
-   * @example await Livestorm.Users.me()
-   *
-   * @returns a promise that resolves with the user information as a hash
-   * 
-   */
-  me: () => Promise<User>
-
-  /**
-   * Returns an array containing all the team members of the event
-   *
-   * @example await Livestorm.Users.teamMembers()
-   *
-   * @returns a promise that resolves with the users information as an array
-   * 
-   */
-  teamMembers: () => Promise<Array<User>>
-
-  /**
-   * Returns an array containing all the currently connected people in the Room.
-   * This list may change during the lifecycle of an event
-   *
-   * @example await Livestorm.Users.everyone()
-   *
-   * @returns a promise that resolves with the users information as an array
-   * 
-   */
-  everyone: () => Promise<Array<User>>
-}
-
-const users: Users = {
-  me: () => {
+  * Returns the current user information
+  *
+  * @example await Livestorm.Users.me()
+  *
+  * @returns a promise that resolves with the user information as a hash
+  * 
+  */
+  public static me(): Promise<User> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 
@@ -65,10 +40,15 @@ const users: Users = {
         data: { id: uuid }
       })
     })
-  },
+  }
 
-  
-  teamMembers: () => {
+  /**
+  * @example await Livestorm.Users.teamMembers()
+  * 
+  * @example await Livestorm.Users.teamMembers()
+  * @returns a promise that resolves with the users information as an array
+  */
+  public static teamMembers(): Promise<User[]> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent<{ users: User[] }>(`users-team-members-${uuid}`, ({ users }) => resolve(users))
@@ -77,9 +57,19 @@ const users: Users = {
         data: { id: uuid }
       })
     })
-  },
+  }
 
-  everyone() {
+  
+  /**
+  * Returns an array containing all the currently connected people in the Room.
+  * This list may change during the lifecycle of an event
+  *
+  * @example await Livestorm.Users.everyone()
+  *
+  * @returns a promise that resolves with the users information as an array
+  * 
+  */
+  public static everyone(): Promise<User[]> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent<{ users: User[] }>(`users-everyone-${uuid}`, ({ users }) => resolve(users))
@@ -90,5 +80,3 @@ const users: Users = {
     })
   }
 }
-
-export default users
