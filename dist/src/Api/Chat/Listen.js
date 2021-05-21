@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("../../IO/sendEvent");
-const subscribeToEvent_1 = require("../../IO/subscribeToEvent");
+const sendEvent_1 = require("@/IO/sendEvent");
+const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
 /**
   * Be notified whenever someone posts a message in the chat.
   * May be used to create Chat bots, or forward messages to another API (slack, intercom, etc)

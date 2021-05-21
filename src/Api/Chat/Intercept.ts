@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import sendEvent from '../../IO/sendEvent'
-import subscribeToEvent from '../../IO/subscribeToEvent'
+import sendEvent from '@/IO/sendEvent'
+import subscribeToEvent from '@/IO/subscribeToEvent'
 
 /**
   * Intercept Chat messages matching a specific regex.

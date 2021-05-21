@@ -1,4 +1,4 @@
-import Configuration from '../Configuration'
+import Configuration from '@/Configuration'
 
 function getScopeId(scope = 'event') {
   if (scope === 'event') return Configuration.eventTypeId

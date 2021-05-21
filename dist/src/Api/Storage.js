@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Configuration_1 = require("../Configuration");
+const Configuration_1 = require("@/Configuration");
 function getScopeId(scope = 'event') {
     if (scope === 'event')
         return Configuration_1.default.eventTypeId;

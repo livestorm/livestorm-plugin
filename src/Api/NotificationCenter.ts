@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import sendEvent from '../IO/sendEvent'
-import processTemplate from '../IO/processTemplate'
+import sendEvent from '@/IO/sendEvent'
+import processTemplate from '@/IO/processTemplate'
 
 export default {
   /**

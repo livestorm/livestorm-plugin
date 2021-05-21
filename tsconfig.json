@@ -5,11 +5,18 @@
     "declaration": true,
     "sourceMap": true,
     "removeComments": false,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
   },
   "include": [
     "index.ts",
-    "src/**/*"
+    "src/**/*",
+    "src/types",
   ],
   "exclude": ["node_modules", "__tests__"]
 }

@@ -1,4 +1,4 @@
-import { ConfigurationData } from '../types/configuration';
+import { ConfigurationData } from '@/types/configuration';
 export default class Configuration {
     static url: string;
     static eventTypeId: string;

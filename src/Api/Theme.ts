@@ -1,4 +1,4 @@
-import sendEvent from '../IO/sendEvent'
+import sendEvent from '@/IO/sendEvent'
 
 export default {
   /**
