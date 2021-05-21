@@ -11,7 +11,7 @@ declare const _default: {
       * @param callback - A function to be called whenever the event is triggered
       *
     */
-    eventEnds: (callback: (params: any) => unknown) => void;
+    eventEnds: (callback: (params: Record<string, unknown>) => void) => void;
     /**
       *
       * Be notified when the event starts.
@@ -24,6 +24,6 @@ declare const _default: {
       * @param callback - A function to be called whenever the event is triggered
       *
     */
-    eventStarts: (callback: (params: any) => unknown) => void;
+    eventStarts: (callback: (params: Record<string, unknown>) => void) => void;
 };
 export default _default;

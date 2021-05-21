@@ -9,4 +9,4 @@
   * @param callback - A function that will be called whenever a message matches your criteria
   *
 */
-export default function Intercept(matcher: RegExp, callback: (message: any) => void): void;
+export default function Intercept(matcher: RegExp, callback: (message: Record<string, unknown>) => void): void;

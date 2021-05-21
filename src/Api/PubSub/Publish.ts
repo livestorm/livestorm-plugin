@@ -14,7 +14,7 @@ import sendEvent from '../../IO/sendEvent'
   * 
   * 
 */
-export default function Publish(event: string, data: any): void {
+export default function Publish(event: string, data: Record<string, unknown>): void {
   sendEvent({
     action: 'publish-event',
     data: {

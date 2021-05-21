@@ -12,4 +12,4 @@
   *
   *
 */
-export default function Publish(event: string, data: any): void;
+export default function Publish(event: string, data: Record<string, unknown>): void;

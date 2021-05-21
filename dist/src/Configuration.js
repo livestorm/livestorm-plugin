@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const config = {
-    data: {
-        url: '*'
-    },
-    set(newConfig) {
-        this.data = Object.assign(Object.assign({}, this.data), newConfig);
+class Configuration {
+    static set(data) {
+        for (const key in data) {
+            this[key] = data[key];
+        }
     }
-};
-exports.default = config;
+}
+exports.default = Configuration;
+Configuration.url = '*';
 //# sourceMappingURL=Configuration.js.map

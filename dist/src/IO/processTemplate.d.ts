@@ -1,2 +1,1 @@
-import { Variables } from '../../types/common';
-export default function processTemplate(content: string, variables: Variables): string;
+export default function processTemplate(content: string, variables: Record<string, unknown>): string;

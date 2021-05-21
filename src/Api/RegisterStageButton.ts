@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import sendEvent from '../IO/sendEvent'
 import processTemplate from '../IO/processTemplate'
 import subscribeToEvent from '../IO/subscribeToEvent'
-import { Variables } from '../../types/common';
 
 export default {
   /**
@@ -28,16 +27,16 @@ export default {
     tooltip?: string,
     icon?: string,
     imageSource?: string,
-    dropdownActions?: Array<{ name?: string, label: any, imageSource?: string }>,
+    dropdownActions?: Array<{ name?: string, label: string, imageSource?: string }>,
     dropdownActionsTextClasses?: string,
     iframe?: {
       template: string,
-      variables: Variables,
+      variables: Record<string, unknown>,
       width: number,
       height: number,
-      onMessage?: (payload?: any) => unknown,
+      onMessage?: (payload?: Record<string, unknown>) => unknown,
     },
-    onClick?: (payload?: any) => unknown
+    onClick?: (payload?: Record<string, unknown>) => unknown
   }): { remove: () => void } => {
     const uuid = uuidv4()
     sendEvent({

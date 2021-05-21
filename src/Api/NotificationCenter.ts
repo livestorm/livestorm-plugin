@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import sendEvent from '../IO/sendEvent'
 import processTemplate from '../IO/processTemplate'
-import { Variables } from '../../types/common';
 
 export default {
   /**
@@ -18,7 +17,7 @@ export default {
     * 
     * 
   */
-  showIframe(template: string, variables: Variables): void {
+  showIframe(template: string, variables: Record<string, unknown>): void {
     sendEvent({
       action: 'notification-center-show-iframe',
       data: {

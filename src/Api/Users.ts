@@ -57,7 +57,9 @@ const users: Users = {
   me: () => {
     return new Promise((resolve) => {
       const uuid = uuidv4()
-      subscribeToEvent(`users-me-${uuid}`, ({ users }) => resolve(users))
+
+      // TODO: There is a mix between users and user
+      subscribeToEvent<{ users: User }>(`users-me-${uuid}`, ({ users }) => resolve(users))
       sendEvent({
         action: 'users-me',
         data: { id: uuid }
@@ -69,7 +71,7 @@ const users: Users = {
   teamMembers: () => {
     return new Promise((resolve) => {
       const uuid = uuidv4()
-      subscribeToEvent(`users-team-members-${uuid}`, ({ users }) => resolve(users))
+      subscribeToEvent<{ users: User[] }>(`users-team-members-${uuid}`, ({ users }) => resolve(users))
       sendEvent({
         action: 'users-team-members',
         data: { id: uuid }
@@ -80,7 +82,7 @@ const users: Users = {
   everyone() {
     return new Promise((resolve) => {
       const uuid = uuidv4()
-      subscribeToEvent(`users-everyone-${uuid}`, ({ users }) => resolve(users))
+      subscribeToEvent<{ users: User[] }>(`users-everyone-${uuid}`, ({ users }) => resolve(users))
       sendEvent({
         action: 'users-everyone',
         data: { id: uuid }

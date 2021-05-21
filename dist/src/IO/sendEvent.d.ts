@@ -1,4 +1,4 @@
-export default function sendEvent(payload: {
+export default function sendEvent<T extends Record<string, unknown>>(payload: {
     action: string;
-    data: any;
+    data: T;
 }): void;

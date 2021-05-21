@@ -23,7 +23,7 @@ declare const _default: {
     showIframe(data: {
         size?: string;
         template: string;
-        variables?: any;
+        variables?: Record<string, unknown>;
         onMessage?: (arg: unknown) => unknown;
     }): Promise<ModalInstance>;
 };

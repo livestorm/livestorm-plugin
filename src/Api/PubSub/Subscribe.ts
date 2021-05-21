@@ -14,7 +14,7 @@ import subscribeToEvent from '../../IO/subscribeToEvent'
   * 
   * 
 */
-export default function Subscribe(eventName: string, onEventReceived: (message: any) => any): void {
+export default function Subscribe(eventName: string, onEventReceived: (message: Record<string, unknown>) => void): void {
   subscribeToEvent(eventName, (message) => onEventReceived(message))
 
   sendEvent({

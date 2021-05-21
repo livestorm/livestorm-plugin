@@ -15,7 +15,7 @@ export default {
     * @param callback - A function to be called whenever the event is triggered
     * 
   */
-  eventEnds: (callback: (params: any) => unknown): void => {
+  eventEnds: (callback: (params: Record<string, unknown>) => void): void => {
     const uuid = uuidv4()
     sendEvent({
       action: 'event-ends',
@@ -37,7 +37,7 @@ export default {
     * @param callback - A function to be called whenever the event is triggered
     * 
   */
- eventStarts: (callback: (params: any) => unknown): void => {
+ eventStarts: (callback: (params: Record<string, unknown>) => void): void => {
   const uuid = uuidv4()
   sendEvent({
     action: 'event-starts',

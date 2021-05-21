@@ -7,4 +7,4 @@
   * @param callback - Function that will be called whenever the user posts a message
   *
 */
-export default function Listen(callback: (message: any) => void): void;
+export default function Listen(callback: (message: Record<string, unknown>) => void): void;

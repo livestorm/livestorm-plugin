@@ -1,5 +1,9 @@
+import { ConfigurationData } from '../../types/configuration'
+
 import subscribeToEvent from '../IO/subscribeToEvent'
 import Configuration from '../Configuration'
+
+
 
 /**
   * Allows to register and start the plugin at the correct moment.
@@ -16,7 +20,7 @@ import Configuration from '../Configuration'
   * 
 */
 export default function register(main: () => unknown): void {
-  subscribeToEvent('register', (data) => {
+  subscribeToEvent<ConfigurationData>('register', (data) => {
     Configuration.set(data)
     main()
   })

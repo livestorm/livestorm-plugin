@@ -1,4 +1,3 @@
-import { Variables } from '../../types/common';
 declare const createStream: (id: any) => {
     /**
       * Update the content of a stream
@@ -37,7 +36,7 @@ declare const _default: {
     */
     addStream(data: {
         template: string;
-        variables: Variables;
+        variables: Record<string, unknown>;
         onMessage: (arg: unknown) => unknown;
     }): Promise<ReturnType<typeof createStream>>;
     /**
@@ -75,7 +74,7 @@ declare const _default: {
         imageUrl?: string;
         disabled?: boolean;
         template: string;
-        variables: Variables;
+        variables: Record<string, unknown>;
     }): void;
     /**
       *
@@ -106,7 +105,7 @@ declare const _default: {
         template: string;
         disabled?: boolean;
         effects: Array<{
-            variables: Variables;
+            variables: Record<string, unknown>;
             label: string;
             imageUrl?: string;
         }>;

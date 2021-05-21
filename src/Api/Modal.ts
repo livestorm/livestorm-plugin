@@ -3,7 +3,7 @@ import sendEvent from '../IO/sendEvent'
 import processTemplate from '../IO/processTemplate'
 import subscribeToEvent from '../IO/subscribeToEvent'
 
-const createInstance = (id) => ({
+const createInstance = (id: string) => ({
   /**
     * Send a message to the modal.
     * Can be catched via a window.addEventListener('message', () => {}).
@@ -11,7 +11,7 @@ const createInstance = (id) => ({
     * @param data - Any data you want to send to the iframe
     * 
   */
-  sendMessage(data) {
+  sendMessage(data: Record<string, unknown>) {
     sendEvent({
       action: `iframe-message-to-${id}`,
       data: { data, id }
@@ -42,7 +42,7 @@ export default {
     * 
     * 
   */
-  showIframe(data: { size?: string, template: string, variables?: any, onMessage?: (arg: unknown) => unknown }): Promise<ModalInstance> {
+  showIframe(data: { size?: string, template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<ModalInstance> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))

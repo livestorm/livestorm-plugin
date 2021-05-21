@@ -7,6 +7,7 @@ const users = {
     me: () => {
         return new Promise((resolve) => {
             const uuid = uuid_1.v4();
+            // TODO: There is a mix between users and user
             subscribeToEvent_1.default(`users-me-${uuid}`, ({ users }) => resolve(users));
             sendEvent_1.default({
                 action: 'users-me',

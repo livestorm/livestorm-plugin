@@ -1,4 +1,3 @@
-import { Variables } from '../../types/common';
 declare const _default: {
     /**
       * Register an entry in the stage actions (for contributors and participants)
@@ -25,18 +24,18 @@ declare const _default: {
         imageSource?: string;
         dropdownActions?: {
             name?: string;
-            label: any;
+            label: string;
             imageSource?: string;
         }[];
         dropdownActionsTextClasses?: string;
         iframe?: {
             template: string;
-            variables: Variables;
+            variables: Record<string, unknown>;
             width: number;
             height: number;
-            onMessage?: (payload?: any) => unknown;
+            onMessage?: (payload?: Record<string, unknown>) => unknown;
         };
-        onClick?: (payload?: any) => unknown;
+        onClick?: (payload?: Record<string, unknown>) => unknown;
     }) => {
         remove: () => void;
     };

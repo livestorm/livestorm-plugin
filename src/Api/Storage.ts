@@ -1,10 +1,10 @@
 import Configuration from '../Configuration'
 
 function getScopeId(scope = 'event') {
-  if (scope === 'event') return Configuration.data.eventTypeId
-  else if (scope === 'session') return Configuration.data.sessionId
-  else if (scope === 'organization') return Configuration.data.organizationId
-  else return Configuration.data.eventTypeId
+  if (scope === 'event') return Configuration.eventTypeId
+  else if (scope === 'session') return Configuration.sessionId
+  else if (scope === 'organization') return Configuration.organizationId
+  else return Configuration.eventTypeId
 }
 
 export default {
@@ -23,7 +23,7 @@ export default {
     * 
   */
   async setItem(key: string, value: string, options = { scope: 'event' }): Promise<Response> {
-    const { organizationId, pluginId, pluginHost } = Configuration.data
+    const { organizationId, pluginId, pluginHost } = Configuration
 
     return await fetch(`${pluginHost}/api/v1/storage_keys`, {
       method: 'POST',
@@ -54,7 +54,7 @@ export default {
     * 
   */
   async getItem(key: string, options = { scope: 'event' }): Promise<string> {
-    const { organizationId, pluginId, pluginHost } = Configuration.data
+    const { organizationId, pluginId, pluginHost } = Configuration
 
     const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`)
     const body = await res.json()
