@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 /**
   * Subscribe to a Published event.
   * Can be used to trigger any action whenever an event is Published in use cases such as :

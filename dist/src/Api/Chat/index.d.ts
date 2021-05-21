@@ -1,9 +1,9 @@
-import listen from './Listen';
-import intercept from './Intercept';
-import send from './Send';
-import broadcast from './Broadcast';
-import registerShareButton from './RegisterShareButton';
-import registerMessageAction from './RegisterMessageAction';
+import listen from './listen';
+import intercept from './intercept';
+import send from './send';
+import broadcast from './broadcast';
+import registerShareButton from './registerShareButton';
+import registerMessageAction from './registerMessageAction';
 declare const _default: {
     listen: typeof listen;
     intercept: typeof intercept;

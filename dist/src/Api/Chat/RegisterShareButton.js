@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 /**
   * Register an entry in the Share menu of the chat.
   * Can be used to trigger any action (sharing custom content, files, videos, etc)
@@ -28,4 +28,4 @@ function registerShareButton({ label, icon, imageSource, onClick }) {
     subscribeToEvent_1.default(`chat-register-share-button-${uuid}`, () => onClick());
 }
 exports.default = registerShareButton;
-//# sourceMappingURL=RegisterShareButton.js.map
+//# sourceMappingURL=registerShareButton.js.map

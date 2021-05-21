@@ -1,7 +1,7 @@
 import { ConfigurationData } from '@/types/configuration'
 
-import subscribeToEvent from '@/IO/subscribeToEvent'
-import Configuration from '@/Configuration'
+import subscribeToEvent from '@/io/subscribeToEvent'
+import Configuration from '@/configuration'
 
 
 

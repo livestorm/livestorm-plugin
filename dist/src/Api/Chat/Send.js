@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 /**
   * Adds a message in the chat.
   * Message will be sent locally to the connected user
@@ -50,4 +50,4 @@ function Send(data) {
     };
 }
 exports.default = Send;
-//# sourceMappingURL=Send.js.map
+//# sourceMappingURL=send.js.map

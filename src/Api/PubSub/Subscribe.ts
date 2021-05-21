@@ -1,5 +1,5 @@
-import sendEvent from '@/IO/sendEvent'
-import subscribeToEvent from '@/IO/subscribeToEvent'
+import sendEvent from '@/io/sendEvent'
+import subscribeToEvent from '@/io/subscribeToEvent'
 
 /**
   * Subscribe to a Published event.

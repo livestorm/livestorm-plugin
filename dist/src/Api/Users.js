@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 const users = {
     me: () => {
         return new Promise((resolve) => {
@@ -37,4 +37,4 @@ const users = {
     }
 };
 exports.default = users;
-//# sourceMappingURL=Users.js.map
+//# sourceMappingURL=users.js.map

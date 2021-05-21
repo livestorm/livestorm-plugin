@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 exports.default = {
     /**
       *
@@ -45,4 +45,4 @@ exports.default = {
         subscribeToEvent_1.default(`event-starts-listener-${uuid}`, (payload) => callback(payload));
     }
 };
-//# sourceMappingURL=When.js.map
+//# sourceMappingURL=when.js.map

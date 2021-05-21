@@ -9,4 +9,4 @@ class Configuration {
 }
 exports.default = Configuration;
 Configuration.url = '*';
-//# sourceMappingURL=Configuration.js.map
+//# sourceMappingURL=configuration.js.map

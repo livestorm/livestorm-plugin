@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
-const Configuration_1 = require("@/Configuration");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
+const configuration_1 = require("@/configuration");
 /**
   * Allows to register and start the plugin at the correct moment.
   * Code executed outside of the register function might not be loaded properly (unmounted or not yet defined components).
@@ -18,9 +18,9 @@ const Configuration_1 = require("@/Configuration");
 */
 function register(main) {
     subscribeToEvent_1.default('register', (data) => {
-        Configuration_1.default.set(data);
+        configuration_1.default.set(data);
         main();
     });
 }
 exports.default = register;
-//# sourceMappingURL=Register.js.map
+//# sourceMappingURL=register.js.map

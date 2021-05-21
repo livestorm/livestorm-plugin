@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 /**
   * Intercept Chat messages matching a specific regex.
   * Once intercepted, the message will not be displayed in the chat.
@@ -23,4 +23,4 @@ function Intercept(matcher, callback) {
     subscribeToEvent_1.default(`chat-intercepter-${uuid}`, (data) => callback(data));
 }
 exports.default = Intercept;
-//# sourceMappingURL=Intercept.js.map
+//# sourceMappingURL=intercept.js.map

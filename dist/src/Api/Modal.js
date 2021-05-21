@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const processTemplate_1 = require("@/IO/processTemplate");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const processTemplate_1 = require("@/io/processTemplate");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 const createInstance = (id) => ({
     /**
       * Send a message to the modal.
@@ -50,4 +50,4 @@ exports.default = {
         });
     }
 };
-//# sourceMappingURL=Modal.js.map
+//# sourceMappingURL=modal.js.map

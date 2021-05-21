@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 /**
   * Broadcasts a message in the chat.
   * Message will be displayed to all the recipients of the chat
@@ -41,4 +41,4 @@ function Broadcast(data) {
     };
 }
 exports.default = Broadcast;
-//# sourceMappingURL=Broadcast.js.map
+//# sourceMappingURL=broadcast.js.map

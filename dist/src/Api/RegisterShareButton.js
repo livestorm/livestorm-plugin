@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/IO/sendEvent");
-const subscribeToEvent_1 = require("@/IO/subscribeToEvent");
+const sendEvent_1 = require("@/io/sendEvent");
+const subscribeToEvent_1 = require("@/io/subscribeToEvent");
 exports.default = {
     /**
       * Register an entry in the Share menu for contributors.
@@ -29,4 +29,4 @@ exports.default = {
         subscribeToEvent_1.default(`register-share-button-${uuid}`, () => onClick());
     }
 };
-//# sourceMappingURL=RegisterShareButton.js.map
+//# sourceMappingURL=registerShareButton.js.map

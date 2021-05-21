@@ -1,4 +1,4 @@
-import sendEvent from '@/IO/sendEvent'
+import sendEvent from '@/io/sendEvent'
 
 /**
   * Publish an event to any connected Subscriber via websockets.

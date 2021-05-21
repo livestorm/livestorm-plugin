@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Configuration_1 = require("@/Configuration");
+const configuration_1 = require("@/configuration");
 function getScopeId(scope = 'event') {
     if (scope === 'event')
-        return Configuration_1.default.eventTypeId;
+        return configuration_1.default.eventTypeId;
     else if (scope === 'session')
-        return Configuration_1.default.sessionId;
+        return configuration_1.default.sessionId;
     else if (scope === 'organization')
-        return Configuration_1.default.organizationId;
+        return configuration_1.default.organizationId;
     else
-        return Configuration_1.default.eventTypeId;
+        return configuration_1.default.eventTypeId;
 }
 exports.default = {
     /**
@@ -37,7 +37,7 @@ exports.default = {
     */
     setItem(key, value, options = { scope: 'event' }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, pluginId, pluginHost } = Configuration_1.default;
+            const { organizationId, pluginId, pluginHost } = configuration_1.default;
             return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
                 method: 'POST',
                 headers: {
@@ -68,11 +68,11 @@ exports.default = {
     */
     getItem(key, options = { scope: 'event' }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, pluginId, pluginHost } = Configuration_1.default;
+            const { organizationId, pluginId, pluginHost } = configuration_1.default;
             const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`);
             const body = yield res.json();
             return body.storageKey ? body.storageKey.value : null;
         });
     }
 };
-//# sourceMappingURL=Storage.js.map
+//# sourceMappingURL=storage.js.map

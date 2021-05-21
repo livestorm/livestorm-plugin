@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const sendEvent_1 = require("@/IO/sendEvent");
+const sendEvent_1 = require("@/io/sendEvent");
 exports.default = {
     /**
     * Allows you to customize the background color of the Room.
@@ -20,4 +20,4 @@ exports.default = {
         });
     }
 };
-//# sourceMappingURL=Theme.js.map
+//# sourceMappingURL=theme.js.map
