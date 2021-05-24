@@ -8,4 +8,9 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  "rules": {
+    "indent"           : [1, 2,],
+    "semi"             : [1, "never"],
+    "space-unary-ops"  : 2
+  }
 };

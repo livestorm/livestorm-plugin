@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
 
@@ -37,13 +37,13 @@ export default {
     * @param callback - A function to be called whenever the event is triggered
     * 
   */
- eventStarts: (callback: (params: Record<string, unknown>) => void): void => {
-  const uuid = uuidv4()
-  sendEvent({
-    action: 'event-starts',
-    data:  { id: uuid }
-  })
+  eventStarts: (callback: (params: Record<string, unknown>) => void): void => {
+    const uuid = uuidv4()
+    sendEvent({
+      action: 'event-starts',
+      data:  { id: uuid }
+    })
 
-  subscribeToEvent(`event-starts-listener-${uuid}`, (payload) => callback(payload))
-}
+    subscribeToEvent(`event-starts-listener-${uuid}`, (payload) => callback(payload))
+  }
 }

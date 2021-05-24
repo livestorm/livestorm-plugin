@@ -2,8 +2,8 @@ export default function processTemplate(content: string, variables: Record<strin
   let node = content
   
   for (const variable in variables) {
-    node = node.split(`{{${variable}}}`).join(String(variables[variable]));
-    node = node.split(`{{ ${variable} }}`).join(String(variables[variable]));
+    node = node.split(`{{${variable}}}`).join(String(variables[variable]))
+    node = node.split(`{{ ${variable} }}`).join(String(variables[variable]))
   }
 
   return node
