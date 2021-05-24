@@ -1,26 +1,10 @@
+import { User } from '@/types/user'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
 
-interface User {
-  avatar: string,
-  color: string,
-  company_name: string,
-  first_name: string,
-  id: string,
-  is_connected: boolean,
-  is_guest_speaker: boolean,
-  is_team_member: boolean,
-  is_host?: boolean,
-  job_title: string,
-  last_name: string,
-  pending: string,
-  prepare: boolean,
-  prepare_enable_camera: boolean,
-  prepare_enable_microphone: boolean,
-}
-
-export default class {
+export default {
   /**
   * Returns the current user information
   *
@@ -29,7 +13,7 @@ export default class {
   * @returns a promise that resolves with the user information as a hash
   * 
   */
-  public static me(): Promise<User> {
+  me(): Promise<User> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 
@@ -40,7 +24,7 @@ export default class {
         data: { id: uuid }
       })
     })
-  }
+  },
 
   /**
   * @example await Livestorm.Users.teamMembers()
@@ -48,7 +32,7 @@ export default class {
   * @example await Livestorm.Users.teamMembers()
   * @returns a promise that resolves with the users information as an array
   */
-  public static teamMembers(): Promise<User[]> {
+  teamMembers(): Promise<User[]> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent<{ users: User[] }>(`users-team-members-${uuid}`, ({ users }) => resolve(users))
@@ -57,7 +41,7 @@ export default class {
         data: { id: uuid }
       })
     })
-  }
+  },
 
   
   /**
@@ -69,7 +53,7 @@ export default class {
   * @returns a promise that resolves with the users information as an array
   * 
   */
-  public static everyone(): Promise<User[]> {
+  everyone(): Promise<User[]> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent<{ users: User[] }>(`users-everyone-${uuid}`, ({ users }) => resolve(users))
@@ -78,5 +62,5 @@ export default class {
         data: { id: uuid }
       })
     })
-  }
+  },
 }
