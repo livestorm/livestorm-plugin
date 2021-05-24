@@ -1,12 +1,8 @@
+import { BroadcastedMessage, BroadcastMessageOptions } from '@/types/chat'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
-
-interface BroadcastedMessageInstance {
-  id: string,
-  onIframeMessage: (Function) => void,
-  sendMessage: (any) => void 
-}
 
 /**
   * Broadcasts a message in the chat.
@@ -19,7 +15,7 @@ interface BroadcastedMessageInstance {
   * @returns An instance of the created Message that you can use to delete the message or be notified whenever the HTML posts message
   * 
 */
-export default function Broadcast(data: { text?: string, html?: string}): BroadcastedMessageInstance {
+export default function Broadcast(data: BroadcastMessageOptions): BroadcastedMessage {
   const id = uuidv4()
   sendEvent({
     action: 'chat-broadcast',
