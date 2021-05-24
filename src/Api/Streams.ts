@@ -1,9 +1,11 @@
+import { Stream, CameraEffectOptions } from '@/types/stream'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import processTemplate from '@/io/processTemplate'
 import subscribeToEvent from '@/io/subscribeToEvent'
 
-const createStream = (id) => ({
+const createStream = (id: string): Stream => ({
   /**
     * Update the content of a stream
     *
@@ -52,7 +54,7 @@ export default {
     * @beta
     * 
   */
-  addStream(data: { template: string, variables: Record<string, unknown>, onMessage: (arg: unknown) => unknown }): Promise<ReturnType<typeof createStream>> {
+  addStream(data: { template: string, variables: Record<string, unknown>, onMessage: (arg: unknown) => unknown }): Promise<Stream> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
 
@@ -96,7 +98,7 @@ export default {
     * @beta
     * 
   */
-  registerCameraEffect(data: { label?: string, imageUrl?: string, disabled?: boolean, template: string, variables: Record<string, unknown> }): void {
+  registerCameraEffect(data: CameraEffectOptions): void {
     const uuid = uuidv4()
 
     sendEvent({
@@ -139,7 +141,7 @@ export default {
   registerMultipleCameraEffects(data: {
     template: string,
     disabled?: boolean,
-    effects: Array<{ variables: Record<string, unknown>, label: string, imageUrl?: string }>
+    effects: CameraEffectOptions[]
   }): void {
     const batchId = uuidv4()
     

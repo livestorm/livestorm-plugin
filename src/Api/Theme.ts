@@ -1,3 +1,5 @@
+import { Background } from '@/types/theme'
+
 import sendEvent from '@/io/sendEvent'
 
 export default {
@@ -12,10 +14,7 @@ export default {
   * @param saturation - A percentage between 0 and 100
   * 
   */
-  setBackground({ hue, saturation }: {
-    hue: number,
-    saturation: number
-  }): void {
+  setBackground({ hue, saturation }: Background): void {
     sendEvent({
       action: 'theme-set-background',
       data:  { hue, saturation }
