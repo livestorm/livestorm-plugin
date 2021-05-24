@@ -10,7 +10,7 @@ declare const _default: {
     */
     me(): Promise<User>;
     /**
-    * @example await Livestorm.Users.teamMembers()
+    * Returns an array containing all the team members of the event
     *
     * @example await Livestorm.Users.teamMembers()
     * @returns a promise that resolves with the users information as an array
