@@ -1,3 +1,5 @@
+import { StageButtonOptions, StageButton } from '@/types/button'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import processTemplate from '@/io/processTemplate'
@@ -22,22 +24,7 @@ export default {
     * @param onClick - Function called whenever someone clicks on your button
     * 
   */
-  register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: {
-    label?: string,
-    tooltip?: string,
-    icon?: string,
-    imageSource?: string,
-    dropdownActions?: Array<{ name?: string, label: string, imageSource?: string }>,
-    dropdownActionsTextClasses?: string,
-    iframe?: {
-      template: string,
-      variables: Record<string, unknown>,
-      width: number,
-      height: number,
-      onMessage?: (payload?: Record<string, unknown>) => unknown,
-    },
-    onClick?: (payload?: Record<string, unknown>) => unknown
-  }): { remove: () => void } => {
+  register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: StageButtonOptions): StageButton => {
     const uuid = uuidv4()
     sendEvent({
       action: 'register-stage-button',

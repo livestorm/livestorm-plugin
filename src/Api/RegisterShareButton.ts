@@ -1,3 +1,5 @@
+import { ShareButtonOptions } from '@/types/button'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
@@ -19,12 +21,7 @@ export default {
     * @param onClick - Function called whenever someone clicks on your button
     * 
   */
-  register: ({ label, icon, imageSource, onClick }: {
-    label: string,
-    icon?: string,
-    imageSource?: string,
-    onClick: () => unknown
-  }): void => {
+  register: ({ label, icon, imageSource, onClick }: ShareButtonOptions): void => {
     const uuid = uuidv4()
     sendEvent({
       action: 'register-share-button',
