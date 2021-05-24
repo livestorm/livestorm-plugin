@@ -1,9 +1,11 @@
+import { Modal } from '@/types/modal'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import processTemplate from '@/io/processTemplate'
 import subscribeToEvent from '@/io/subscribeToEvent'
 
-const createInstance = (id: string) => ({
+const createInstance = (id: string): Modal => ({
   /**
     * Send a message to the modal.
     * Can be catched via a window.addEventListener('message', () => {}).
@@ -18,10 +20,6 @@ const createInstance = (id: string) => ({
     })
   }
 })
-
-interface ModalInstance {
-  sendMessage: (any) => void 
-}
 
 export default {
   /**
@@ -42,7 +40,9 @@ export default {
     * 
     * 
   */
-  showIframe(data: { size?: string, template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<ModalInstance> {
+ 
+  // TODO: make 2 arguments, 1 for the ButtonOptions and the second for the event onMessage
+  showIframe(data: { size?: string, template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<Modal> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
