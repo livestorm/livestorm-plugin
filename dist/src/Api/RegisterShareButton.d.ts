@@ -1,3 +1,4 @@
+import { ShareButtonOptions } from '@/types/button';
 declare const _default: {
     /**
       * Register an entry in the Share menu for contributors.
@@ -15,11 +16,6 @@ declare const _default: {
       * @param onClick - Function called whenever someone clicks on your button
       *
     */
-    register: ({ label, icon, imageSource, onClick }: {
-        label: string;
-        icon?: string;
-        imageSource?: string;
-        onClick: () => unknown;
-    }) => void;
+    register: ({ label, icon, imageSource, onClick }: ShareButtonOptions) => void;
 };
 export default _default;

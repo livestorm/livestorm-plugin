@@ -1,8 +1,4 @@
-interface BroadcastedMessageInstance {
-    id: string;
-    onIframeMessage: (Function: any) => void;
-    sendMessage: (any: any) => void;
-}
+import { BroadcastedMessage, BroadcastMessageOptions } from '@/types/chat';
 /**
   * Broadcasts a message in the chat.
   * Message will be displayed to all the recipients of the chat
@@ -14,8 +10,4 @@ interface BroadcastedMessageInstance {
   * @returns An instance of the created Message that you can use to delete the message or be notified whenever the HTML posts message
   *
 */
-export default function Broadcast(data: {
-    text?: string;
-    html?: string;
-}): BroadcastedMessageInstance;
-export {};
+export default function Broadcast(data: BroadcastMessageOptions): BroadcastedMessage;

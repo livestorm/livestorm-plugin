@@ -1,3 +1,4 @@
+import { ShareButtonOptions } from '@/types/button';
 /**
   * Register an entry in the Share menu of the chat.
   * Can be used to trigger any action (sharing custom content, files, videos, etc)
@@ -14,9 +15,4 @@
   * @param onClick - Function called whenever someone clicks on your button
   *
 */
-export default function registerShareButton({ label, icon, imageSource, onClick }: {
-    label: string;
-    icon?: string;
-    imageSource?: string;
-    onClick: () => unknown;
-}): void;
+export default function registerShareButton({ label, icon, imageSource, onClick }: ShareButtonOptions): void;

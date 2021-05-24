@@ -1,3 +1,4 @@
+import { StageButtonOptions, StageButton } from '@/types/button';
 declare const _default: {
     /**
       * Register an entry in the stage actions (for contributors and participants)
@@ -17,27 +18,6 @@ declare const _default: {
       * @param onClick - Function called whenever someone clicks on your button
       *
     */
-    register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: {
-        label?: string;
-        tooltip?: string;
-        icon?: string;
-        imageSource?: string;
-        dropdownActions?: {
-            name?: string;
-            label: string;
-            imageSource?: string;
-        }[];
-        dropdownActionsTextClasses?: string;
-        iframe?: {
-            template: string;
-            variables: Record<string, unknown>;
-            width: number;
-            height: number;
-            onMessage?: (payload?: Record<string, unknown>) => unknown;
-        };
-        onClick?: (payload?: Record<string, unknown>) => unknown;
-    }) => {
-        remove: () => void;
-    };
+    register: ({ iframe, dropdownActions, dropdownActionsTextClasses, imageSource, label, icon, tooltip, onClick }: StageButtonOptions) => StageButton;
 };
 export default _default;

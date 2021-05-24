@@ -38,6 +38,7 @@ exports.default = {
       *
       *
     */
+    // TODO: make 2 arguments, 1 for the ButtonOptions and the second for the event onMessage
     showIframe(data) {
         return new Promise((resolve) => {
             const uuid = uuid_1.v4();
