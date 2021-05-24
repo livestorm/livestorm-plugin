@@ -1,3 +1,4 @@
+import { Background } from '@/types/theme';
 declare const _default: {
     /**
     * Allows you to customize the background color of the Room.
@@ -10,9 +11,6 @@ declare const _default: {
     * @param saturation - A percentage between 0 and 100
     *
     */
-    setBackground({ hue, saturation }: {
-        hue: number;
-        saturation: number;
-    }): void;
+    setBackground({ hue, saturation }: Background): void;
 };
 export default _default;

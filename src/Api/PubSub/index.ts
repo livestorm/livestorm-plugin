@@ -1,5 +1,5 @@
-import publish from './Publish'
-import subscribe from './Subscribe'
+import publish from '@/api/pubSub/publish'
+import subscribe from '@/api/pubSub/subscribe'
 
 export default {
   publish,

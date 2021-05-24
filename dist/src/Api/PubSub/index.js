@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Publish_1 = require("./Publish");
-const Subscribe_1 = require("./Subscribe");
+const publish_1 = require("@/api/pubSub/publish");
+const subscribe_1 = require("@/api/pubSub/subscribe");
 exports.default = {
-    publish: Publish_1.default,
-    subscribe: Subscribe_1.default
+    publish: publish_1.default,
+    subscribe: subscribe_1.default
 };
 //# sourceMappingURL=index.js.map

@@ -22,4 +22,4 @@ function Publish(event, data) {
     });
 }
 exports.default = Publish;
-//# sourceMappingURL=Publish.js.map
+//# sourceMappingURL=publish.js.map

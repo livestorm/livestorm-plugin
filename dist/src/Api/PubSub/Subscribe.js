@@ -23,4 +23,4 @@ function Subscribe(eventName, onEventReceived) {
     });
 }
 exports.default = Subscribe;
-//# sourceMappingURL=Subscribe.js.map
+//# sourceMappingURL=subscribe.js.map
