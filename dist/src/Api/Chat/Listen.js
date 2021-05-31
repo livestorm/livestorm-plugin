@@ -10,15 +10,16 @@ const subscribeToEvent_1 = require("@/io/subscribeToEvent");
   * @example Chat.listen(message => console.log(`Someone said ${message}`))
   *
   * @param callback - Function that will be called whenever the user posts a message
+  * @param options - A hash of options
   *
 */
-function Listen(callback) {
+function Listen(callback, options) {
     const uuid = uuid_1.v4();
     sendEvent_1.default({
-        action: 'chat-listen',
+        action: `chat-listen${(options === null || options === void 0 ? void 0 : options.everyone) ? '-everyone' : ''}`,
         data: { id: uuid }
     });
-    subscribeToEvent_1.default(`chat-listener-${uuid}`, (data) => callback(data));
+    subscribeToEvent_1.default(`chat-listener-${(options === null || options === void 0 ? void 0 : options.everyone) ? 'everyone-' : ''}${uuid}`, (data) => callback(data));
 }
 exports.default = Listen;
 //# sourceMappingURL=listen.js.map
