@@ -1,4 +1,4 @@
-import processTemplate from '../../src/IO/processTemplate'
+import processTemplate from '../../src/io/processTemplate'
 
 describe('processTemplate', () => {
   it('computes all variables', () => {
