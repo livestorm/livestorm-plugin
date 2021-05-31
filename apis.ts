@@ -1,18 +1,18 @@
-import PubSub from './src/Api/PubSub'
-import Chat from './src/Api/Chat'
-import Streams from './src/Api/Streams'
-import RegisterShareButton from './src/Api/RegisterShareButton'
-import RegisterStageButton from './src/Api/RegisterStageButton'
-import Theme from './src/Api/Theme'
-import NotificationCenter from './src/Api/NotificationCenter'
-import Storage from './src/Api/Storage'
-import Users from './src/Api/Users'
-import Modal from './src/Api/Modal'
-import Configuration from './src/Configuration'
-import When from './src/Api/When'
-import register from './src/Api/Register'
+import PubSub from '@/api/pubSub'
+import Chat from '@/api/chat'
+import Streams from '@/api/streams'
+import RegisterShareButton from '@/api/registerShareButton'
+import RegisterStageButton from '@/api/registerStageButton'
+import Theme from '@/api/theme'
+import NotificationCenter from '@/api/notificationCenter'
+import Storage from '@/api/storage'
+import Users from '@/api/users'
+import Modal from '@/api/modal'
+import Configuration from '@/configuration'
+import When from '@/api/when'
+import register from '@/api/register'
 
-export { 
+export {
   Configuration,
   PubSub,
   Streams,
