@@ -1,4 +1,4 @@
-import { Background } from '@/types/theme';
+import { Background } from '../../types/theme';
 declare const _default: {
     /**
     * Allows you to customize the background color of the Room.

@@ -1,4 +1,4 @@
-import { ShareButtonOptions } from '@/types/button';
+import { ShareButtonOptions } from '../../types/button';
 declare const _default: {
     /**
       * Register an entry in the Share menu for contributors.

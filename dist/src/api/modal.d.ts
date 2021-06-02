@@ -1,4 +1,4 @@
-import { Modal } from '@/types/modal';
+import { Modal } from '../../types/modal';
 declare const _default: {
     /**
       * Display a modal with custom HTML content.

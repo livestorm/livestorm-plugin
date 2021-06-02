@@ -1,4 +1,4 @@
-import { StageButtonOptions, StageButton } from '@/types/button';
+import { StageButtonOptions, StageButton } from '../../types/button';
 declare const _default: {
     /**
       * Register an entry in the stage actions (for contributors and participants)

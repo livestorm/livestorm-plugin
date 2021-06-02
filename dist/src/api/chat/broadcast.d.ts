@@ -1,4 +1,4 @@
-import { BroadcastedMessage, BroadcastMessageOptions } from '@/types/chat';
+import { BroadcastedMessage, BroadcastMessageOptions } from '../../../types/chat';
 /**
   * Broadcasts a message in the chat.
   * Message will be displayed to all the recipients of the chat

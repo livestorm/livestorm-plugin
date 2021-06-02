@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const sendEvent_1 = require("@/io/sendEvent");
+const sendEvent_1 = require("../../../io/sendEvent");
 /**
   * Publish an event to any connected Subscriber via websockets.
   * Can be used to communicate to other people in the Room for use cases such as :

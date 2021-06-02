@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/io/sendEvent");
-const subscribeToEvent_1 = require("@/io/subscribeToEvent");
+const sendEvent_1 = require("../../io/sendEvent");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 exports.default = {
     /**
     * Returns the current user information

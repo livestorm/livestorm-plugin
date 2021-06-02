@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const subscribeToEvent_1 = require("@/io/subscribeToEvent");
-const configuration_1 = require("@/configuration");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
+const configuration_1 = require("../../configuration");
 /**
   * Allows to register and start the plugin at the correct moment.
   * Code executed outside of the register function might not be loaded properly (unmounted or not yet defined components).

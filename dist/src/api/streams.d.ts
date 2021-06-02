@@ -1,4 +1,4 @@
-import { Stream, CameraEffectOptions } from '@/types/stream';
+import { Stream, CameraEffectOptions } from '../../types/stream';
 declare const _default: {
     /**
       * Add a custom HTML media stream to the stage.

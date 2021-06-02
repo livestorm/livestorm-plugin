@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/io/sendEvent");
-const processTemplate_1 = require("@/io/processTemplate");
-const subscribeToEvent_1 = require("@/io/subscribeToEvent");
+const sendEvent_1 = require("../../io/sendEvent");
+const processTemplate_1 = require("../../io/processTemplate");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 const createStream = (id) => ({
     /**
       * Update the content of a stream

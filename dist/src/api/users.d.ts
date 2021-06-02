@@ -1,4 +1,4 @@
-import { User } from '@/types/user';
+import { User } from '../../types/user';
 declare const _default: {
     /**
     * Returns the current user information

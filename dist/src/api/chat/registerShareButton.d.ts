@@ -1,4 +1,4 @@
-import { ShareButtonOptions } from '@/types/button';
+import { ShareButtonOptions } from '../../../types/button';
 /**
   * Register an entry in the Share menu of the chat.
   * Can be used to trigger any action (sharing custom content, files, videos, etc)

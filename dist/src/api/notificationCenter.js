@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
-const sendEvent_1 = require("@/io/sendEvent");
-const processTemplate_1 = require("@/io/processTemplate");
+const sendEvent_1 = require("../../io/sendEvent");
+const processTemplate_1 = require("../../io/processTemplate");
 exports.default = {
     /**
       * Displays custom HTML content within the Notification aera of the Room.
