@@ -1,1 +1,0 @@
-{"version":3,"file":"sendEvent.js","sourceRoot":"","sources":["../../../src/io/sendEvent.ts"],"names":[],"mappings":";;AAAA,mDAA2C;AAE3C,SAAwB,SAAS,CAAoC,OAAoC;IACvG,MAAM,WAAW,mBACf,UAAU,EAAE,uBAAa,CAAC,UAAU,IACjC,OAAO,CACX,CAAA;IACD,MAAM,CAAC,WAAW,CAAC,IAAI,CAAC,SAAS,CAAC,WAAW,CAAC,EAAE,GAAG,CAAC,CAAA;AACtD,CAAC;AAND,4BAMC"}

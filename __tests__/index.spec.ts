@@ -1,4 +1,4 @@
-import index from '../index'
+import index from '../src/index'
 
 describe('index', () => {
   it('exports an object with all exposed apis', () => {
