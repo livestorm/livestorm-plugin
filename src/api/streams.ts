@@ -1,4 +1,4 @@
-import { Stream, CameraEffectOptions } from '@/types/stream'
+import { Stream, CameraEffect, CameraEffectOptions } from '@/types/stream'
 
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
@@ -29,6 +29,22 @@ const createStream = (id: string): Stream => ({
     sendEvent({
       action: 'remove-stream',
       data: { id }
+    })
+  }
+})
+
+const createCameraEffect = (id: string): CameraEffect => ({
+  /**
+    * Send a message to the camera effect.
+    * Can be catched via a window.addEventListener('message', () => {}).
+    * 
+    * @param data - Any data you want to send to the iframe
+    * 
+  */
+  sendMessage(data: Record<string, unknown>) {
+    sendEvent({
+      action: `iframe-message-to-${id}`,
+      data: { data, id }
     })
   }
 })
@@ -98,7 +114,7 @@ export default {
     * @beta
     * 
   */
-  registerCameraEffect(data: CameraEffectOptions): void {
+  registerCameraEffect(data: CameraEffectOptions): CameraEffect {
     const uuid = uuidv4()
 
     sendEvent({
@@ -111,6 +127,8 @@ export default {
         id: uuid
       }
     })
+
+    return createCameraEffect(uuid)
   },
 
   /**
