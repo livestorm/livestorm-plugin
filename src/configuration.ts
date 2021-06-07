@@ -4,9 +4,10 @@ export default class Configuration {
   static eventTypeId: string
   static sessionId: string
   static organizationId: string
-  static pluginId: string;
+  static pluginId: string
   static pluginHost: string
-  static pluginName: string;
+  static pluginName: string
+  static locale: string
 
   public static set (data: ConfigurationData): void {
     for (const key in data) {

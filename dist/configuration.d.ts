@@ -7,5 +7,6 @@ export default class Configuration {
     static pluginId: string;
     static pluginHost: string;
     static pluginName: string;
+    static locale: string;
     static set(data: ConfigurationData): void;
 }
