@@ -42,7 +42,7 @@ export default {
   */
  
   // TODO: make 2 arguments, 1 for the ButtonOptions and the second for the event onMessage
-  showIframe(data: { size?: string, template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<Modal> {
+  showIframe(data: { size?: 'normal' | 'large' | 'extraLarge', template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<Modal> {
     return new Promise((resolve) => {
       const uuid = uuidv4()
       subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
