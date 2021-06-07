@@ -6,10 +6,11 @@ export type Stream = {
 export type CameraEffect = {
     sendMessage: (data: Record<string, unknown>) => void
 }
+
 export type CameraEffectOptions = {
     label?: string,
     imageUrl?: string,
     disabled?: boolean,
-    template: string,
-    variables: Record<string, unknown>,
+    template?: string,
+    variables?: Record<string, unknown>,
 }
