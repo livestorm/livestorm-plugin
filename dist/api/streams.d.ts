@@ -1,4 +1,4 @@
-import { Stream, CameraEffectOptions } from '../types/stream';
+import { Stream, CameraEffect, CameraEffectOptions } from '../types/stream';
 declare const _default: {
     /**
       * Add a custom HTML media stream to the stage.
@@ -55,7 +55,7 @@ declare const _default: {
       * @beta
       *
     */
-    registerCameraEffect(data: CameraEffectOptions): void;
+    registerCameraEffect(data: CameraEffectOptions): CameraEffect;
     /**
       *
       * Expose multiple effects with a single template.
