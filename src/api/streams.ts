@@ -43,7 +43,7 @@ const createCameraEffectWrapper = (id: string): CameraEffectWrapper => ({
   */
   sendMessage(data: Record<string, unknown>) {
     sendEvent({
-      action: `camera-effect-send-message`,
+      action: 'camera-effect-wrapper-send-message',
       data: { data, id }
     })
   }

@@ -39,7 +39,7 @@ const createCameraEffectWrapper = (id) => ({
     */
     sendMessage(data) {
         sendEvent_1.default({
-            action: `camera-effect-send-message`,
+            action: 'camera-effect-wrapper-send-message',
             data: { data, id }
         });
     }
