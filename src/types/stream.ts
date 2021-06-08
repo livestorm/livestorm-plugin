@@ -3,7 +3,7 @@ export type Stream = {
     destroy: () => void,
 }
 
-export type CameraEffect = {
+export type CameraEffectWrapper = {
     sendMessage: (data: Record<string, unknown>) => void
 }
 

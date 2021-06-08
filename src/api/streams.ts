@@ -1,4 +1,4 @@
-import { Stream, CameraEffect, CameraEffectOptions } from '@/types/stream'
+import { Stream, CameraEffectWrapper, CameraEffectOptions } from '@/types/stream'
 
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
@@ -33,7 +33,7 @@ const createStream = (id: string): Stream => ({
   }
 })
 
-const createCameraEffect = (id: string): CameraEffect => ({
+const createCameraEffectWrapper = (id: string): CameraEffectWrapper => ({
   /**
     * Send a message to the camera effect.
     * Can be catched via a window.addEventListener('message', () => {}).
@@ -114,7 +114,7 @@ export default {
     * @beta
     * 
   */
-  registerCameraEffect(data: CameraEffectOptions): CameraEffect {
+  registerCameraEffect(data: CameraEffectOptions): CameraEffectWrapper {
     const uuid = uuidv4()
 
     sendEvent({
@@ -128,7 +128,7 @@ export default {
       }
     })
 
-    return createCameraEffect(uuid)
+    return createCameraEffectWrapper(uuid)
   },
 
   /**
@@ -160,7 +160,7 @@ export default {
     template: string,
     disabled?: boolean,
     effects: CameraEffectOptions[]
-  }): void {
+  }): CameraEffectWrapper {
     const batchId = uuidv4()
     
     data.effects.forEach((effect) => {
@@ -179,5 +179,7 @@ export default {
         }
       })
     })
+
+    return createCameraEffectWrapper(batchId)
   },  
 }
