@@ -5,7 +5,7 @@ export declare type Stream = {
     }) => void;
     destroy: () => void;
 };
-export declare type CameraEffect = {
+export declare type CameraEffectWrapper = {
     sendMessage: (data: Record<string, unknown>) => void;
 };
 export declare type CameraEffectOptions = {

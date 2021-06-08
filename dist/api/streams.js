@@ -29,7 +29,7 @@ const createStream = (id) => ({
         });
     }
 });
-const createCameraEffect = (id) => ({
+const createCameraEffectWrapper = (id) => ({
     /**
       * Send a message to the camera effect.
       * Can be catched via a window.addEventListener('message', () => {}).
@@ -118,7 +118,7 @@ exports.default = {
                 id: uuid
             }
         });
-        return createCameraEffect(uuid);
+        return createCameraEffectWrapper(uuid);
     },
     /**
       *
@@ -163,6 +163,7 @@ exports.default = {
                 }
             });
         });
+        return createCameraEffectWrapper(batchId);
     },
 };
 //# sourceMappingURL=streams.js.map
