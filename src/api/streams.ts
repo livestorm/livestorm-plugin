@@ -43,7 +43,7 @@ const createCameraEffect = (id: string): CameraEffect => ({
   */
   sendMessage(data: Record<string, unknown>) {
     sendEvent({
-      action: `iframe-message-to-${id}`,
+      action: `camera-effect-send-message`,
       data: { data, id }
     })
   }
