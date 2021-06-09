@@ -19,7 +19,7 @@ declare const _default: {
       *
     */
     showIframe(data: {
-        size?: string;
+        size?: 'normal' | 'large' | 'extraLarge';
         template: string;
         variables?: Record<string, unknown>;
         onMessage?: (arg: unknown) => unknown;

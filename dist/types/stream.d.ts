@@ -5,10 +5,13 @@ export declare type Stream = {
     }) => void;
     destroy: () => void;
 };
+export declare type CameraEffectWrapper = {
+    sendMessage: (data: Record<string, unknown>) => void;
+};
 export declare type CameraEffectOptions = {
     label?: string;
     imageUrl?: string;
     disabled?: boolean;
-    template: string;
-    variables: Record<string, unknown>;
+    template?: string;
+    variables?: Record<string, unknown>;
 };

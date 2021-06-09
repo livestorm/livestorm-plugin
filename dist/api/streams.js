@@ -29,6 +29,21 @@ const createStream = (id) => ({
         });
     }
 });
+const createCameraEffectWrapper = (id) => ({
+    /**
+      * Send a message to the camera effect.
+      * Can be catched via a window.addEventListener('message', () => {}).
+      *
+      * @param data - Any data you want to send to the iframe
+      *
+    */
+    sendMessage(data) {
+        sendEvent_1.default({
+            action: 'camera-effect-wrapper-send-message',
+            data: { data, id }
+        });
+    }
+});
 exports.default = {
     /**
       * Add a custom HTML media stream to the stage.
@@ -103,6 +118,7 @@ exports.default = {
                 id: uuid
             }
         });
+        return createCameraEffectWrapper(uuid);
     },
     /**
       *
@@ -147,6 +163,7 @@ exports.default = {
                 }
             });
         });
+        return createCameraEffectWrapper(batchId);
     },
 };
 //# sourceMappingURL=streams.js.map

@@ -1,4 +1,4 @@
-import { Stream, CameraEffectOptions } from '@/types/stream'
+import { Stream, CameraEffectWrapper, CameraEffectOptions } from '@/types/stream'
 
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
@@ -29,6 +29,22 @@ const createStream = (id: string): Stream => ({
     sendEvent({
       action: 'remove-stream',
       data: { id }
+    })
+  }
+})
+
+const createCameraEffectWrapper = (id: string): CameraEffectWrapper => ({
+  /**
+    * Send a message to the camera effect.
+    * Can be catched via a window.addEventListener('message', () => {}).
+    * 
+    * @param data - Any data you want to send to the iframe
+    * 
+  */
+  sendMessage(data: Record<string, unknown>) {
+    sendEvent({
+      action: 'camera-effect-wrapper-send-message',
+      data: { data, id }
     })
   }
 })
@@ -98,7 +114,7 @@ export default {
     * @beta
     * 
   */
-  registerCameraEffect(data: CameraEffectOptions): void {
+  registerCameraEffect(data: CameraEffectOptions): CameraEffectWrapper {
     const uuid = uuidv4()
 
     sendEvent({
@@ -111,6 +127,8 @@ export default {
         id: uuid
       }
     })
+
+    return createCameraEffectWrapper(uuid)
   },
 
   /**
@@ -142,7 +160,7 @@ export default {
     template: string,
     disabled?: boolean,
     effects: CameraEffectOptions[]
-  }): void {
+  }): CameraEffectWrapper {
     const batchId = uuidv4()
     
     data.effects.forEach((effect) => {
@@ -161,5 +179,7 @@ export default {
         }
       })
     })
+
+    return createCameraEffectWrapper(batchId)
   },  
 }

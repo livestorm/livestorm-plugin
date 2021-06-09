@@ -3,10 +3,14 @@ export type Stream = {
     destroy: () => void,
 }
 
+export type CameraEffectWrapper = {
+    sendMessage: (data: Record<string, unknown>) => void
+}
+
 export type CameraEffectOptions = {
     label?: string,
     imageUrl?: string,
     disabled?: boolean,
-    template: string,
-    variables: Record<string, unknown>,
+    template?: string,
+    variables?: Record<string, unknown>,
 }
