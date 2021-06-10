@@ -21,8 +21,7 @@ const createInstance = (id: string): Modal => ({
   }
 })
 
-export default {
-  /**
+/**
     * Display a modal with custom HTML content. 
     * Useful for many use cases including : forms, call to actions, information box, etc
     *
@@ -41,16 +40,14 @@ export default {
     * 
   */
  
-  // TODO: make 2 arguments, 1 for the ButtonOptions and the second for the event onMessage
-  showIframe(data: { size?: 'normal' | 'large' | 'extraLarge', template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<Modal> {
-    return new Promise((resolve) => {
-      const uuid = uuidv4()
-      subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
-      sendEvent({
-        action: 'modal-show-iframe',
-        data: { template: processTemplate(data.template, data.variables), size: data.size, id: uuid }
-      })
-      resolve(createInstance(uuid))
+export function showIframe(data: { size?: 'normal' | 'large' | 'extraLarge', template: string, variables?: Record<string, unknown>, onMessage?: (arg: unknown) => unknown }): Promise<Modal> {
+  return new Promise((resolve) => {
+    const uuid = uuidv4()
+    subscribeToEvent(`iframe-message-for-${uuid}`, (response) => data.onMessage(response))
+    sendEvent({
+      action: 'modal-show-iframe',
+      data: { template: processTemplate(data.template, data.variables), size: data.size, id: uuid }
     })
-  }
+    resolve(createInstance(uuid))
+  })
 }
