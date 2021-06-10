@@ -1,7 +1,2 @@
-import publish from '../../api/pubSub/publish';
-import subscribe from '../../api/pubSub/subscribe';
-declare const _default: {
-    publish: typeof publish;
-    subscribe: typeof subscribe;
-};
-export default _default;
+export * as publish from '../../api/pubSub/publish';
+export * as subscribe from '../../api/pubSub/subscribe';
