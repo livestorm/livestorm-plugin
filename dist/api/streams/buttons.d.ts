@@ -1,4 +1,4 @@
-import { DefaultButtonOptions } from '../../types/button';
+import { CameraEffectButtonOptions } from '../../types/button';
 /** Register an entry in the Camera effects panel.
  *  Can be used to trigger any action (upload custom background...))
  *
@@ -10,4 +10,4 @@ import { DefaultButtonOptions } from '../../types/button';
  *
  * @param options - DefaultButtonOptions
  */
-export declare function registerCameraEffectButton(options: DefaultButtonOptions): void;
+export declare function registerCameraEffectButton(options: CameraEffectButtonOptions): void;

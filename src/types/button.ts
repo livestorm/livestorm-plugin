@@ -19,4 +19,10 @@ export interface StageButtonOptions extends DefaultButtonOptions {
       width: number,
       height: number,
       onMessage?: (payload?: Record<string, unknown>) => unknown,
-    },}
+    }
+}
+
+export interface CameraEffectButtonOptions extends DefaultButtonOptions {
+    type: 'button' | 'upload'
+    onUpload?: (payload?: string) => unknown
+}

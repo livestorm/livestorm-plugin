@@ -1,4 +1,4 @@
-import { DefaultButtonOptions } from '@/types/button'
+import { CameraEffectButtonOptions } from '@/types/button'
 
 import addButtonDefaultListeners from '@/io/addButtonDefaultListeners'
 
@@ -13,6 +13,6 @@ import addButtonDefaultListeners from '@/io/addButtonDefaultListeners'
  * 
  * @param options - DefaultButtonOptions
  */
-export function registerCameraEffectButton(options: DefaultButtonOptions): void {
+export function registerCameraEffectButton(options: CameraEffectButtonOptions): void {
   addButtonDefaultListeners('register-camera-effect-button', options)
 }

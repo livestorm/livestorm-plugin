@@ -23,3 +23,7 @@ export interface StageButtonOptions extends DefaultButtonOptions {
         onMessage?: (payload?: Record<string, unknown>) => unknown;
     };
 }
+export interface CameraEffectButtonOptions extends DefaultButtonOptions {
+    type: 'button' | 'upload';
+    onUpload?: (payload?: string) => unknown;
+}
