@@ -1,6 +1,7 @@
 import { CameraEffectButtonOptions } from '@/types/button'
 
 import addButtonDefaultListeners from '@/io/addButtonDefaultListeners'
+import subscribeToEvent from '@/io/subscribeToEvent'
 
 /** Register an entry in the Camera effects panel.
  *  Can be used to trigger any action (upload custom background...))
@@ -14,5 +15,6 @@ import addButtonDefaultListeners from '@/io/addButtonDefaultListeners'
  * @param options - DefaultButtonOptions
  */
 export function registerCameraEffectButton(options: CameraEffectButtonOptions): void {
-  addButtonDefaultListeners('register-camera-effect-button', options)
+  const uuid = addButtonDefaultListeners('register-camera-effect-button', options)
+  subscribeToEvent(`register-camera-effect-button-upload-${uuid}`, () => options.onUpload())
 }

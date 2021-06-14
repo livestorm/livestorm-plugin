@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerCameraEffectButton = void 0;
 const addButtonDefaultListeners_1 = require("../../io/addButtonDefaultListeners");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 /** Register an entry in the Camera effects panel.
  *  Can be used to trigger any action (upload custom background...))
  *
@@ -14,7 +15,8 @@ const addButtonDefaultListeners_1 = require("../../io/addButtonDefaultListeners"
  * @param options - DefaultButtonOptions
  */
 function registerCameraEffectButton(options) {
-    addButtonDefaultListeners_1.default('register-camera-effect-button', options);
+    const uuid = addButtonDefaultListeners_1.default('register-camera-effect-button', options);
+    subscribeToEvent_1.default(`register-camera-effect-button-upload-${uuid}`, () => options.onUpload());
 }
 exports.registerCameraEffectButton = registerCameraEffectButton;
 //# sourceMappingURL=buttons.js.map
