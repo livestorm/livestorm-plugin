@@ -24,5 +24,5 @@ export interface StageButtonOptions extends DefaultButtonOptions {
 
 export interface CameraEffectButtonOptions extends DefaultButtonOptions {
     type: 'button' | 'upload'
-    onUpload?: (payload?: string) => unknown
+    onUpload?: (data?: { url: string}) => unknown
 }

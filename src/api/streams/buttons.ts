@@ -14,7 +14,10 @@ import subscribeToEvent from '@/io/subscribeToEvent'
  * 
  * @param options - DefaultButtonOptions
  */
-export function registerCameraEffectButton(options: CameraEffectButtonOptions): void {
+export function registerCameraEffectButton({ onUpload, ...options }: CameraEffectButtonOptions): void {
   const uuid = addButtonDefaultListeners('register-camera-effect-button', options)
-  subscribeToEvent(`register-camera-effect-button-upload-${uuid}`, () => options.onUpload())
+
+  if (options.type === "upload") {
+    subscribeToEvent<{ url: string}>(`register-camera-effect-button-upload-${uuid}`, (data) => onUpload(data))
+  }
 }

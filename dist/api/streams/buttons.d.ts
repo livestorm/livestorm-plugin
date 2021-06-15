@@ -10,4 +10,4 @@ import { CameraEffectButtonOptions } from '../../types/button';
  *
  * @param options - DefaultButtonOptions
  */
-export declare function registerCameraEffectButton(options: CameraEffectButtonOptions): void;
+export declare function registerCameraEffectButton({ onUpload, ...options }: CameraEffectButtonOptions): void;
