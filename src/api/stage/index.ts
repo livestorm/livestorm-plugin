@@ -1,1 +1,5 @@
-export * as Buttons from './buttons'
+import * as Buttons from './buttons'
+
+export {
+  Buttons
+}

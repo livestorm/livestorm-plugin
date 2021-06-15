@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Buttons = void 0;
-exports.Buttons = require("./buttons");
+const Buttons = require("./buttons");
+exports.Buttons = Buttons;
 //# sourceMappingURL=index.js.map

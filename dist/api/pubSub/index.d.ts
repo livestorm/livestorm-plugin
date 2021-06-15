@@ -1,2 +1,3 @@
-export * as publish from '../../api/pubSub/publish';
-export * as subscribe from '../../api/pubSub/subscribe';
+import publish from '../../api/pubSub/publish';
+import subscribe from '../../api/pubSub/subscribe';
+export { publish, subscribe };
