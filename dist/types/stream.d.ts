@@ -14,4 +14,5 @@ export declare type CameraEffectOptions = {
     disabled?: boolean;
     template?: string;
     variables?: Record<string, unknown>;
+    immediateApply?: boolean;
 };
