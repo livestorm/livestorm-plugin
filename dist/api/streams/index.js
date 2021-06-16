@@ -116,6 +116,7 @@ function registerCameraEffect(data) {
             imageUrl: data.imageUrl,
             disabled: !!data.disabled,
             template: processTemplate_1.default(data.template, data.variables),
+            immediateApply: data.immediateApply,
             id: uuid
         }
     });
