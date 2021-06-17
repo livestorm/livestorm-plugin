@@ -14,4 +14,5 @@ export type CameraEffectOptions = {
     template?: string,
     variables?: Record<string, unknown>,
     immediateApply?: boolean,
+    source?: 'plugin' | 'user',
 }

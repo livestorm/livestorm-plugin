@@ -124,6 +124,7 @@ export function registerCameraEffect(data: CameraEffectOptions): CameraEffectWra
       disabled: !!data.disabled,
       template: processTemplate(data.template, data.variables),
       immediateApply: data.immediateApply,
+      source: data.source,
       id: uuid
     }
   })
