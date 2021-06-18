@@ -12,7 +12,7 @@ import subscribeToEvent from '@/io/subscribeToEvent'
  *   onClick: () => console.log('someone clicked this button')
  * })
  * 
- * @param options - DefaultButtonOptions
+ * @doc https://developers.livestorm.co/docs/streams#registercameraeffectbutton
  */
 export function registerCameraEffectButton({ onUpload, ...options }: CameraEffectButtonOptions): void {
   const uuid = addButtonDefaultListeners('register-camera-effect-button', options)

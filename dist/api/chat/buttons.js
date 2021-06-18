@@ -11,7 +11,7 @@ const addButtonDefaultListeners_1 = require("../../io/addButtonDefaultListeners"
  *   onClick: () => console.log('someone clicked this button')
  * })
  *
- * @param options - DefaultButtonOptions
+ * @doc https://developers.livestorm.co/docs/chat#registersharebutton
  */
 function registerChatShareButton(options) {
     addButtonDefaultListeners_1.default('chat-register-share-button', options);

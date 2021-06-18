@@ -23,7 +23,7 @@ const subscribeToEvent_1 = require("../../io/subscribeToEvent");
  *   onClick: () => console.log('someone clicked this button')
  * })
  *
- * @param options - DefaultButtonOptions
+ * @doc https://developers.livestorm.co/docs/streams#registercameraeffectbutton
  */
 function registerCameraEffectButton(_a) {
     var { onUpload } = _a, options = __rest(_a, ["onUpload"]);

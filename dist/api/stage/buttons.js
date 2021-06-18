@@ -14,7 +14,7 @@ const addButtonDefaultListeners_1 = require("../../io/addButtonDefaultListeners"
  *   onClick: () => console.log('someone clicked this button')
  * })
  *
- * @param options - DefaultButtonOptions
+ * @doc https://developers.livestorm.co/docs/stage#registersharebutton
  */
 function registerShareButton(options) {
     addButtonDefaultListeners_1.default('register-share-button', options);
@@ -30,7 +30,7 @@ exports.registerShareButton = registerShareButton;
    *   onClick: (payload) => {}
    * })
    *
-   * @param options - StageButtonOptions
+   * @doc https://developers.livestorm.co/docs/stage#registerstagebutton
    */
 function registerStageButton(options) {
     const { iframe } = options;

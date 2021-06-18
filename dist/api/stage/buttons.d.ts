@@ -8,7 +8,7 @@ import { DefaultButtonOptions, StageButtonOptions, StageButtonWrapper } from '..
  *   onClick: () => console.log('someone clicked this button')
  * })
  *
- * @param options - DefaultButtonOptions
+ * @doc https://developers.livestorm.co/docs/stage#registersharebutton
  */
 export declare function registerShareButton(options: DefaultButtonOptions): void;
 /** Register an entry in the stage actions (for contributors and participants)
@@ -21,6 +21,6 @@ export declare function registerShareButton(options: DefaultButtonOptions): void
    *   onClick: (payload) => {}
    * })
    *
-   * @param options - StageButtonOptions
+   * @doc https://developers.livestorm.co/docs/stage#registerstagebutton
    */
 export declare function registerStageButton(options: StageButtonOptions): StageButtonWrapper;

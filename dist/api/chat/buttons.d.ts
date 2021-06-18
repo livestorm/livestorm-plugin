@@ -8,6 +8,6 @@ import { DefaultButtonOptions } from '../../types/button';
  *   onClick: () => console.log('someone clicked this button')
  * })
  *
- * @param options - DefaultButtonOptions
+ * @doc https://developers.livestorm.co/docs/chat#registersharebutton
  */
 export declare function registerChatShareButton(options: DefaultButtonOptions): void;
