@@ -2,14 +2,14 @@ import listen from './listen'
 import intercept from './intercept'
 import send from './send'
 import broadcast from './broadcast'
-import registerShareButton from './registerShareButton'
 import registerMessageAction from './registerMessageAction'
+import * as Buttons from './buttons'
 
-export default {
+export {
   listen,
   intercept,
   send,
   broadcast,
-  registerShareButton,
-  registerMessageAction
+  registerMessageAction,
+  Buttons
 }

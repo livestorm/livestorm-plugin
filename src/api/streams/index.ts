@@ -49,8 +49,7 @@ const createCameraEffectWrapper = (id: string): CameraEffectWrapper => ({
   }
 })
 
-export default {
-  /**
+/**
     * Add a custom HTML media stream to the stage.
     * This allows you to display completely custom content to everyone in the room.
     * You can use this API to build things such as : Embed website / video, Live feed, Live coding, games, etc
@@ -70,21 +69,21 @@ export default {
     * @beta
     * 
   */
-  addStream(data: { template: string, variables: Record<string, unknown>, onMessage: (arg: unknown) => unknown }): Promise<Stream> {
-    return new Promise((resolve) => {
-      const uuid = uuidv4()
+export function addStream(data: { template: string, variables: Record<string, unknown>, onMessage: (arg: unknown) => unknown }): Promise<Stream> {
+  return new Promise((resolve) => {
+    const uuid = uuidv4()
 
-      subscribeToEvent(`stream-message-for-${uuid}`, (response) => data.onMessage(response))
-      sendEvent({
-        action: 'add-stream',
-        data: { template: processTemplate(data.template, data.variables), id: uuid }
-      })
-
-      resolve(createStream(uuid))
+    subscribeToEvent(`stream-message-for-${uuid}`, (response) => data.onMessage(response))
+    sendEvent({
+      action: 'add-stream',
+      data: { template: processTemplate(data.template, data.variables), id: uuid }
     })
-  },
 
-  /**
+    resolve(createStream(uuid))
+  })
+}
+
+/**
     * Expose a custom video effect. Gives the ability to the user to select an input stream effect.
     * This API can be used to create stream with effects such as (background blur, filters, OSD, etc)
     * 
@@ -114,24 +113,26 @@ export default {
     * @beta
     * 
   */
-  registerCameraEffect(data: CameraEffectOptions): CameraEffectWrapper {
-    const uuid = uuidv4()
+export function registerCameraEffect(data: CameraEffectOptions): CameraEffectWrapper {
+  const uuid = uuidv4()
 
-    sendEvent({
-      action: 'stream-register-camera-effect',
-      data: {
-        label: data.label,
-        imageUrl: data.imageUrl,
-        disabled: !!data.disabled,
-        template: processTemplate(data.template, data.variables),
-        id: uuid
-      }
-    })
+  sendEvent({
+    action: 'stream-register-camera-effect',
+    data: {
+      label: data.label,
+      imageUrl: data.imageUrl,
+      disabled: !!data.disabled,
+      template: processTemplate(data.template, data.variables),
+      immediateApply: data.immediateApply,
+      source: data.source,
+      id: uuid
+    }
+  })
 
-    return createCameraEffectWrapper(uuid)
-  },
+  return createCameraEffectWrapper(uuid)
+}
 
-  /**
+/**
     * 
     * Expose multiple effects with a single template.
     * This allows to get a quicker feedback when selecting a template by switching effect without reloading the 
@@ -156,30 +157,31 @@ export default {
     * @beta
     * 
   */
-  registerMultipleCameraEffects(data: {
+export function registerMultipleCameraEffects(data: {
     template: string,
     disabled?: boolean,
     effects: CameraEffectOptions[]
   }): CameraEffectWrapper {
-    const batchId = uuidv4()
+  const batchId = uuidv4()
     
-    data.effects.forEach((effect) => {
-      const uuid = uuidv4()
-      sendEvent({
-        action: 'stream-register-camera-effect',
-        data: {
-          label: effect.label,
-          imageUrl: effect.imageUrl,
-          disabled: !!data.disabled,
-          template: processTemplate(data.template, effect.variables),
-          variables: effect.variables,
-          isMultiple: true,
-          batchId,
-          id: uuid
-        }
-      })
+  data.effects.forEach((effect) => {
+    const uuid = uuidv4()
+    sendEvent({
+      action: 'stream-register-camera-effect',
+      data: {
+        label: effect.label,
+        imageUrl: effect.imageUrl,
+        disabled: !!data.disabled,
+        template: processTemplate(data.template, effect.variables),
+        variables: effect.variables,
+        isMultiple: true,
+        batchId,
+        id: uuid
+      }
     })
+  })
 
-    return createCameraEffectWrapper(batchId)
-  },  
+  return createCameraEffectWrapper(batchId)
 }
+
+export * as Buttons from './buttons'

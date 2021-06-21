@@ -1,17 +1,14 @@
-export interface ShareButtonOptions {
+export interface DefaultButtonOptions {
     label: string;
     icon?: string;
     imageSource?: string;
-    onClick: () => unknown;
+    onClick?: (payload?: Record<string, unknown>) => unknown;
 }
-export declare type StageButton = {
+export declare type StageButtonWrapper = {
     remove: () => void;
 };
-export interface StageButtonOptions {
-    label?: string;
+export interface StageButtonOptions extends DefaultButtonOptions {
     tooltip?: string;
-    icon?: string;
-    imageSource?: string;
     dropdownActions?: Array<{
         name?: string;
         label: string;
@@ -25,5 +22,10 @@ export interface StageButtonOptions {
         height: number;
         onMessage?: (payload?: Record<string, unknown>) => unknown;
     };
-    onClick?: (payload?: Record<string, unknown>) => unknown;
+}
+export interface CameraEffectButtonOptions extends DefaultButtonOptions {
+    type: 'button' | 'upload';
+    onUpload?: (data?: {
+        url: string;
+    }) => unknown;
 }

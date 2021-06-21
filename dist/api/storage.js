@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getItem = exports.setItem = void 0;
 const configuration_1 = require("../configuration");
 function getScopeId(scope = 'event') {
     if (scope === 'event')
@@ -20,59 +21,59 @@ function getScopeId(scope = 'event') {
     else
         return configuration_1.default.eventTypeId;
 }
-exports.default = {
-    /**
-      *
-      * Store a value under a specific key. This storage is persistant and shared across participants of the event
-      *
-      *
-      * @example Storage.setItem('key', 'value')
-      *
-      * @param key - The key that will allow you to retrieve the value
-      * @param value - The value you want to store
-      *
-      * @returns a promise that resolves whenever the value has been successfuly stored
-      *
-      *
-    */
-    setItem(key, value, options = { scope: 'event' }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, pluginId, pluginHost } = configuration_1.default;
-            return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    key,
-                    value,
-                    organization_id: organizationId,
-                    session_id: getScopeId(options.scope),
-                    plugin_id: pluginId
-                })
-            });
+/**
+    *
+    * Store a value under a specific key. This storage is persistant and shared across participants of the event
+    *
+    *
+    * @example Storage.setItem('key', 'value')
+    *
+    * @param key - The key that will allow you to retrieve the value
+    * @param value - The value you want to store
+    *
+    * @returns a promise that resolves whenever the value has been successfuly stored
+    *
+    *
+  */
+function setItem(key, value, options = { scope: 'event' }) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { organizationId, pluginId, pluginHost } = configuration_1.default;
+        return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                key,
+                value,
+                organization_id: organizationId,
+                session_id: getScopeId(options.scope),
+                plugin_id: pluginId
+            })
         });
-    },
-    /**
-      *
-      * Retrieve a value set at a specific key. This storage is persistant and shared across participants of the event
-      *
-      *
-      * @example Storage.getItem('key')
-      *
-      * @param key - The key at which you item is set
-      *
-      * @returns a promise that resolves with the stored value
-      *
-      *
-    */
-    getItem(key, options = { scope: 'event' }) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { organizationId, pluginId, pluginHost } = configuration_1.default;
-            const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`);
-            const body = yield res.json();
-            return body.storageKey ? body.storageKey.value : null;
-        });
-    }
-};
+    });
+}
+exports.setItem = setItem;
+/**
+    *
+    * Retrieve a value set at a specific key. This storage is persistant and shared across participants of the event
+    *
+    *
+    * @example Storage.getItem('key')
+    *
+    * @param key - The key at which you item is set
+    *
+    * @returns a promise that resolves with the stored value
+    *
+    *
+  */
+function getItem(key, options = { scope: 'event' }) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { organizationId, pluginId, pluginHost } = configuration_1.default;
+        const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`);
+        const body = yield res.json();
+        return body.storageKey ? body.storageKey.value : null;
+    });
+}
+exports.getItem = getItem;
 //# sourceMappingURL=storage.js.map

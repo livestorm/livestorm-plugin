@@ -4,7 +4,7 @@ export type Stream = {
 }
 
 export type CameraEffectWrapper = {
-    sendMessage: (data: Record<string, unknown>) => void
+    sendMessage: (data: Record<string, unknown>) => void,
 }
 
 export type CameraEffectOptions = {
@@ -13,4 +13,6 @@ export type CameraEffectOptions = {
     disabled?: boolean,
     template?: string,
     variables?: Record<string, unknown>,
+    immediateApply?: boolean,
+    source?: 'plugin' | 'user',
 }
