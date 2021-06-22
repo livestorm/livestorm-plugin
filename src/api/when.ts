@@ -1,4 +1,5 @@
 import simpleCallbackHandler from '@/io/simpleCallbackHandler'
+import { User } from '@/types/user'
 
 /**
   * 
@@ -51,7 +52,7 @@ export function eventStarts (callback: (params: Record<string, unknown>) => void
   * @param callback - A function to be called whenever the event is triggered
   * 
 */
-export function userJoins (callback: (params: Record<string, unknown>) => void): void {
+export function userJoins (callback: (params: { content: User }) => void): void {
   simpleCallbackHandler({ action: 'user-joins', callback })
 }
 
@@ -66,6 +67,6 @@ export function userJoins (callback: (params: Record<string, unknown>) => void):
   * @param callback - A function to be called whenever the event is triggered
   * 
 */
-export function userLeaves (callback: (params: Record<string, unknown>) => void): void {
+export function userLeaves (callback: (params: { content: User }) => void): void {
   simpleCallbackHandler({ action: 'user-leaves', callback })
 }
