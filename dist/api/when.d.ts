@@ -1,3 +1,4 @@
+import { User } from '../types/user';
 /**
   *
   * Be notified when the event ends.
@@ -35,7 +36,9 @@ export declare function eventStarts(callback: (params: Record<string, unknown>) 
   * @param callback - A function to be called whenever the event is triggered
   *
 */
-export declare function userJoins(callback: (params: Record<string, unknown>) => void): void;
+export declare function userJoins(callback: (params: {
+    content: User;
+}) => void): void;
 /**
   *
   * Be notified when someone leaves the room.
@@ -47,4 +50,6 @@ export declare function userJoins(callback: (params: Record<string, unknown>) =>
   * @param callback - A function to be called whenever the event is triggered
   *
 */
-export declare function userLeaves(callback: (params: Record<string, unknown>) => void): void;
+export declare function userLeaves(callback: (params: {
+    content: User;
+}) => void): void;
