@@ -5,17 +5,17 @@ const uuid_1 = require("uuid");
 const sendEvent_1 = require("../io/sendEvent");
 const subscribeToEvent_1 = require("../io/subscribeToEvent");
 /**
-    *
-    * Be notified when the event ends.
-    * The callback is not called if the user joins the event after the end.
-    *
-    * @example When.eventEnds(() => {
-    *  // do something
-    * })
-    *
-    * @param callback - A function to be called whenever the event is triggered
-    *
-  */
+ *
+ * Be notified when the event ends.
+ * The callback is not called if the user joins the event after the end.
+ *
+ * @example When.eventEnds(() => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#eventends
+ *
+ */
 function eventEnds(callback) {
     const uuid = uuid_1.v4();
     sendEvent_1.default({
@@ -26,17 +26,17 @@ function eventEnds(callback) {
 }
 exports.eventEnds = eventEnds;
 /**
-    *
-    * Be notified when the event starts.
-    * The callback is not called if the user joins the event after the start.
-    *
-    * @example When.eventStarts(() => {
-    *  // do something
-    * })
-    *
-    * @param callback - A function to be called whenever the event is triggered
-    *
-  */
+ *
+ * Be notified when the event starts.
+ * The callback is not called if the user joins the event after the start.
+ *
+ * @example When.eventStarts(() => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#eventstarts
+ *
+ */
 function eventStarts(callback) {
     const uuid = uuid_1.v4();
     sendEvent_1.default({

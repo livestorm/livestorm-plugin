@@ -3,17 +3,17 @@ import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
 
 /**
-    * 
-    * Be notified when the event ends.
-    * The callback is not called if the user joins the event after the end.
-    * 
-    * @example When.eventEnds(() => {
-    *  // do something
-    * })
-    *
-    * @param callback - A function to be called whenever the event is triggered
-    * 
-  */
+ * 
+ * Be notified when the event ends.
+ * The callback is not called if the user joins the event after the end.
+ * 
+ * @example When.eventEnds(() => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#eventends
+ * 
+ */
 export function eventEnds (callback: (params: Record<string, unknown>) => void): void {
   const uuid = uuidv4()
   sendEvent({
@@ -25,17 +25,17 @@ export function eventEnds (callback: (params: Record<string, unknown>) => void):
 }
 
 /**
-    * 
-    * Be notified when the event starts.
-    * The callback is not called if the user joins the event after the start.
-    * 
-    * @example When.eventStarts(() => {
-    *  // do something
-    * })
-    *
-    * @param callback - A function to be called whenever the event is triggered
-    * 
-  */
+ * 
+ * Be notified when the event starts.
+ * The callback is not called if the user joins the event after the start.
+ * 
+ * @example When.eventStarts(() => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#eventstarts
+ * 
+ */
 export function eventStarts (callback: (params: Record<string, unknown>) => void): void {
   const uuid = uuidv4()
   sendEvent({

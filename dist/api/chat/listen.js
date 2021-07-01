@@ -4,15 +4,15 @@ const uuid_1 = require("uuid");
 const sendEvent_1 = require("../../io/sendEvent");
 const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 /**
-  * Be notified whenever someone posts a message in the chat.
-  * May be used to create Chat bots, or forward messages to another API (slack, intercom, etc)
-  *
-  * @example Chat.listen(message => console.log(`Someone said ${message}`))
-  *
-  * @param callback - Function that will be called whenever the user posts a message
-  * @param options - A hash of options
-  *
-*/
+ *
+ * Be notified whenever someone posts a message in the chat.
+ * May be used to create Chat bots, or forward messages to another API (slack, intercom, etc)
+ *
+ * @example Chat.listen(message => console.log(`Someone said ${message}`))
+ *
+ * @doc https://developers.livestorm.co/docs/chat#listen
+ *
+ */
 function Listen(callback, options) {
     const uuid = uuid_1.v4();
     sendEvent_1.default({
