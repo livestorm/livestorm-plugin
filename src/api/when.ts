@@ -1,6 +1,5 @@
-import { v4 as uuidv4 } from 'uuid'
-import sendEvent from '@/io/sendEvent'
-import subscribeToEvent from '@/io/subscribeToEvent'
+import simpleCallbackHandler from '@/io/simpleCallbackHandler'
+import { User } from '@/types/user'
 
 /**
  * 
@@ -15,13 +14,11 @@ import subscribeToEvent from '@/io/subscribeToEvent'
  * 
  */
 export function eventEnds (callback: (params: Record<string, unknown>) => void): void {
-  const uuid = uuidv4()
-  sendEvent({
+  simpleCallbackHandler({
     action: 'event-ends',
-    data:  { id: uuid }
+    listener: 'event-ends-listener',
+    callback
   })
-
-  subscribeToEvent(`event-ends-listener-${uuid}`, (payload) => callback(payload))
 }
 
 /**
@@ -37,11 +34,39 @@ export function eventEnds (callback: (params: Record<string, unknown>) => void):
  * 
  */
 export function eventStarts (callback: (params: Record<string, unknown>) => void): void {
-  const uuid = uuidv4()
-  sendEvent({
+  simpleCallbackHandler({
     action: 'event-starts',
-    data:  { id: uuid }
+    listener: 'event-starts-listener',
+    callback
   })
+}
 
-  subscribeToEvent(`event-starts-listener-${uuid}`, (payload) => callback(payload))
+/**
+ * 
+ * Be notified when someone enters the room.
+ * 
+ * @example When.userJoins(() => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#userjoins
+ * 
+ */
+export function userJoins (callback: (params: { content: User }) => void): void {
+  simpleCallbackHandler({ action: 'user-joins', callback })
+}
+
+/**
+ * 
+ * Be notified when someone leaves the room.
+ * 
+ * @example When.userJoins(() => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#userleaves
+ * 
+ */
+export function userLeaves (callback: (params: { content: User }) => void): void {
+  simpleCallbackHandler({ action: 'user-leaves', callback })
 }
