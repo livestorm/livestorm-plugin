@@ -1,47 +1,72 @@
-import { v4 as uuidv4 } from 'uuid'
-import sendEvent from '@/io/sendEvent'
-import subscribeToEvent from '@/io/subscribeToEvent'
+import simpleCallbackHandler from '@/io/simpleCallbackHandler'
+import { User } from '@/types/user'
 
 /**
-    * 
-    * Be notified when the event ends.
-    * The callback is not called if the user joins the event after the end.
-    * 
-    * @example When.eventEnds(() => {
-    *  // do something
-    * })
-    *
-    * @param callback - A function to be called whenever the event is triggered
-    * 
-  */
+  * 
+  * Be notified when the event ends.
+  * The callback is not called if the user joins the event after the end.
+  * 
+  * @example When.eventEnds(() => {
+  *  // do something
+  * })
+  *
+  * @param callback - A function to be called whenever the event is triggered
+  * 
+*/
 export function eventEnds (callback: (params: Record<string, unknown>) => void): void {
-  const uuid = uuidv4()
-  sendEvent({
+  simpleCallbackHandler({
     action: 'event-ends',
-    data:  { id: uuid }
+    listener: 'event-ends-listener',
+    callback
   })
-
-  subscribeToEvent(`event-ends-listener-${uuid}`, (payload) => callback(payload))
 }
 
 /**
-    * 
-    * Be notified when the event starts.
-    * The callback is not called if the user joins the event after the start.
-    * 
-    * @example When.eventStarts(() => {
-    *  // do something
-    * })
-    *
-    * @param callback - A function to be called whenever the event is triggered
-    * 
-  */
+  * 
+  * Be notified when the event starts.
+  * The callback is not called if the user joins the event after the start.
+  * 
+  * @example When.eventStarts(() => {
+  *  // do something
+  * })
+  *
+  * @param callback - A function to be called whenever the event is triggered
+  * 
+*/
 export function eventStarts (callback: (params: Record<string, unknown>) => void): void {
-  const uuid = uuidv4()
-  sendEvent({
+  simpleCallbackHandler({
     action: 'event-starts',
-    data:  { id: uuid }
+    listener: 'event-starts-listener',
+    callback
   })
+}
 
-  subscribeToEvent(`event-starts-listener-${uuid}`, (payload) => callback(payload))
+/**
+  * 
+  * Be notified when someone enters the room.
+  * 
+  * @example When.userJoins(() => {
+  *  // do something
+  * })
+  *
+  * @param callback - A function to be called whenever the event is triggered
+  * 
+*/
+export function userJoins (callback: (params: { content: User }) => void): void {
+  simpleCallbackHandler({ action: 'user-joins', callback })
+}
+
+/**
+  * 
+  * Be notified when someone leaves the room.
+  * 
+  * @example When.userJoins(() => {
+  *  // do something
+  * })
+  *
+  * @param callback - A function to be called whenever the event is triggered
+  * 
+*/
+export function userLeaves (callback: (params: { content: User }) => void): void {
+  simpleCallbackHandler({ action: 'user-leaves', callback })
 }
