@@ -5,6 +5,7 @@ register(() => {
     'label': 'hello',
     onClick: () => {
       console.log('foo:bar')
+      console.log('check:update')
     },
     type: 'button'
   })
