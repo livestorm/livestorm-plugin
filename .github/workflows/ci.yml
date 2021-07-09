@@ -6,12 +6,35 @@ name: Build and test CI
 on: [push]
 
 jobs:
-  cypress-run:
-    name: Cypress run
+  publish-plugin:
+    name: Publish plugin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Install
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
+      - name: Install livestorm-cli
+        run: yarn add @livestorm/cli global
+
+      - name: Build plugin
+        working-directory: plugin
+        run: yarn
+
+      - name: Publish plugin
+        working-directory: plugin
+        run: livestorm publish
+
+
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
