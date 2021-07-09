@@ -22,6 +22,12 @@ jobs:
         working-directory: plugin
         run: yarn
 
+      - name: Create environment file
+        uses: finnp/create-file-action@1.0.0
+        env:
+          FILE_NAME: "plugin/environments.json"
+          FILE_DATA: "{ \"development\": { \"name\": \"plugin-e2e\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" } }"
+
       - name: Publish plugin
         working-directory: plugin
         run: yarn livestorm publish
