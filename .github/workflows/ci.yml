@@ -33,6 +33,7 @@ jobs:
   cypress-run:
     name: Cypress run
     runs-on: ubuntu-latest
+    needs: publish-plugin
     steps:
       - uses: actions/checkout@v2
 
