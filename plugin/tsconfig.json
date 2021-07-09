@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "moduleResolution": "Node",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./build"
+  },
+  "include": [
+    "index.ts"
+  ],
+  "exclude": ["node_modules", "__tests__"]
+}
