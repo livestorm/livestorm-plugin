@@ -18,16 +18,13 @@ jobs:
         with:
           runTests: false
 
-      - name: Install livestorm-cli
-        run: yarn add @livestorm/cli global
-
-      - name: Build plugin
+      - name: Install plugin dependencies
         working-directory: plugin
         run: yarn
 
       - name: Publish plugin
         working-directory: plugin
-        run: livestorm publish
+        run: yarn livestorm publish
 
 
   cypress-run:
