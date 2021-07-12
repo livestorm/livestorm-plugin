@@ -1,12 +1,7 @@
-import { Streams, register } from '../dist/index'
+import { register } from '../dist/index'
 
-register(() => {
-  Streams.Buttons.registerCameraEffectButton({
-    'label': 'hello',
-    onClick: () => {
-      console.log('foo:bar')
-      console.log('check:update')
-    },
-    type: 'button'
-  })
+import stage from './stage'
+
+register( () => {
+  stage()
 })
