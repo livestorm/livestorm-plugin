@@ -44,7 +44,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           spec: cypress/integration/spec-*.ts
-          config: baseUrl=${{ secrets.APP_URL }}
+          config: baseUrl=http://app.livestorm.co
           config-file: false
           record: true
           browser: chrome

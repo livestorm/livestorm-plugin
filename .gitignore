@@ -3,3 +3,5 @@ plugin/environments.json
 plugin/build
 cypress.json
 cypress.env.json
+cypress/videos
+cypress/screenshots
