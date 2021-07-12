@@ -1,4 +1,5 @@
 node_modules
 plugin/environments.json
 plugin/build
+cypress.json
 cypress.env.json
