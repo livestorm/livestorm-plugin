@@ -4,25 +4,26 @@ declare namespace Cypress {
     /**
      * Login then select the first event and enter the room
      */
-    roomEnter(): Cypress.Chainable<null>;
+    roomEnter(lobbyOnly?: boolean): Cypress.Chainable<null>;
 
     /**
      * Close the session of the user
      */
-     logout(): Cypress.Chainable<null>;
+    logout(): Cypress.Chainable<null>;
   }
 }
 
-Cypress.Commands.add('roomEnter', () => {
+Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
+  cy.request('POST', '/api/v1/auth/strong/session', { 
+    "email": Cypress.env('TEAM_MEMBER_EMAIL'), 
+    "password": Cypress.env('TEAM_MEMBER_PASSWORD'), 
+    "provider": "email_password"
+  })
+
+  
   cy.visit('/')
-
-  cy.intercept('/api/v1/organizations/current').as('logged')
-
-  cy.get('[id^="BaseFormInput:email"]').type(Cypress.env('TEAM_MEMBER_EMAIL'))
-  cy.get('[id^="BaseFormInput:password"]').type(Cypress.env('TEAM_MEMBER_PASSWORD'))
-  cy.get('button[type="submit"]').click()
-
-  cy.wait('@logged')
+  
+  cy.getCookie('refresh_token').should('exist')
 
   cy.get('.data-view-item', {
     timeout: 10000
@@ -36,10 +37,11 @@ Cypress.Commands.add('roomEnter', () => {
     cy.visit(link as unknown as string)
   })
 
-  cy.get('.confirm-config-button:not([disabled])', {
-    timeout: 10000
-  }).click()
-
+  if (lobbyOnly === false) {
+    cy.get('.confirm-config-button:not([disabled])', {
+      timeout: 10000
+    }).click()
+  }
 })
 
 Cypress.Commands.add('logout', () => {
