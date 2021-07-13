@@ -28,7 +28,9 @@ Cypress.Commands.add('roomEnter', () => {
     timeout: 10000
   }).click()
 
-  cy.get('[data-testid="access-event-room"]').invoke('attr', 'href').as('link')
+  cy.get('[data-testid="access-event-room"]', {
+    timeout: 10000
+  }).invoke('attr', 'href').as('link')
 
   cy.get('@link').then(link => {
     cy.visit(link as unknown as string)
