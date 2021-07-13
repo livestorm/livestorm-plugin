@@ -4,7 +4,9 @@
     "moduleResolution": "Node",
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./build"
+    "outDir": "./build",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": [
     "index.ts"
