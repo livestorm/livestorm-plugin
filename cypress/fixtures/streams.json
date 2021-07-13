@@ -1,0 +1,24 @@
+{
+  "registerCameraEffect": {
+    "label": "foo",
+    "template": "<script>window.setupStream = () => publishStream()</script>",
+    "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/open_space-200x112.png"
+  },
+  "registerMultipleCameraEffects": {
+    "template": "<script>window.setupStream = () => publishStream()</script>",
+    "effects": [
+      {
+        "label": "bar",
+        "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/deco-200x112.png"
+      },
+      {
+        "label": "baz",
+        "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/chill-200x112.png"
+      },
+      {
+        "label": "qux",
+        "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/lounge-200x112.png"
+      }
+    ]
+  }
+}
