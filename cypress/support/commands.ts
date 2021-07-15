@@ -14,6 +14,8 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
+  cy.visit('/')
+
   cy.request('POST', '/api/v1/auth/strong/session', { 
     "email": Cypress.env('TEAM_MEMBER_EMAIL'), 
     "password": Cypress.env('TEAM_MEMBER_PASSWORD'), 
