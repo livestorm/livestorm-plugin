@@ -1,9 +1,9 @@
 describe('The streams', () => {
-  beforeEach(() => {
+  before(() => {
     cy.roomEnter(true)
   })
   
-  afterEach( () => {
+  after( () => {
     cy.logout()
   })
 

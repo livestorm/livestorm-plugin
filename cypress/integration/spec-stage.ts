@@ -1,9 +1,9 @@
 describe('The stage', () => {
-  beforeEach(() => {
+  before(() => {
     cy.roomEnter()
   })
   
-  afterEach( () => {
+  after( () => {
     cy.logout()
   })
 
