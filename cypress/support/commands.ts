@@ -14,15 +14,52 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
-  cy.request('POST', '/api/v1/auth/strong/session', { 
-    "email": Cypress.env('TEAM_MEMBER_EMAIL'), 
-    "password": Cypress.env('TEAM_MEMBER_PASSWORD'), 
+  cy.viewport('macbook-15')
+
+  cy.intercept('/api/v1/team_members/current').as('user')
+  cy.intercept('/api/v1/auth/strong/token').as('token')
+
+  // LogIn
+  cy.request('POST', '/api/v1/auth/strong/session', {
+    "email": Cypress.env('TEAM_MEMBER_EMAIL'),
+    "password": Cypress.env('TEAM_MEMBER_PASSWORD'),
     "provider": "email_password"
   })
 
   cy.visit('/')
-  
   cy.getCookie('refresh_token').should('exist')
+
+  cy.wait('@user').then(({ response: { body: { id } } }) => {
+    cy.wait('@token').then(({ response: { body: { data }}}) => {
+      // cy.setCookie('token', data.jwt.encoded)
+  
+      // Create session from event
+      cy.request({
+        method: 'POST',
+        url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions`,
+        headers: {
+          "ls-authorization": "Bearer " + data.jwt.encoded
+        },
+        body: { 
+          "sessions": [
+            { "estimated_started_at": new Date((+new Date()+ (365 * 24 * 60 * 60 * 1000))).toISOString(),
+              "timezone": "Europe/Paris",
+              "team_members": [
+                { 
+                  "identity_id": id, 
+                  "is_highlighted": true
+                }
+              ],
+              "guest_speakers": []
+            }] 
+        }
+      }).as('sessionCreated')
+    })
+  })
+
+  cy.get('@sessionCreated').should((response) => {
+    expect(response).to.have.property('body')
+  })
 
   cy.get('.data-view-item', {
     timeout: 10000
@@ -34,7 +71,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   //   timeout: 10000
   // }).invoke('attr', 'href').as('link')
 
-  cy.get('.data-view-item .menu-overlay a', {
+  cy.get('.data-view-item').last().get('.menu-overlay a', {
     timeout: 10000
   }).last().invoke('attr', 'href').as('link')
 
@@ -50,5 +87,19 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
 })
 
 Cypress.Commands.add('logout', () => {
+  // cy.getCookie('token').then( cookie => {
+  //   cy.location().then((url) => {
+  //     cy.request({
+  //       method: 'DELETE',
+  //       url: `https://app.livestorm.local/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,
+  //       headers: {
+  //         "ls-authorization": "Bearer " + cookie.value
+  //       }
+  //     }).then((response) => {
+  //       expect(response.status).to.eq(204)
+  //     })
+  //   })
+  // })
+
   cy.visit('/#logout')
 })
