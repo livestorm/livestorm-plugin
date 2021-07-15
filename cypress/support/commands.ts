@@ -27,11 +27,17 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
 
   cy.get('.data-view-item', {
     timeout: 10000
-  }).click()
+  }).first().click()
 
-  cy.get('[data-testid="access-event-room"]', {
+  cy.url().should('include', '?page=sessions')
+
+  // cy.get('[data-testid="access-event-room"]', {
+  //   timeout: 10000
+  // }).invoke('attr', 'href').as('link')
+
+  cy.get('.data-view-item .menu-overlay a', {
     timeout: 10000
-  }).invoke('attr', 'href').as('link')
+  }).last().invoke('attr', 'href').as('link')
 
   cy.get('@link').then(link => {
     cy.visit(link as unknown as string)

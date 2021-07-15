@@ -1,10 +1,10 @@
 {
   "registerShareButton": {
-    "label": "Foo:bar",
+    "label": "registerShareButton:registerShareButton",
     "icon": "calendar"
   },
   "registerStageButton": {
-    "label": "Foo:bar",
+    "label": "registerStageButton:registerStageButton",
     "imageSource": "https://plugin-assets.ireland.production.livestorm.io/emoji-reactions/smile@2x.png"
   }
 }

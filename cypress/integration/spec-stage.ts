@@ -13,16 +13,20 @@ describe('The stage', () => {
     }).click()
 
     cy.fixture('stage').then((stage) => {
-      cy.get('[data-testid="plugin-stage-share-buttons"]', {
+      cy.contains(stage.registerShareButton.label, {
         timeout: 10000
-      }).contains(stage.registerShareButton.label).click()
+      })
     })
 
   })
 
   it('should display the stage action button', () => {
     cy.fixture('stage').then((stage) => {
-      cy.get(`[data-testid="plugin-stage-actions"] button[aria-label="${stage.registerStageButton.label}"] img`, {
+      // cy.get(`[data-testid="plugin-stage-actions"] button[aria-label="${stage.registerStageButton.label}"] img`, {
+      //   timeout: 10000
+      // }).as('stageActionButtonImage')
+
+      cy.get(`button[aria-label="${stage.registerStageButton.label}"] img`, {
         timeout: 10000
       }).as('stageActionButtonImage')
   
