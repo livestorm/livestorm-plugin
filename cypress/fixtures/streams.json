@@ -2,22 +2,22 @@
   "registerCameraEffect": {
     "label": "foo",
     "template": "<script>window.setupStream = () => publishStream()</script>",
-    "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/open_space-200x112.png"
+    "imageUrl": "foo"
   },
   "registerMultipleCameraEffects": {
     "template": "<script>window.setupStream = () => publishStream()</script>",
     "effects": [
       {
         "label": "bar",
-        "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/deco-200x112.png"
+        "imageUrl": "bar"
       },
       {
         "label": "baz",
-        "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/chill-200x112.png"
+        "imageUrl": "baz"
       },
       {
         "label": "qux",
-        "imageUrl": "https://plugin-assets.ireland.production.livestorm.io/simple-video-background/images/lounge-200x112.png"
+        "imageUrl": "qux"
       }
     ]
   }

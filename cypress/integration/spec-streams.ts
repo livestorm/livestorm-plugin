@@ -16,10 +16,11 @@ describe('The streams', () => {
     }).as('camera-effects')
 
     cy.fixture('streams').then((streams) => {
-      // The reset button, the single camera effect and the multiple camera effects
-      cy.get('@camera-effects').get('.camera-effect-button').should('have.length', 1 + 1 + streams.registerMultipleCameraEffects.effects.length)
-      cy.get('@camera-effects').get('.camera-effect-button').eq(2).get('.bg-cover')
-        .invoke('attr', 'style').should('eq', `background-image: url("${streams.registerCameraEffect.imageUrl}");`)
+      cy.get('@camera-effects').get(`[style='background-image: url("${streams.registerCameraEffect.imageUrl}");']`)
+
+      streams.registerMultipleCameraEffects.effects.forEach(effect => {
+        cy.get('@camera-effects').get(`[style='background-image: url("${effect.imageUrl}");']`)
+      })
     })
   })
 })
