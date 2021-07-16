@@ -1,0 +1,30 @@
+{
+  "broadcast": {
+    "text": "Foo",
+    "html": "<div><p>Bar</p></div>"
+  },
+  "send": {
+    "user": {
+      "firstName": "John",
+      "lastName": " L. Benson"
+    },
+    "text": "Baz",
+    "html": "<div><p>Qux</p></div>"
+  },
+  "listen": {
+    "listened": "corge",
+    "broadcasted": "grault"
+  },
+  "intercept": {
+    "regex": "garply",
+    "message": "garply waldo"
+  },
+  "registerChatShareButton": {
+    "label": "plugh",
+    "imageSource": "xyzzy"
+  },
+  "registerMessageAction": {
+    "label": "housing",
+    "imageSource": "singer"
+  }
+}

@@ -16,10 +16,10 @@ describe('The streams', () => {
     }).as('camera-effects')
 
     cy.fixture('streams').then((streams) => {
-      cy.get('@camera-effects').get(`[style='background-image: url("${streams.registerCameraEffect.imageUrl}");']`)
+      cy.get('@camera-effects').find(`[style='background-image: url("${streams.registerCameraEffect.imageUrl}");']`)
 
       streams.registerMultipleCameraEffects.effects.forEach(effect => {
-        cy.get('@camera-effects').get(`[style='background-image: url("${effect.imageUrl}");']`)
+        cy.get('@camera-effects').find(`[style='background-image: url("${effect.imageUrl}");']`)
       })
     })
   })

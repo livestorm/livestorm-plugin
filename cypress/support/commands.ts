@@ -1,4 +1,4 @@
-import { CyHttpMessages, Interception } from "cypress/types/net-stubbing"
+import { CyHttpMessages } from "cypress/types/net-stubbing"
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace Cypress {
@@ -12,6 +12,11 @@ declare namespace Cypress {
      * Close the session of the user
      */
     logout(): Cypress.Chainable<null>;
+
+    /**
+     * Send a message from the chat room page
+     */
+    sendChatRoomMessage(message: string): Cypress.Chainable<null>;
   }
 }
 
@@ -69,6 +74,13 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
       timeout: 10000
     }).click()
   }
+})
+
+Cypress.Commands.add('sendChatRoomMessage', message => {
+  cy.get('.tchat-wrap').find('.tchat-form__textarea').type(message, { force: true}).then(() => {
+    cy.get('.tchat-wrap').find('.message-action-button').last().click({ force: true})
+    cy.wait(1000)
+  })
 })
 
 Cypress.Commands.add('logout', () => {
