@@ -1,3 +1,5 @@
+import { CyHttpMessages, Interception } from "cypress/types/net-stubbing"
+
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace Cypress {
   interface Chainable<Subject> {
@@ -14,8 +16,6 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
-  cy.viewport('macbook-15')
-
   cy.intercept('/api/v1/team_members/current').as('user')
   cy.intercept('/api/v1/auth/strong/token').as('token')
 
@@ -59,24 +59,9 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
 
   cy.get('@sessionCreated').should((response) => {
     expect(response).to.have.property('body')
-  })
-
-  cy.get('.data-view-item', {
-    timeout: 10000
-  }).first().click()
-
-  cy.url().should('include', '?page=sessions')
-
-  // cy.get('[data-testid="access-event-room"]', {
-  //   timeout: 10000
-  // }).invoke('attr', 'href').as('link')
-
-  cy.get('.data-view-item').last().get('.menu-overlay a', {
-    timeout: 10000
-  }).last().invoke('attr', 'href').as('link')
-
-  cy.get('@link').then(link => {
-    cy.visit(link as unknown as string)
+  }).then((response) => {
+    const sessionId = (response as unknown as CyHttpMessages.IncomingResponse).body.sessions.pop().id
+    cy.visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
   if (lobbyOnly === false) {
