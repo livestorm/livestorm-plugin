@@ -1,5 +1,3 @@
-import { CyHttpMessages } from "cypress/types/net-stubbing"
-
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace Cypress {
   interface Chainable<Subject> {
@@ -65,14 +63,14 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   cy.get('@sessionCreated').should((response) => {
     expect(response).to.have.property('body')
   }).then((response) => {
-    const sessionId = (response as unknown as CyHttpMessages.IncomingResponse).body.sessions.pop().id
+    const sessionId = (response as unknown as { body: { sessions: { id: string }[]}}).body.sessions.pop().id
     cy.visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
   if (lobbyOnly === false) {
     cy.get('.confirm-config-button:not([disabled])', {
       timeout: 10000
-    }).click()
+    }).click({ force: true })
   }
 })
 

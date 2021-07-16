@@ -10,7 +10,7 @@ describe('The stage', () => {
   it('should display the share button', () => {
     cy.get('.share-dropdown button', {
       timeout: 10000
-    }).click()
+    }).click({ force: true })
 
     cy.fixture('stage').then((stage) => {
       cy.contains(stage.registerShareButton.label, {

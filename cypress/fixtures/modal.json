@@ -1,0 +1,6 @@
+{
+    "showIframe": {
+        "template": "<p>{{ brain }}</p>",
+        "variables": { "brain": "sensitive" }
+    }
+}
