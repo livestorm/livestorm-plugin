@@ -1,7 +1,0 @@
-{
-  "development": {
-    "apiKey": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhcGkubGl2ZXN0b3JtLmNvIiwianRpIjoiNmJmNDE1YTctMDE2Yi00Y2M0LTgwODUtYmY3MTBhMWRlNTdhIiwiaWF0IjoxNjI0MzQ3ODIyLCJvcmciOiJjMmRjYTc2ZS0yOTNhLTQ4MDUtODVjNy0wMWExNjZiNTUzNTUifQ.bbrtMTBP98vAqDOR0jSVP2DemWhBuWiouYNuMi4SB3Q",
-    "name": "ddd",
-    "endpoint": "http://plugins.livestorm.local/"
-  }
-}
