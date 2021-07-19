@@ -22,3 +22,7 @@ import './commands'
 Cypress.on('uncaught:exception', (err, runnable) => {
   return err.message.includes('ResizeObserver')
 })
+
+Cypress.Cookies.defaults({
+  "preserve": "CYPRESS_ENCODED_JWT"
+})

@@ -34,7 +34,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
 
   cy.wait('@user').then(({ response: { body: { id } } }) => {
     cy.wait('@token').then(({ response: { body: { data }}}) => {
-      // cy.setCookie('token', data.jwt.encoded)
+      cy.setCookie('CYPRESS_ENCODED_JWT', data.jwt.encoded)
   
       // Create session from event
       cy.request({
@@ -82,19 +82,19 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
 })
 
 Cypress.Commands.add('logout', () => {
-  // cy.getCookie('token').then( cookie => {
-  //   cy.location().then((url) => {
-  //     cy.request({
-  //       method: 'DELETE',
-  //       url: `https://app.livestorm.local/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,
-  //       headers: {
-  //         "ls-authorization": "Bearer " + cookie.value
-  //       }
-  //     }).then((response) => {
-  //       expect(response.status).to.eq(204)
-  //     })
-  //   })
-  // })
+  cy.getCookie('CYPRESS_ENCODED_JWT').then( cookie => {
+    cy.location().then((url) => {
+      cy.request({
+        method: 'DELETE',
+        url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,
+        headers: {
+          "ls-authorization": "Bearer " + cookie.value
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(204)
+      })
+    })
+  })
 
   cy.visit('/#logout')
 })
