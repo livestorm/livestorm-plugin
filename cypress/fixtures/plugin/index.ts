@@ -1,4 +1,4 @@
-import { register } from '../dist/index'
+import { register } from '../../../dist/index'
 
 import chat from './chat'
 import modal from './modal'

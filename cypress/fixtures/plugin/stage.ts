@@ -1,6 +1,6 @@
-import { Stage } from '../dist/index'
+import { Stage } from '../../../dist'
 
-import fixtureStage from './../cypress/fixtures/stage.json'
+import fixtureStage from '../stage.json'
 
 export default function stage (): void {
   Stage.Buttons.registerShareButton(fixtureStage.registerShareButton)

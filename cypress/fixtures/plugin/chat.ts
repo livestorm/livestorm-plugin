@@ -1,6 +1,6 @@
-import { Chat } from '../dist/index'
+import { Chat } from '../../../dist'
 
-import fixtureChat from './../cypress/fixtures/chat.json'
+import fixtureChat from '../chat.json'
 
 export default function chat (): void {
   // Messages
