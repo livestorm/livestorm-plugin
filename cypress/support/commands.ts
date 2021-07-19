@@ -68,9 +68,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   })
 
   if (lobbyOnly === false) {
-    cy.get('.confirm-config-button:not([disabled])', {
-      timeout: 10000
-    }).click({ force: true })
+    cy.get('.confirm-config-button:not([disabled])').click({ force: true })
   }
 })
 
@@ -84,6 +82,8 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
 Cypress.Commands.add('logout', () => {
   cy.getCookie('CYPRESS_ENCODED_JWT').then( cookie => {
     cy.location().then((url) => {
+
+      // Delete the session
       cy.request({
         method: 'DELETE',
         url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,

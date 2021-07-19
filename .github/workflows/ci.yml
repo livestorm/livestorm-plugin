@@ -61,7 +61,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           spec: cypress/integration/spec-*.ts
-          config: baseUrl=https://app.livestorm.co
+          config: baseUrl=https://app.livestorm.co,defaultCommandTimeout=10000
           config-file: false
           record: true
           browser: chrome
