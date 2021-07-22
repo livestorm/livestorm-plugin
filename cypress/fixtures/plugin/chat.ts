@@ -24,23 +24,21 @@ export default function chat (): void {
     //
   })
 
-  // Not enough stable to be tested (race condition)
-  // Chat.broadcast({
-  //   text: fixtureChat.broadcast.text
-  // })
-  // Chat.broadcast({
-  //   html: fixtureChat.broadcast.html
-  // })
+  Chat.broadcast({
+    text: fixtureChat.broadcast.text
+  })
+  Chat.broadcast({
+    html: fixtureChat.broadcast.html
+  })
 
-  // Not enough stable to be tested (race condition)
-  // Chat.send({
-  //   user: fixtureChat.send.user,
-  //   text: fixtureChat.send.text
-  // })
-  // Chat.send({
-  //   user: fixtureChat.send.user,
-  //   html: fixtureChat.send.html
-  // })
+  Chat.send({
+    user: fixtureChat.send.user,
+    text: fixtureChat.send.text
+  })
+  Chat.send({
+    user: fixtureChat.send.user,
+    html: fixtureChat.send.html
+  })
 
   // Actions
   Chat.Buttons.registerChatShareButton({
@@ -50,11 +48,10 @@ export default function chat (): void {
     }
   })
 
-  // Not enough stable to be tested (race condition)
-  // Chat.registerMessageAction({
-  //   ...fixtureChat.registerMessageAction,
-  //   onClick: () => {
-  //   //
-  //   }
-  // })
+  Chat.registerMessageAction({
+    ...fixtureChat.registerMessageAction,
+    onClick: () => {
+    //
+    }
+  })
 }

@@ -8,25 +8,21 @@ describe('The chat', () => {
   })
   
   // @broadcast
-  // Not enough stable to be tested (race condition)
-  // it('should display the broadcasted messages', () => {
-  //   cy.fixture('chat').then((chat) => {
-  //     cy.get('.tchat-wrap').find('[data-testid="rich-message"]').contains(chat.broadcast.text)
-  //   })
-  //   cy.get('.tchat-wrap').find('[data-testid="rich-message"]').get('iframe')
-  // })
+  it('should display the broadcasted messages', () => {
+    cy.fixture('chat').then((chat) => {
+      cy.get('.tchat-wrap').find('[data-testid="rich-message"]').contains(chat.broadcast.text)
+    })
+    cy.get('.tchat-wrap').find('[data-testid="rich-message"]').get('iframe')
+  })
 
   // @send
-  // Not enough stable to be tested (race condition)
-  // it('should display the sent messages', () => {  
-  //   cy.fixture('chat').then((chat) => {
-  //     cy.wait(6000)
-  //     cy.get('.tchat-wrap').find('[data-testid="rich-message"]').contains(chat.send.text)
+  it('should display the sent messages', () => {  
+    cy.fixture('chat').then((chat) => {
+      cy.get('.tchat-wrap').find('[data-testid="rich-message"]').contains(chat.send.text)
 
-  //     // Find only 1 of, see why
-  //     // cy.get('.tchat-wrap .name').contains(`${chat.send.user.firstName}`).should('have.length', 2)
-  //   })
-  // })
+      cy.get('.tchat-wrap .name').should('contain', chat.send.user.firstName).and("contain", chat.send.user.firstName)
+    })
+  })
 
   // @listen
   it('should listen the messages', () => {
@@ -50,19 +46,15 @@ describe('The chat', () => {
   it('should display the share button', () => {
     cy.fixture('chat').then((chat) => {
       cy.get('.tchat-wrap').find('.base-dropdown-menu.more-actions .trigger').click({force: true})
-      cy.wait(2000)
       cy.get('.v-popover-item').contains(chat.registerChatShareButton.label)
     })
   })
 
   // @registerMessageAction
-  // Not enough stable to be tested (race condition)
-  // it('should display the message action', () => {
-  //   cy.wait(3000)
-  //   cy.fixture('chat').then((chat) => {
-  //     cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .trigger').first().click({ force: true })
-  //     cy.wait(500)
-  //     cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
-  //   })
-  // })
+  it('should display the message action', () => {
+    cy.fixture('chat').then((chat) => {
+      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .trigger').eq(3).click({ force: true })
+      cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
+    })
+  })
 })
