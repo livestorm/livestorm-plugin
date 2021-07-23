@@ -15,6 +15,11 @@ declare namespace Cypress {
      * Send a message from the chat room page
      */
     sendChatRoomMessage(message: string): Cypress.Chainable<null>;
+
+    /**
+     * Get the contentWindow of a plugin iframe
+     */
+    getIframeWindow(name?: string): Cypress.Chainable<null>;
   }
 }
 
@@ -77,6 +82,10 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
     cy.get('.tchat-wrap').find('.message-action-button').last().click({ force: true})
     cy.wait(1000)
   })
+})
+
+Cypress.Commands.add('getIframeWindow', (name: string = Cypress.env('PLUGIN_IFRAME_NAME')) => {
+  return cy.get(`iframe[name="${name}"]`).its('0.contentWindow')
 })
 
 Cypress.Commands.add('logout', () => {
