@@ -17,38 +17,3 @@ Check out our [getting started Guide](https://developers.livestorm.co/docs/getti
 
 We are here to help, feel free to drop an issue to our [Github repo](https://github.com/livestorm/livestorm-plugin), or to contact us directly at [plugins@livestorm.co](mailto:plugins@livestorm.co) 
 
-### How to run E2E tests
-
-You are contributing and you want to run the E2E tests before pushing your commit ?You have only have to make the followings steps:
-1. Set your Livestorm credentials in a cypress.env.json file
-
-    ```json
-    {
-
-        "TEAM_MEMBER_EMAIL": "email@livestorm.co", // The email of a team member of your organization
-
-        "TEAM_MEMBER_PASSWORD": "password" // The password of the latter
-    }
-    ```
-
-
-2. Set your plugin organization settings in a plugin/environments.json
-
-    ```json
-    {
-
-        "development": {
-
-            "apiKey": "${apiKey}", // The API Key generated on your organization
-
-            "name": "plugin-name", // The unique name of the plugin published to your organization
-
-            "endpoint": "http://plugins.livestorm.co"
-
-         }
-    }
-    ```
-3. Launch the Cypress tests runner
-
-    `yarn run cy:run:local`
- 
