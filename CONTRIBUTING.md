@@ -23,10 +23,8 @@ You are contributing and you want to run the E2E tests before pushing your commi
         "development": {
 
             "apiKey": "The API Key generated on your organization",
-
             "name": "A unique name for the plugin published to your organization",
-
-            "endpoint": "http://plugins.livestorm.co"
+            "endpoint": "https://plugins.livestorm.co"
 
          }
     }
