@@ -14,7 +14,8 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "dev": "tsc --watch",
     "build": "tsc && tsc-alias",
-    "cy:run:local": "yarn run cypress run baseUrl=http://app.livestorm.co --browser chrome"
+    "e2e:plugin:publish": "cd cypress/fixtures/plugin && yarn && yarn livestorm publish",
+    "e2e:run:local": "yarn run e2e:plugin:publish && yarn cypress run --headless --browser chrome"
   },
   "repository": {
     "type": "git",
