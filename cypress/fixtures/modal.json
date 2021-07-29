@@ -2,5 +2,7 @@
     "showIframe": {
         "template": "<p>{{ brain }}</p>",
         "variables": { "brain": "sensitive" }
-    }
+    },
+    "expectedElement": "p",
+    "expectedText": "sensitive"
 }

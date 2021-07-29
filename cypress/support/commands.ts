@@ -19,12 +19,12 @@ declare namespace Cypress {
     /**
      * Get the contentWindow of a plugin iframe
      */
-    getIframeWindow(type?: 'notification-center'): Cypress.Chainable<null>;
+    getIframeWindow(type?: 'modal' | 'notification-center'): Cypress.Chainable<null>;
 
     /**
      * Get the body of a plugin iframe
      */
-    getIframeBody(type?: 'notification-center'): Cypress.Chainable<null>;
+    getIframeBody(type?: 'modal' | 'notification-center'): Cypress.Chainable<null>;
   }
 }
 
