@@ -19,4 +19,11 @@ describe('The streams', () => {
       })
     })
   })
+
+  it('should display the added stream', () => {
+    cy.get('.confirm-config-button:not([disabled])').click({ force: true })
+    cy.fixture('streams').then(({ addStream }) => {
+      cy.get('#media-iframes-container').find('iframe').its('0.contentDocument').contains(addStream.expectedElement, addStream.expectedEText)
+    })
+  })
 })
