@@ -1,8 +1,6 @@
 import { User } from '@/types/user'
 
-import { v4 as uuidv4 } from 'uuid'
-import sendEvent from '@/io/sendEvent'
-import subscribeToEvent from '@/io/subscribeToEvent'
+import simpleCallbackHandler from '@/io/simpleCallbackHandler'
 
 /**
   * Returns the current user information
@@ -14,13 +12,9 @@ import subscribeToEvent from '@/io/subscribeToEvent'
   */
 export function me(): Promise<User> {
   return new Promise((resolve) => {
-    const uuid = uuidv4()
-
-    // TODO: There is a mix between users and user
-    subscribeToEvent<{ users: User }>(`users-me-${uuid}`, ({ users }) => resolve(users))
-    sendEvent({
+    simpleCallbackHandler<{ users: User }>({
       action: 'users-me',
-      data: { id: uuid }
+      callback: ({ users }) => resolve(users)
     })
   })
 }
@@ -33,11 +27,9 @@ export function me(): Promise<User> {
   */
 export function teamMembers(): Promise<User[]> {
   return new Promise((resolve) => {
-    const uuid = uuidv4()
-    subscribeToEvent<{ users: User[] }>(`users-team-members-${uuid}`, ({ users }) => resolve(users))
-    sendEvent({
+    simpleCallbackHandler<{ users: User[] }>({
       action: 'users-team-members',
-      data: { id: uuid }
+      callback: ({ users }) => resolve(users)
     })
   })
 }
@@ -54,11 +46,9 @@ export function teamMembers(): Promise<User[]> {
   */
 export function everyone(): Promise<User[]> {
   return new Promise((resolve) => {
-    const uuid = uuidv4()
-    subscribeToEvent<{ users: User[] }>(`users-everyone-${uuid}`, ({ users }) => resolve(users))
-    sendEvent({
+    simpleCallbackHandler<{ users: User[] }>({
       action: 'users-everyone',
-      data: { id: uuid }
+      callback: ({ users }) => resolve(users)
     })
   })
 }
