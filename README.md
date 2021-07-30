@@ -1,7 +1,7 @@
 
 <img src="https://raw.githubusercontent.com/livestorm/livestorm-plugin-cli/master/src/assets/sdk-header.png" width="500px">
 
-<img src="https://github.com/livestorm/livestorm-plugin/actions/workflows/ci.yml/badge.svg">
+[![Build and test CI](https://github.com/livestorm/livestorm-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/livestorm/livestorm-plugin/actions/workflows/ci.yml)
 
 ### Livestorm Plugins
 
