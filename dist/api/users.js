@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.everyone = exports.teamMembers = exports.me = void 0;
-const uuid_1 = require("uuid");
-const sendEvent_1 = require("../io/sendEvent");
-const subscribeToEvent_1 = require("../io/subscribeToEvent");
+const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
   * Returns the current user information
   *
@@ -14,12 +12,9 @@ const subscribeToEvent_1 = require("../io/subscribeToEvent");
   */
 function me() {
     return new Promise((resolve) => {
-        const uuid = uuid_1.v4();
-        // TODO: There is a mix between users and user
-        subscribeToEvent_1.default(`users-me-${uuid}`, ({ users }) => resolve(users));
-        sendEvent_1.default({
+        simpleCallbackHandler_1.default({
             action: 'users-me',
-            data: { id: uuid }
+            callback: ({ users }) => resolve(users)
         });
     });
 }
@@ -32,11 +27,9 @@ exports.me = me;
   */
 function teamMembers() {
     return new Promise((resolve) => {
-        const uuid = uuid_1.v4();
-        subscribeToEvent_1.default(`users-team-members-${uuid}`, ({ users }) => resolve(users));
-        sendEvent_1.default({
+        simpleCallbackHandler_1.default({
             action: 'users-team-members',
-            data: { id: uuid }
+            callback: ({ users }) => resolve(users)
         });
     });
 }
@@ -52,11 +45,9 @@ exports.teamMembers = teamMembers;
   */
 function everyone() {
     return new Promise((resolve) => {
-        const uuid = uuid_1.v4();
-        subscribeToEvent_1.default(`users-everyone-${uuid}`, ({ users }) => resolve(users));
-        sendEvent_1.default({
+        simpleCallbackHandler_1.default({
             action: 'users-everyone',
-            data: { id: uuid }
+            callback: ({ users }) => resolve(users)
         });
     });
 }

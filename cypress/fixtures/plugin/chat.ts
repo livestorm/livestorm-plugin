@@ -11,13 +11,6 @@ export default function chat (): void {
       })
     }
   })
-  Chat.listen(message => {
-    if (message.content === fixtureChat.listen.listened) {
-      Chat.broadcast({
-        text: fixtureChat.listen.broadcasted
-      })
-    }
-  })
 
   const re = new RegExp(fixtureChat.intercept.regex)
   Chat.intercept(re, () => {
@@ -34,10 +27,6 @@ export default function chat (): void {
   Chat.send({
     user: fixtureChat.send.user,
     text: fixtureChat.send.text
-  })
-  Chat.send({
-    user: fixtureChat.send.user,
-    html: fixtureChat.send.html
   })
 
   // Actions
