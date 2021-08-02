@@ -3,7 +3,10 @@
 
 name: Build and test CI
 
-on: [push]
+on:
+  push:
+  schedule:
+    - cron:  '0 0 13 1/1 *'
 
 jobs:
   build:
@@ -43,9 +46,13 @@ jobs:
         uses: finnp/create-file-action@1.0.0
         env:
           FILE_NAME: "cypress/fixtures/plugin/environments.json"
-          FILE_DATA: "{ \"development\": { \"name\": \"plugin-e2e\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" } }"
+          FILE_DATA: "{ \"development\": { \"name\": \"plugin-e2e\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" }, \"staging\": { \"name\": \"plugin-e2e\", \"endpoint\": \"${{ secrets.PLUGINS_ENDPOINT_STAGING }}\", \"apiKey\": \"${{ secrets.PLUGINS_API_KEY_STAGING }}\" } }"
 
-      - name: Publish plugin
+      - name: Publish plugin (STAGING)
+        working-directory: cypress/fixtures/plugin
+        run: yarn livestorm publish staging
+
+      - name: Publish plugin (PROD)
         working-directory: cypress/fixtures/plugin
         run: yarn livestorm publish
 
@@ -53,6 +60,9 @@ jobs:
   cypress-run:
     name: Cypress run (E2E tests)
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        site: ["STAGING", "PROD"]
     needs: publish-plugin
     steps:
       - uses: actions/checkout@v2
@@ -61,14 +71,16 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           spec: cypress/integration/spec-*.ts
-          config: baseUrl=https://app.livestorm.co,defaultCommandTimeout=10000
+          config: baseUrl=${{ secrets[format('BASE_URL_{0}', matrix.site)] }},defaultCommandTimeout=10000
           config-file: false
           record: true
           browser: chrome
         env:
-          CYPRESS_TEAM_MEMBER_EMAIL: ${{ secrets.TEAM_MEMBER_EMAIL }}
-          CYPRESS_TEAM_MEMBER_PASSWORD: ${{ secrets.TEAM_MEMBER_PASSWORD }}
-          CYPRESS_EVENT_ID: ${{ secrets.EVENT_ID }}
+          CYPRESS_SITE: ${{ matrix.site }}
+          CYPRESS_SITE_AUTHORIZATION: ${{ secrets[format('SITE_AUTHORIZATION_{0}', matrix.site)] }}
+          CYPRESS_TEAM_MEMBER_EMAIL: ${{ secrets[format('TEAM_MEMBER_EMAIL_{0}', matrix.site)] }}
+          CYPRESS_TEAM_MEMBER_PASSWORD: ${{ secrets[format('TEAM_MEMBER_PASSWORD_{0}', matrix.site)] }}
+          CYPRESS_EVENT_ID: ${{ secrets[format('EVENT_ID_{0}', matrix.site)] }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
