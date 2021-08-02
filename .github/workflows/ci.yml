@@ -6,7 +6,7 @@ name: Build and test CI
 on:
   push:
   schedule:
-    - cron:  '0 0 13 1/1 *'
+    - cron:  '0 20 17 1/1 *'
 
 jobs:
   build:
