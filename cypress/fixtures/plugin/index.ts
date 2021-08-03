@@ -6,6 +6,7 @@ import stage from './stage'
 import storage from './storage'
 import streams from './streams'
 import users from './users'
+import when from './when'
 
 register( () => {
   chat()
@@ -14,4 +15,5 @@ register( () => {
   storage()
   streams()
   users()
+  when()
 })
