@@ -9,6 +9,9 @@ describe('The chat', () => {
   
   // @broadcast
   it('should display the broadcasted messages', () => {
+    cy.get('.tchat-wrap', {
+      timeout: 20000
+    })
     cy.fixture('chat').then((chat) => {
       cy.get('.tchat-wrap').find('[data-testid="rich-message"]').contains(chat.broadcast.text)
     })
@@ -53,7 +56,7 @@ describe('The chat', () => {
   // @registerMessageAction
   it('should display the message action', () => {
     cy.fixture('chat').then((chat) => {
-      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .trigger').eq(3).click({ force: true })
+      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .trigger').eq(2).click({ force: true })
       cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
     })
   })
