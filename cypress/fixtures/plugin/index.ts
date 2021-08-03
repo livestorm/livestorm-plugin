@@ -5,6 +5,7 @@ import modal from './modal'
 import stage from './stage'
 import streams from './streams'
 import users from './users'
+import when from './when'
 
 register( () => {
   chat()
@@ -12,4 +13,5 @@ register( () => {
   stage()
   streams()
   users()
+  when()
 })
