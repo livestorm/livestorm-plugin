@@ -6,7 +6,8 @@ name: Build and test CI
 on:
   push:
   schedule:
-    - cron:  '0 20 17 1/1 *'
+    - cron:  '0 12 * * 1-5'
+    # Every day from Monday to Friday at noon
 
 jobs:
   build:
