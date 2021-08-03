@@ -1,8 +1,6 @@
 
 import { Users } from '../../../dist'
 
-// import fixtureModal from '../modal.json'
-
 export default async function users (): Promise<void> {
   const me = await Users.me()
   const everyone = await Users.everyone()
