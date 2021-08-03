@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://app.livestorm.co",
+    "viewportWidth": 1680,
+    "viewportHeight": 1050,
+    "defaultCommandTimeout": 10000,
+    "chromeWebSecurity": false
+}

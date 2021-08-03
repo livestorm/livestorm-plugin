@@ -22,19 +22,14 @@ function getScopeId(scope = 'event') {
         return configuration_1.default.eventTypeId;
 }
 /**
-    *
-    * Store a value under a specific key. This storage is persistant and shared across participants of the event
-    *
-    *
-    * @example Storage.setItem('key', 'value')
-    *
-    * @param key - The key that will allow you to retrieve the value
-    * @param value - The value you want to store
-    *
-    * @returns a promise that resolves whenever the value has been successfuly stored
-    *
-    *
-  */
+ *
+ * Store a value under a specific key. This storage is persistant and shared across participants of the event
+ *
+ * @example Storage.setItem('foo', 'bar')
+ *
+ * @doc https://developers.livestorm.co/docs/storage#setitem
+ *
+ */
 function setItem(key, value, options = { scope: 'event' }) {
     return __awaiter(this, void 0, void 0, function* () {
         const { organizationId, pluginId, pluginHost } = configuration_1.default;
@@ -55,18 +50,14 @@ function setItem(key, value, options = { scope: 'event' }) {
 }
 exports.setItem = setItem;
 /**
-    *
-    * Retrieve a value set at a specific key. This storage is persistant and shared across participants of the event
-    *
-    *
-    * @example Storage.getItem('key')
-    *
-    * @param key - The key at which you item is set
-    *
-    * @returns a promise that resolves with the stored value
-    *
-    *
-  */
+ *
+ * Retrieve a value set at a specific key. This storage is persistant and shared across participants of the event
+ *
+ * @example Storage.getItem('key')
+ *
+ * @doc https://developers.livestorm.co/docs/storage#getitem
+ *
+ */
 function getItem(key, options = { scope: 'event' }) {
     return __awaiter(this, void 0, void 0, function* () {
         const { organizationId, pluginId, pluginHost } = configuration_1.default;
