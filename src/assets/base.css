@@ -63,16 +63,6 @@ body {
   border-radius: 4px;
 }
 
-/* Layout */
-.center {
-  display: flex;
-  align-items: center;
-}
-.space-between {
-  display: flex;
-  justify-content: space-between;
-}
-
 /* Forms */
 .form {
   display: grid;
@@ -195,6 +185,26 @@ label.switch-container.switch-blue > input:checked + div + div {
   fill: rgba(229, 69, 56, 1);
 }
 
+/* UserAvatar */
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  background-size: 100%;
+  border-radius: 4px;
+  margin: 0px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(192, 192, 197, 1);
+  color: #FFF;
+  line-height: 36px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
 /* Texts */
 .label {
   display: inline-block;
@@ -205,4 +215,17 @@ label.switch-container.switch-blue > input:checked + div + div {
 .value {
   color: #515054;
   margin-bottom: 5px;
+}
+
+/* Layout */
+.center {
+  display: flex;
+  align-items: center;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+.rounded {
+  border-radius: 100%;
 }
