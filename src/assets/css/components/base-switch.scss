@@ -1,0 +1,52 @@
+@import "../colors";
+
+label.switch-container {
+    border-radius: 9999px;
+    position: relative;
+    width: 36px;
+    transition: background 0.15s, border 0.15s;
+    display: inline-block;
+    cursor: pointer;
+    height: 20px;
+    overflow: hidden;
+    & * {
+        cursor: pointer;
+    }
+    > input {
+        z-index: 10;
+        opacity: 0;
+    }
+    > input + div {
+        top: 1px;
+        left: 1px;
+        background: white;
+        position: absolute;
+        transform: translateX(0px);
+        border-radius: 9999px;
+        transition: 0.15s;
+        width: 18px;
+        height: 18px;
+        z-index: 9;
+    }
+    > input:checked + div {
+        transform: translateX(16px);
+    }
+    > input + div + div {
+        position: absolute;
+        background-color: $color-grey-400;
+        border: 1px solid $color-grey-400;
+        z-index: -1;
+        width: 100%;
+        top: 0px;
+        height: 100%;
+    }
+    > input:checked + div + div {
+        background-color: $color-green-600;
+        border: 1px solid $color-green-600;
+    }
+    &.switch-blue > input:checked + div + div {
+        background-color: $color-livestorm-600;
+        border: 1px solid $color-livestorm-600;
+    }
+}
+
