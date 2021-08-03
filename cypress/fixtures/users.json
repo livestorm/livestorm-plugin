@@ -1,0 +1,4 @@
+{
+    "user": ["first_name", "id", "last_name", "is_connected", "is_team_member", "is_guest_speaker", "color", "job_title", "company_name", "avatar", "pending", "prepare", "prepare_in_lobby", "prepare_enable_microphone", "prepare_enable_camera"],
+    "withHost": ["first_name", "id", "last_name", "is_connected", "is_team_member", "is_guest_speaker", "color", "job_title", "company_name", "avatar", "pending", "prepare", "prepare_in_lobby", "prepare_enable_microphone", "prepare_enable_camera", "is_host"]
+}
