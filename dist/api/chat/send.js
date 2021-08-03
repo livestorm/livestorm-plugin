@@ -4,19 +4,21 @@ const uuid_1 = require("uuid");
 const sendEvent_1 = require("../../io/sendEvent");
 const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 /**
-  * Adds a message in the chat.
-  * Message will be sent locally to the connected user
-  *
-  * @example Chat.send({
-  *   user: {
-  *     firstName: 'Michael'
-  *   },
-  *   text: 'Hello world',
-  *   html: '<p>Hi</p>'
-  * })
-  * @returns An instance of the created Message that you can use to delete the message or be notified whenever the HTML posts message
-  *
-*/
+ *
+ * Adds a message in the chat.
+ * Message will be sent locally to the connected user
+ *
+ * @example Chat.send({
+ *   user: {
+ *     firstName: 'Michael'
+ *   },
+ *   text: 'Hello world',
+ *   html: '<p>Hi</p>'
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/chat#send
+ *
+ */
 function Send(data) {
     const id = uuid_1.v4();
     sendEvent_1.default({

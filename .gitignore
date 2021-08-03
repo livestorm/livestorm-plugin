@@ -1,7 +1,6 @@
 node_modules
 cypress/fixtures/plugin/environments.json
 cypress/fixtures/plugin/build
-cypress.json
 cypress.env.json
 cypress/videos
 cypress/screenshots

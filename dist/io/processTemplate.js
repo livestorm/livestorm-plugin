@@ -1,12 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function processTemplate(content, variables) {
-    let node = content;
-    for (const variable in variables) {
-        node = node.split(`{{${variable}}}`).join(String(variables[variable]));
-        node = node.split(`{{ ${variable} }}`).join(String(variables[variable]));
+function processTemplate(content, variables = {}) {
+    // Inject the variables in the global __VARIABLES__
+    let injectedVariables;
+    try {
+        injectedVariables = `<script type="text/javascript">window.__VARIABLES__ = ${JSON.stringify(variables)}</script>`;
     }
-    return node;
+    catch (e) {
+        throw new Error('The variables could not been injected: ' + e);
+    }
+    // Replace all occurences of {{ variable }} with the variable value (empty if not found)
+    const replacedOccurrences = content.replace(/({{)([0-9a-zA-Z-\s]+)(}})/g, (fullMatch, match1, match2) => {
+        const variable = match2.trim();
+        const value = variable in variables ? variables[variable] : '';
+        if (typeof value === "object") {
+            try {
+                return JSON.stringify(value);
+            }
+            catch (e) {
+                throw new Error(`The variable "${variable}" could not been replaced in the template: ${e}`);
+            }
+        }
+        return String(value);
+    });
+    return `${injectedVariables}\n${replacedOccurrences}`;
 }
 exports.default = processTemplate;
 //# sourceMappingURL=processTemplate.js.map
