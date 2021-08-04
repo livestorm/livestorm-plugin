@@ -19,7 +19,12 @@ declare namespace Cypress {
     /**
      * Get the contentWindow of a plugin iframe
      */
-    getIframeWindow(name?: string): Cypress.Chainable<null>;
+    getIframeWindow(type?: 'notification-center'): Cypress.Chainable<null>;
+
+    /**
+     * Get the body of a plugin iframe
+     */
+    getIframeBody(type?: 'notification-center'): Cypress.Chainable<null>;
   }
 }
 
@@ -84,8 +89,19 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
   })
 })
 
-Cypress.Commands.add('getIframeWindow', (name: string = Cypress.env('PLUGIN_IFRAME_NAME')) => {
-  return cy.get(`iframe[name="${name}"]`).its('0.contentWindow')
+Cypress.Commands.add('getIframeWindow', (type: string) => {
+  if (type) {
+    return cy.get(`iframe[data-type="${type}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentWindow')
+  }
+  return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentWindow')
+})
+
+
+Cypress.Commands.add('getIframeBody', (type: string) => {
+  if (type) {
+    return cy.get(`iframe[data-type="${type}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
+  }
+  return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
 })
 
 Cypress.Commands.add('logout', () => {

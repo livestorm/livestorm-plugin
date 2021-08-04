@@ -1,0 +1,8 @@
+{
+    "showIframe": {
+        "template": "<p>{{ litigation }}</p>",
+        "variables": { "litigation": "momentum" }
+    },
+    "expectedElement": "p",
+    "expectedText": "momentum"
+}
