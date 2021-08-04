@@ -47,7 +47,7 @@ jobs:
         uses: finnp/create-file-action@1.0.0
         env:
           FILE_NAME: "cypress/fixtures/plugin/environments.json"
-          FILE_DATA: "{ \"development\": { \"name\": \"${{ secrets.PLUGIN_IFRAME_NAME}}\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" } }"
+          FILE_DATA: "{ \"development\": { \"name\": \"${{ secrets.PLUGIN_IFRAME_NAME}}\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" }, \"staging\": { \"name\": \"plugin-e2e\", \"endpoint\": \"${{ secrets.PLUGINS_ENDPOINT_STAGING }}\", \"apiKey\": \"${{ secrets.PLUGINS_API_KEY_STAGING }}\" } }"
 
       - name: Publish plugin (STAGING)
         working-directory: cypress/fixtures/plugin
