@@ -15,6 +15,16 @@ declare namespace Cypress {
      * Send a message from the chat room page
      */
     sendChatRoomMessage(message: string): Cypress.Chainable<null>;
+
+    /**
+     * Get the contentWindow of a plugin iframe
+     */
+    getIframeWindow(type?: 'modal' | 'notification-center'): Cypress.Chainable<null>;
+
+    /**
+     * Get the body of a plugin iframe
+     */
+    getIframeBody(type?: 'modal' | 'notification-center'): Cypress.Chainable<null>;
   }
 }
 
@@ -90,6 +100,21 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
     cy.get('.tchat-wrap').find('.message-action-button').last().click({ force: true})
     cy.wait(1000)
   })
+})
+
+Cypress.Commands.add('getIframeWindow', (type: string) => {
+  if (type) {
+    return cy.get(`iframe[data-type="${type}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentWindow')
+  }
+  return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentWindow')
+})
+
+
+Cypress.Commands.add('getIframeBody', (type: string) => {
+  if (type) {
+    return cy.get(`iframe[data-type="${type}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
+  }
+  return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
 })
 
 Cypress.Commands.add('logout', () => {

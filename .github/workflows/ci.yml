@@ -47,7 +47,7 @@ jobs:
         uses: finnp/create-file-action@1.0.0
         env:
           FILE_NAME: "cypress/fixtures/plugin/environments.json"
-          FILE_DATA: "{ \"development\": { \"name\": \"plugin-e2e\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" }, \"staging\": { \"name\": \"plugin-e2e\", \"endpoint\": \"${{ secrets.PLUGINS_ENDPOINT_STAGING }}\", \"apiKey\": \"${{ secrets.PLUGINS_API_KEY_STAGING }}\" } }"
+          FILE_DATA: "{ \"development\": { \"name\": \"${{ secrets.PLUGIN_IFRAME_NAME}}\", \"endpoint\": \"https://plugins.livestorm.co/\", \"apiKey\": \"${{ secrets.API_KEY}}\" } }"
 
       - name: Publish plugin (STAGING)
         working-directory: cypress/fixtures/plugin
@@ -72,7 +72,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           spec: cypress/integration/spec-*.ts
-          config: baseUrl=${{ secrets[format('BASE_URL_{0}', matrix.site)] }},defaultCommandTimeout=10000
+          config: baseUrl=${{ secrets[format('BASE_URL_{0}', matrix.site)] }},defaultCommandTimeout=10000,viewportWidth=1680,viewportHeight=1050,chromeWebSecurity=false
           config-file: false
           record: true
           browser: chrome
@@ -84,4 +84,5 @@ jobs:
           CYPRESS_EVENT_ID: ${{ secrets[format('EVENT_ID_{0}', matrix.site)] }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PLUGIN_IFRAME_NAME: ${{ secrets.PLUGIN_IFRAME_NAME }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

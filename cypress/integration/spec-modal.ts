@@ -9,6 +9,8 @@ describe('The modal', () => {
   
   // @showIframe
   it('should display a modal with an iframe inside', () => {
-    cy.get('.modal-plugins').find('iframe')
+    cy.fixture('modal').then((modal) => {
+      cy.getIframeBody('modal').contains(modal.expectedElement, modal.expectedText)
+    })
   })
 })
