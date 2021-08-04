@@ -5,6 +5,7 @@ import modal from './modal'
 import pubSub from './pubSub'
 import stage from './stage'
 import streams from './streams'
+import theme from './theme'
 import users from './users'
 import when from './when'
 
@@ -14,6 +15,7 @@ register( () => {
   pubSub()
   stage()
   streams()
+  theme()
   users()
   when()
 })
