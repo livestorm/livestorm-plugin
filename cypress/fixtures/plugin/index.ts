@@ -5,6 +5,7 @@ import modal from './modal'
 import notificationCenter from './notificationCenter'
 import pubSub from './pubSub'
 import stage from './stage'
+import storage from './storage'
 import streams from './streams'
 import theme from './theme'
 import users from './users'
@@ -16,6 +17,7 @@ register( () => {
   notificationCenter()
   pubSub()
   stage()
+  storage()
   streams()
   theme()
   users()
