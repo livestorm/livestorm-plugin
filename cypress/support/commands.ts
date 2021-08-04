@@ -28,6 +28,19 @@ declare namespace Cypress {
   }
 }
 
+const visit = path => {
+  const authorization = Cypress.env('SITE_AUTHORIZATION')
+  if (authorization) {
+    cy.visit(path, {
+      headers: {
+        authorization
+      }
+    })
+  } else {
+    cy.visit(path)
+  }
+}
+
 Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   cy.intercept('/api/v1/team_members/current').as('user')
   cy.intercept('/api/v1/auth/strong/token').as('token')
@@ -39,7 +52,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     "provider": "email_password"
   })
 
-  cy.visit('/')
+  visit('/')
   cy.getCookie('refresh_token').should('exist')
 
   cy.wait('@user').then(({ response: { body: { id } } }) => {
@@ -74,7 +87,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     expect(response).to.have.property('body')
   }).then((response) => {
     const sessionId = (response as unknown as { body: { sessions: { id: string }[]}}).body.sessions.pop().id
-    cy.visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
+    visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
   if (lobbyOnly === false) {
@@ -121,5 +134,5 @@ Cypress.Commands.add('logout', () => {
     })
   })
 
-  cy.visit('/#logout')
+  visit('/#logout')
 })
