@@ -1,4 +1,10 @@
 {
+  "addStream": {
+    "template": "<p>{{ environmental }}</p>",
+    "variables": { "environmental": "citizen" },
+    "expectedElement": "p",
+    "expectedEText": "citizen"
+  },
   "registerCameraEffect": {
     "label": "foo",
     "template": "<script>window.setupStream = () => publishStream()</script>",
