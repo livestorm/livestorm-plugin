@@ -6,7 +6,8 @@
 
     .input {
         border-width: 1px;
-        border-color: #e5e5ea;
+        transition: background .15s ease,border-color .15s ease;
+        border-color: $color-grey-400;
         background-color: #fff;
         color: #1c1c1e;
         width: 100%;
@@ -19,9 +20,12 @@
         outline: none;
         height: 40px;
         border-style: solid;
-    }
-    .input:focus {
-        border-color: $color-livestorm-700;
+        &:hover {
+            border-color: $color-grey-500;
+        }
+        &:focus {
+            border-color: $color-livestorm-700;
+        }
     }
     textarea.input {
         padding: 12px;

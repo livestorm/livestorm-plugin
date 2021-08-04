@@ -17,19 +17,19 @@
         background-color: #efeff4;
     }
     &.btn-secondary {
-        background-color: #e2ecfe;
-        color: $color-livestorm-700;
+        background-color: $color-livestorm-200;
+        color: $color-livestorm-600;
 
         &:hover {
-            background-color: #e2ecfe;
-            color: #214dbe;
+            background-color: $color-livestorm-300;
+            color: $color-livestorm-600;
         }
     }
     &.btn-primary {
-        background-color: $color-livestorm-700;
+        background-color: $color-livestorm-600;
         color: #fff;
         &:hover {
-            background-color: #214dbe;
+            background-color: $color-livestorm-700;
         }
     }
     &.btn-red {
