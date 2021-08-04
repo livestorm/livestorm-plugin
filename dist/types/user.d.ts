@@ -1,5 +1,13 @@
 export interface User {
-    avatar: string;
+    avatar: {
+        size_120x120: {
+            url: string;
+        };
+        size_60x60: {
+            url: string;
+        };
+        url: string;
+    };
     color: string;
     company_name: string;
     first_name: string;
@@ -11,6 +19,7 @@ export interface User {
     job_title: string;
     last_name: string;
     pending: string;
+    email: string;
     prepare: boolean;
     prepare_enable_camera: boolean;
     prepare_enable_microphone: boolean;

@@ -61,7 +61,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           spec: cypress/integration/spec-*.ts
-          config: baseUrl=https://app.livestorm.co,defaultCommandTimeout=10000,chromeWebSecurity=false
+          config: baseUrl=https://app.livestorm.co,defaultCommandTimeout=10000,viewportWidth=1680,viewportHeight=1050,chromeWebSecurity=false
           config-file: false
           record: true
           browser: chrome
@@ -71,5 +71,5 @@ jobs:
           CYPRESS_EVENT_ID: ${{ secrets.EVENT_ID }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          CYPRESS_PLUGIN_IFRAME_NAME: ${{ secrets.CYPRESS_PLUGIN_IFRAME_NAME }}
+          CYPRESS_PLUGIN_IFRAME_NAME: ${{ secrets.PLUGIN_IFRAME_NAME }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
