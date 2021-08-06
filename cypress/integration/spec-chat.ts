@@ -56,7 +56,8 @@ describe('The chat', () => {
   // @registerMessageAction
   it('should display the message action', () => {
     cy.fixture('chat').then((chat) => {
-      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .trigger').eq(2).click({ force: true })
+      cy.get('.tchat-wrap').find('[data-testid="rich-message"]').contains(chat.broadcast.text)
+        .parents('[data-testid="chat-msg"]').find('.base-dropdown-menu .trigger').click({ force: true })
       cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
     })
   })
