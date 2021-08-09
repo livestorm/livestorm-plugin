@@ -13,10 +13,10 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "dev": "tsc --watch",
-    "build": "tsc && tsc-alias",
+    "dev:sass": "sass --watch --style=compressed src/assets/css:dist/assets/css",
+    "build": "tsc && tsc-alias && sass --style=compressed src/assets/css:dist/assets/css",
     "e2e:plugin:publish": "cd cypress/fixtures/plugin && yarn && yarn livestorm publish",
-    "e2e:run:local": "yarn run e2e:plugin:publish && yarn cypress run --headless --browser chrome",
-    "sass": "sass --watch --style=compressed src/assets/css:dist/assets/css"
+    "e2e:run:local": "yarn run e2e:plugin:publish && yarn cypress run --headless --browser chrome"
   },
   "repository": {
     "type": "git",
