@@ -1,10 +1,10 @@
 @import "../colors";
 
-.form {
+.ls-form {
     display: grid;
     grid-gap: 24px;
 
-    .input {
+    .ls-input {
         border-width: 1px;
         transition: background .15s ease,border-color .15s ease;
         border-color: $color-grey-400;
@@ -27,7 +27,7 @@
             border-color: $color-livestorm-700;
         }
     }
-    textarea.input {
+    textarea.ls-input {
         padding: 12px;
     }
 }

@@ -1,26 +1,26 @@
-.grid {
+.ls-grid {
     margin: 0 auto;
     max-width: 75rem;
 }
 
-.padded {
+.ls-padded {
     padding: 0 2rem;
 }
 
-.gutters {
-    > .row {
+.ls-gutters {
+    > .ls-row {
         margin-left: -1rem;
-        > .column {
+        > .ls-column {
             padding: 1rem 0 0 1rem;
         }
     }
 }
 
-.row {
+.ls-row {
     display: flex;
     flex-wrap: wrap;
 }
 
-.column {
+.ls-column {
     flex-grow: 1;
 }

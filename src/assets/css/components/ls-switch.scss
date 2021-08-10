@@ -1,6 +1,6 @@
 @import "../colors";
 
-label.switch-container {
+label.ls-switch {
     border-radius: 9999px;
     position: relative;
     width: 36px;
@@ -44,7 +44,7 @@ label.switch-container {
         background-color: $color-green-600;
         border: 1px solid $color-green-600;
     }
-    &.switch-blue > input:checked + div + div {
+    &.ls-switch-blue > input:checked + div + div {
         background-color: $color-livestorm-600;
         border: 1px solid $color-livestorm-600;
     }

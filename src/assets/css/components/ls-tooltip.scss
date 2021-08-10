@@ -1,9 +1,9 @@
-.tooltip {
+.ls-tooltip {
     position: relative;
     display: inline-block;
     cursor: help;
     
-    .tooltiptext {
+    .ls-tooltip-text {
         visibility: hidden;
         position: absolute;
         width: 120px;
@@ -16,15 +16,15 @@
         opacity: 0;
         transition: opacity 0.6s;
     }
-    &:hover .tooltiptext {
+    &:hover .ls-tooltip-text {
         visibility: visible;
         opacity: 1;
     }
-    .tooltip-right {
+    .ls-tooltip-right {
         top: -5px;
         left: calc(100% + 10px);
     }
-    .tooltip-right::after {
+    .ls-tooltip-right::after {
         content: "";
         position: absolute;
         top: 50%;
@@ -35,13 +35,13 @@
         border-color: transparent black transparent transparent;
     }
 
-    .tooltip-bottom {
+    .ls-tooltip-bottom {
         top: 135%;
         left: 50%;
         margin-left: -60px;
     }
 
-    .tooltip-bottom::after {
+    .ls-tooltip-bottom::after {
         content: "";
         position: absolute;
         bottom: 100%;
@@ -51,13 +51,13 @@
         border-style: solid;
         border-color: transparent transparent black transparent;
     }
-    .tooltip-top {
+    .ls-tooltip-top {
         bottom: calc(100% + 7px);
         left: 50%;
         margin-left: -60px;
     }
 
-    .tooltip-top::after {
+    .ls-tooltip-top::after {
         content: "";
         position: absolute;
         top: 100%;
@@ -68,13 +68,13 @@
         border-color: black transparent transparent transparent;
     }
 
-    .tooltip-left {
+    .ls-tooltip-left {
         top: -5px;
         bottom: auto;
         right: calc(100% + 10px);
     }
 
-    .tooltip-left::after {
+    .ls-tooltip-left::after {
         content: "";
         position: absolute;
         top: 50%;

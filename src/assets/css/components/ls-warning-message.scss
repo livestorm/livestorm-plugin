@@ -1,6 +1,6 @@
 @import "../colors";
 
-.base-warning-message {
+.ls-warning-message {
     border-radius: 8px;
     background-color: $color-livestorm-100;
     padding: 16px 24px 16px 16px;
@@ -15,25 +15,25 @@
         color: $color-livestorm-100;
         fill: $color-livestorm-600;
     }
-    .base-warning-message-content {
+    .ls-warning-message-content {
         flex: 1;
     }
     > svg line, > svg path {
         stroke: white;
     }
-    &.warning-success {
+    &.ls-warning-success {
         background-color: $color-green-100;
         > svg {
             fill: $color-green-600;
         }
     }
-    &.warning-warning {
+    &.ls-warning-warning {
         background-color: $color-orange-100;
         > svg {
             fill: $color-orange-600;
         }
     }
-    &.warning-error {
+    &.ls-warning-error {
         background-color: $color-red-100;
         > svg {
             fill: $color-red-600;
