@@ -1,0 +1,344 @@
+@import "../variables";
+
+.ls-button {
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    color: var(--color-grey-800);
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    font-weight: var(--button-text-lineheight-40-semibold-font-weight);
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+.ls-button[href]:not(.hidden):not(.sm:hidden):not(.md:hidden):not(.lg:hidden) {
+    display: inline-block;
+}
+
+.ls-button .ls-button-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.ls-button .ls-button-loader .loader {
+    width: 1rem;
+    height: 1rem;
+    border-left-color: currentColor;
+}
+
+.ls-button .ls-icon {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.ls-button .ls-icon svg {
+    stroke: currentColor;
+}
+
+.ls-button[icon-fill] .ls-icon svg {
+    stroke: none;
+    fill: currentColor;
+}
+
+.ls-button .ls-left-icon {
+    margin-right: 0.5rem;
+}
+
+.ls-button .ls-right-icon,
+.ls-button .ls-icon-close {
+    margin-left: 0.5rem;
+}
+
+.ls-button.w-full:not(.ls-form-style):not(.closable) .ls-button-wrapper {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.ls-button.ls-w-full.ls-closable .ls-icon-close {
+    margin-left: auto;
+}
+
+.ls-button:disabled:not(.cursor-text),
+.ls-button.disabled:not(.cursor-text) {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ls-button {
+    /** Size */
+    /** Medium size by default */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 14px;
+    font-size: var(--button-text-lineheight-40-regular-font-size);
+    line-height: 40px;
+    line-height: var(--button-text-lineheight-40-regular-line-height);
+    height: 40px;
+    height: var(--button-text-lineheight-40-regular-line-height);
+}
+
+.ls-button.ls-button-square {
+    width: 40px;
+    width: var(--button-text-lineheight-40-regular-line-height);
+}
+
+.ls-button .ls-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ls-button-extra-small {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 12px;
+    font-size: var(--button-text-lineheight-24-regular-font-size);
+    line-height: 24px;
+    line-height: var(--button-text-lineheight-24-regular-line-height);
+    height: 24px;
+    height: var(--button-text-lineheight-24-regular-line-height);
+}
+
+.ls-button-extra-small.ls-button-square {
+    width: 24px;
+    width: var(--button-text-lineheight-24-regular-line-height);
+}
+
+.ls-button-extra-small .ls-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.ls-button-small {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 14px;
+    font-size: var(--button-text-lineheight-32-regular-font-size);
+    line-height: 32px;
+    line-height: var(--button-text-lineheight-32-regular-line-height);
+    height: 32px;
+    height: var(--button-text-lineheight-32-regular-line-height);
+}
+
+.ls-button-small.ls-button-square {
+    width: 32px;
+    width: var(--button-text-lineheight-32-regular-line-height);
+}
+
+.ls-button-small .ls-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.ls-button-medium {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 14px;
+    font-size: var(--button-text-lineheight-40-regular-font-size);
+    line-height: 40px;
+    line-height: var(--button-text-lineheight-40-regular-line-height);
+    height: 40px;
+    height: var(--button-text-lineheight-40-regular-line-height);
+}
+
+.ls-button-medium.ls-button-square {
+    width: 40px;
+    width: var(--button-text-lineheight-40-regular-line-height);
+}
+
+.ls-button-medium .ls-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.ls-button-large {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 16px;
+    font-size: var(--button-text-lineheight-48-regular-font-size);
+    line-height: 48px;
+    line-height: var(--button-text-lineheight-48-regular-line-height);
+    height: 48px;
+    height: var(--button-text-lineheight-48-regular-line-height);
+}
+
+.ls-button-large.ls-button-square {
+    width: 48px;
+    width: var(--button-text-lineheight-48-regular-line-height);
+}
+
+.ls-button-large .ls-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.ls-button-extra-large {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: 20px;
+    font-size: var(--button-text-lineheight-56-regular-font-size);
+    line-height: 56px;
+    line-height: var(--button-text-lineheight-56-regular-line-height);
+    height: 56px;
+    height: var(--button-text-lineheight-56-regular-line-height);
+}
+
+.ls-button-extra-large.ls-button-square {
+    width: 56px;
+    width: var(--button-text-lineheight-56-regular-line-height);
+}
+
+.ls-button-extra-large .ls-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/** Square size */
+
+.ls-button-square {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.ls-button-square .ls-button-wrapper {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/** Color */
+
+.ls-button-primary {
+    background-color: var(--color-livestorm-600);
+    --text-opacity: 1;
+    color: #ffffff;
+}
+
+.ls-button-primary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-livestorm-700);
+}
+
+.ls-button-secondary {
+    background-color: var(--color-livestorm-200);
+    color: var(--color-livestorm-600);
+}
+
+.ls-button-secondary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-livestorm-300);
+}
+
+.ls-button-tertiary {
+    background-color: var(--color-grey-200);
+    color: var(--color-grey-800);
+}
+
+.ls-button-tertiary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-grey-300);
+}
+
+.ls-button-transparent {
+    color: var(--color-grey-800);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.ls-button-transparent:not(:disabled):not(.disabled):not([disabled]):hover {
+    color: var(--color-livestorm-500);
+}
+
+.ls-button-link {
+    color: var(--color-livestorm-600);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.ls-button-link:not(:disabled):not(.disabled):hover {
+    color: var(--color-livestorm-500);
+}
+
+.ls-button-green-primary {
+    background-color: var(--color-green-600);
+    --text-opacity: 1;
+    color: #ffffff;
+}
+
+.ls-button-green-primary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-green-700);
+}
+
+.ls-button-green-secondary {
+    background-color: var(--color-green-200);
+    color: var(--color-green-600);
+}
+
+.ls-button-green-secondary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-green-300);
+}
+
+.ls-button-red-primary {
+    background-color: var(--color-red-600);
+    --text-opacity: 1;
+    color: #ffffff;
+}
+
+.ls-button-red-primary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-red-700);
+}
+
+.ls-button-red-secondary {
+    background-color: var(--color-red-200);
+    color: var(--color-red-600);
+}
+
+.ls-button-red-secondary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-red-300);
+}
+
+.ls-button-orange-primary {
+    background-color: var(--color-orange-600);
+    --text-opacity: 1;
+    color: #ffffff;
+}
+
+.ls-button-orange-primary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-orange-700);
+}
+
+.ls-button-orange-secondary {
+    background-color: var(--color-orange-200);
+    color: var(--color-orange-600);
+}
+
+.ls-button-orange-secondary:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-orange-300);
+}
+
+.ls-button-alpha-white,
+.ls-button-transparent-bg {
+    --text-opacity: 1;
+    color: #ffffff;
+}
+
+.ls-button-alpha-white:not(:disabled):not(.disabled):hover,
+.ls-button-transparent-bg:not(:disabled):not(.disabled):hover {
+    background-color: var(--color-alpha-white-200);
+}
+
+.ls-button-alpha-white {
+    background-color: var(--color-alpha-white-100);
+}
+
+.ls-button-transparent-bg {
+    background-color: transparent;
+}

@@ -1,0 +1,43 @@
+@import "../variables";
+
+.ls-warning-message {
+    border-radius: 8px;
+    background-color: var(--color-livestorm-100);
+    color: var(--color-grey-700);
+    padding: 16px 24px 16px 16px;
+    display: flex;
+    align-items: center;
+    > * {
+        margin-left: 8px;
+    }
+    > svg {
+        width: 24px;
+        height: 24px;
+        color: var(--color-livestorm-100);
+        fill: var(--color-livestorm-600);
+    }
+    .ls-warning-message-content {
+        flex: 1;
+    }
+    > svg line, > svg path {
+        stroke: white;
+    }
+    &.ls-warning-success {
+        background-color: var(--color-green-100);
+        > svg {
+            fill: var(--color-green-600);
+        }
+    }
+    &.ls-warning-warning {
+        background-color: var(--color-orange-100);
+        > svg {
+            fill: var(--color-orange-600);
+        }
+    }
+    &.ls-warning-error {
+        background-color: var(--color-red-100);
+        > svg {
+            fill: var(--color-red-600);
+        }
+    }
+}

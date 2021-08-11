@@ -1,0 +1,83 @@
+.ls-tooltip {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ls-tooltip-text {
+        visibility: hidden;
+        position: absolute;
+        width: max-content;
+        background-color: var(--color-grey-900);
+        color: #fff;
+        text-align: center;
+        padding: 8px 16px;
+        border-radius: 8px;
+        max-width: 200px;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.6s;
+    }
+    &:hover .ls-tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+    .ls-tooltip-right {
+        left: calc(100% + 9px);
+    }
+    .ls-tooltip-right::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent var(--color-grey-900) transparent transparent;
+    }
+
+    .ls-tooltip-bottom {
+        top: calc(100% + 9px);
+    }
+
+    .ls-tooltip-bottom::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent var(--color-grey-900) transparent;
+    }
+    .ls-tooltip-top {
+        bottom: calc(100% + 9px);
+    }
+
+    .ls-tooltip-top::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: var(--color-grey-900) transparent transparent transparent;
+    }
+
+    .ls-tooltip-left {
+        bottom: auto;
+        right: calc(100% + 9px);
+    }
+
+    .ls-tooltip-left::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent var(--color-grey-900);
+    }
+
+}
