@@ -5,7 +5,6 @@
     border-width: 1px;
     border-style: solid;
     border-color: transparent;
-    color: rgba(51, 51, 53, 1);
     color: var(--color-grey-800);
     cursor: pointer;
     border-radius: 8px;
@@ -221,138 +220,107 @@
 /** Color */
 
 .ls-button-primary {
-    background-color: rgba(42, 94, 228, 1);
     background-color: var(--color-livestorm-600);
     --text-opacity: 1;
     color: #ffffff;
-    color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 .ls-button-primary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(33, 77, 190, 1);
     background-color: var(--color-livestorm-700);
 }
 
 .ls-button-secondary {
-    background-color: rgba(231, 240, 255, 1);
     background-color: var(--color-livestorm-200);
-    color: rgba(42, 94, 228, 1);
     color: var(--color-livestorm-600);
 }
 
 .ls-button-secondary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(217, 232, 255, 1);
     background-color: var(--color-livestorm-300);
 }
 
 .ls-button-tertiary {
-    background-color: rgba(246, 246, 249, 1);
     background-color: var(--color-grey-200);
-    color: rgba(51, 51, 53, 1);
     color: var(--color-grey-800);
 }
 
 .ls-button-tertiary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(239, 239, 244, 1);
     background-color: var(--color-grey-300);
 }
 
 .ls-button-transparent {
-    color: rgba(51, 51, 53, 1);
     color: var(--color-grey-800);
     padding-left: 0;
     padding-right: 0;
 }
 
 .ls-button-transparent:not(:disabled):not(.disabled):not([disabled]):hover {
-    color: rgba(59, 110, 241, 1);
     color: var(--color-livestorm-500);
 }
 
 .ls-button-link {
-    color: rgba(42, 94, 228, 1);
     color: var(--color-livestorm-600);
     padding-left: 0;
     padding-right: 0;
 }
 
 .ls-button-link:not(:disabled):not(.disabled):hover {
-    color: rgba(59, 110, 241, 1);
     color: var(--color-livestorm-500);
 }
 
 .ls-button-green-primary {
-    background-color: rgba(87, 177, 88, 1);
     background-color: var(--color-green-600);
     --text-opacity: 1;
     color: #ffffff;
-    color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 .ls-button-green-primary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(61, 134, 54, 1);
     background-color: var(--color-green-700);
 }
 
 .ls-button-green-secondary {
-    background-color: rgba(223, 246, 214, 1);
     background-color: var(--color-green-200);
-    color: rgba(87, 177, 88, 1);
     color: var(--color-green-600);
 }
 
 .ls-button-green-secondary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(199, 243, 184, 1);
     background-color: var(--color-green-300);
 }
 
 .ls-button-red-primary {
-    background-color: rgba(229, 69, 56, 1);
     background-color: var(--color-red-600);
     --text-opacity: 1;
     color: #ffffff;
-    color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 .ls-button-red-primary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(154, 50, 40, 1);
     background-color: var(--color-red-700);
 }
 
 .ls-button-red-secondary {
-    background-color: rgba(248, 237, 237, 1);
     background-color: var(--color-red-200);
-    color: rgba(229, 69, 56, 1);
     color: var(--color-red-600);
 }
 
 .ls-button-red-secondary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(244, 227, 226, 1);
     background-color: var(--color-red-300);
 }
 
 .ls-button-orange-primary {
-    background-color: rgba(249, 165, 70, 1);
     background-color: var(--color-orange-600);
     --text-opacity: 1;
     color: #ffffff;
-    color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 .ls-button-orange-primary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(185, 95, 33, 1);
     background-color: var(--color-orange-700);
 }
 
 .ls-button-orange-secondary {
-    background-color: rgba(255, 237, 207, 1);
     background-color: var(--color-orange-200);
-    color: rgba(249, 165, 70, 1);
     color: var(--color-orange-600);
 }
 
 .ls-button-orange-secondary:not(:disabled):not(.disabled):hover {
-    background-color: rgba(254, 227, 185, 1);
     background-color: var(--color-orange-300);
 }
 
@@ -360,17 +328,14 @@
 .ls-button-transparent-bg {
     --text-opacity: 1;
     color: #ffffff;
-    color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 .ls-button-alpha-white:not(:disabled):not(.disabled):hover,
 .ls-button-transparent-bg:not(:disabled):not(.disabled):hover {
-    background-color: rgba(255, 255, 255, 0.2);
     background-color: var(--color-alpha-white-200);
 }
 
 .ls-button-alpha-white {
-    background-color: rgba(255, 255, 255, 0.1);
     background-color: var(--color-alpha-white-100);
 }
 

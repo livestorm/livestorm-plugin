@@ -1,8 +1,8 @@
-@import "../colors";
+@import "../variables";
 
 .ls-warning-message {
     border-radius: 8px;
-    background-color: $color-livestorm-100;
+    background-color: var(--color-livestorm-100);
     padding: 16px 24px 16px 16px;
     display: flex;
     align-items: center;
@@ -12,8 +12,8 @@
     > svg {
         width: 24px;
         height: 24px;
-        color: $color-livestorm-100;
-        fill: $color-livestorm-600;
+        color: var(--color-livestorm-100);
+        fill: var(--color-livestorm-600);
     }
     .ls-warning-message-content {
         flex: 1;
@@ -22,21 +22,21 @@
         stroke: white;
     }
     &.ls-warning-success {
-        background-color: $color-green-100;
+        background-color: var(--color-green-100);
         > svg {
-            fill: $color-green-600;
+            fill: var(--color-green-600);
         }
     }
     &.ls-warning-warning {
-        background-color: $color-orange-100;
+        background-color: var(--color-orange-100);
         > svg {
-            fill: $color-orange-600;
+            fill: var(--color-orange-600);
         }
     }
     &.ls-warning-error {
-        background-color: $color-red-100;
+        background-color: var(--color-red-100);
         > svg {
-            fill: $color-red-600;
+            fill: var(--color-red-600);
         }
     }
 }

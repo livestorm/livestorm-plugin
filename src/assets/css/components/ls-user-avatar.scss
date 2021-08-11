@@ -1,4 +1,4 @@
-@import "../colors";
+@import "../variables";
 
 .ls-user-avatar {
     width: 36px;
@@ -10,11 +10,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $color-grey-500;
-    color: $color-white;
+    background-color: var(--color-grey-500);
+    color: var(--color-white);
     line-height: 36px;
     font-weight: 600;
     font-size: 16px;
-    color: $color-white;
+    color: var(--color-white);
     text-transform: uppercase;
 }

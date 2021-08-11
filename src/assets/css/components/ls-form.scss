@@ -1,4 +1,4 @@
-@import "../colors";
+@import "../variables";
 
 .ls-form {
     display: grid;
@@ -7,7 +7,7 @@
     .ls-input {
         border-width: 1px;
         transition: background .15s ease,border-color .15s ease;
-        border-color: $color-grey-400;
+        border-color: var(--color-grey-400);
         background-color: #fff;
         color: #1c1c1e;
         width: 100%;
@@ -21,10 +21,10 @@
         height: 40px;
         border-style: solid;
         &:hover {
-            border-color: $color-grey-500;
+            border-color: var(--color-grey-500);
         }
         &:focus {
-            border-color: $color-livestorm-700;
+            border-color: var(--color-livestorm-700);
         }
     }
     textarea.ls-input {

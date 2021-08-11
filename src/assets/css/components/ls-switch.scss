@@ -1,4 +1,4 @@
-@import "../colors";
+@import "../variables";
 
 label.ls-switch {
     border-radius: 9999px;
@@ -33,20 +33,20 @@ label.ls-switch {
     }
     > input + div + div {
         position: absolute;
-        background-color: $color-grey-400;
-        border: 1px solid $color-grey-400;
+        background-color: var(--color-grey-400);
+        border: 1px solid var(--color-grey-400);
         z-index: -1;
         width: 100%;
         top: 0px;
         height: 100%;
     }
     > input:checked + div + div {
-        background-color: $color-green-600;
-        border: 1px solid $color-green-600;
+        background-color: var(--color-green-600);
+        border: 1px solid var(--color-green-600);
     }
     &.ls-switch-blue > input:checked + div + div {
-        background-color: $color-livestorm-600;
-        border: 1px solid $color-livestorm-600;
+        background-color: var(--color-livestorm-600);
+        border: 1px solid var(--color-livestorm-600);
     }
 }
 
