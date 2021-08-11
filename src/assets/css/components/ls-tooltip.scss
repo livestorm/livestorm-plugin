@@ -3,16 +3,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: help;
     .ls-tooltip-text {
         visibility: hidden;
         position: absolute;
-        width: 120px;
-        background-color: black;
+        width: max-content;
+        background-color: var(--color-grey-900);
         color: #fff;
         text-align: center;
-        padding: 5px 0;
+        padding: 8px 16px;
         border-radius: 8px;
+        max-width: 200px;
         z-index: 1;
         opacity: 0;
         transition: opacity 0.6s;
@@ -22,8 +22,7 @@
         opacity: 1;
     }
     .ls-tooltip-right {
-        top: -5px;
-        left: calc(100% + 5px);
+        left: calc(100% + 9px);
     }
     .ls-tooltip-right::after {
         content: "";
@@ -37,9 +36,7 @@
     }
 
     .ls-tooltip-bottom {
-        top: calc(100% + 5px);
-        left: 50%;
-        margin-left: -60px;
+        top: calc(100% + 9px);
     }
 
     .ls-tooltip-bottom::after {
@@ -53,9 +50,7 @@
         border-color: transparent transparent black transparent;
     }
     .ls-tooltip-top {
-        bottom: calc(100% + 5px);
-        left: 50%;
-        margin-left: -60px;
+        bottom: calc(100% + 9px);
     }
 
     .ls-tooltip-top::after {
@@ -70,9 +65,8 @@
     }
 
     .ls-tooltip-left {
-        top: -5px;
         bottom: auto;
-        right: calc(100% + 5px);
+        right: calc(100% + 9px);
     }
 
     .ls-tooltip-left::after {
