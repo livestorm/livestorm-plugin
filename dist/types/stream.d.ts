@@ -1,8 +1,11 @@
+export interface StreamOptions {
+    template: string;
+    variables: Record<string, unknown>;
+    title: string;
+    imageUrl: string;
+}
 export declare type Stream = {
-    update: (params: {
-        template: string;
-        variables: Record<string, unknown>;
-    }) => void;
+    update: (params: StreamOptions) => void;
     destroy: () => void;
 };
 export declare type CameraEffectWrapper = {

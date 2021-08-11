@@ -1,4 +1,4 @@
-import { Stream, CameraEffectWrapper, CameraEffectOptions } from '../../types/stream';
+import { Stream, StreamOptions, CameraEffectWrapper, CameraEffectOptions } from '../../types/stream';
 /**
  *
  * Add a custom HTML media stream to the stage.
@@ -16,9 +16,7 @@ import { Stream, CameraEffectWrapper, CameraEffectOptions } from '../../types/st
  * @beta
  *
  */
-export declare function addStream(data: {
-    template: string;
-    variables: Record<string, unknown>;
+export declare function addStream(data: StreamOptions & {
     onMessage: (arg: unknown) => unknown;
 }): Promise<Stream>;
 /**

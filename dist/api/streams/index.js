@@ -71,7 +71,7 @@ function addStream(data) {
         subscribeToEvent_1.default(`stream-message-for-${uuid}`, (response) => data.onMessage(response));
         sendEvent_1.default({
             action: 'add-stream',
-            data: { template: processTemplate_1.default(data.template, data.variables), id: uuid }
+            data: { template: processTemplate_1.default(data.template, data.variables), id: uuid, title: data.title, imageUrl: data.imageUrl }
         });
         resolve(createStream(uuid));
     });

@@ -25,6 +25,8 @@ describe('The streams', () => {
     cy.wait(5000)
     cy.fixture('streams').then(({ addStream }) => {
       cy.get('#media-iframes-container').find('iframe').its('0.contentDocument').its('body').contains(addStream.expectedElement, addStream.expectedEText)
+      cy.get('[data-testid="media-profile"]').contains(addStream.title)
+      cy.get('[data-testid="media-profile"]').find('img').invoke('attr', 'src').should('eq', addStream.imageUrl)
     })
   })
 })

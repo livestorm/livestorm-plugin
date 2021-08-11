@@ -2,6 +2,8 @@
   "addStream": {
     "template": "<p>{{ environmental }}</p>",
     "variables": { "environmental": "citizen" },
+    "title": "Neque",
+    "imageUrl": "porro",
     "expectedElement": "p",
     "expectedEText": "citizen"
   },
