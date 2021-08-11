@@ -1,6 +1,8 @@
 .ls-tooltip {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: help;
     .ls-tooltip-text {
         visibility: hidden;
@@ -21,7 +23,7 @@
     }
     .ls-tooltip-right {
         top: -5px;
-        left: calc(100% + 10px);
+        left: calc(100% + 5px);
     }
     .ls-tooltip-right::after {
         content: "";
@@ -35,7 +37,7 @@
     }
 
     .ls-tooltip-bottom {
-        top: 135%;
+        top: calc(100% + 5px);
         left: 50%;
         margin-left: -60px;
     }
@@ -51,7 +53,7 @@
         border-color: transparent transparent black transparent;
     }
     .ls-tooltip-top {
-        bottom: calc(100% + 7px);
+        bottom: calc(100% + 5px);
         left: 50%;
         margin-left: -60px;
     }
@@ -70,7 +72,7 @@
     .ls-tooltip-left {
         top: -5px;
         bottom: auto;
-        right: calc(100% + 10px);
+        right: calc(100% + 5px);
     }
 
     .ls-tooltip-left::after {
