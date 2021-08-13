@@ -1,4 +1,4 @@
-import { Stream, CameraEffectWrapper, CameraEffectOptions } from '@/types/stream'
+import { Stream, StreamOptions, CameraEffectWrapper, CameraEffectOptions } from '@/types/stream'
 
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
@@ -69,14 +69,14 @@ const createCameraEffectWrapper = (id: string): CameraEffectWrapper => ({
  * @beta
  * 
  */
-export function addStream(data: { template: string, variables: Record<string, unknown>, onMessage: (arg: unknown) => unknown }): Promise<Stream> {
+export function addStream(data: StreamOptions & { onMessage: (arg: unknown) => unknown }): Promise<Stream> {
   return new Promise((resolve) => {
     const uuid = uuidv4()
 
     subscribeToEvent(`stream-message-for-${uuid}`, (response) => data.onMessage(response))
     sendEvent({
       action: 'add-stream',
-      data: { template: processTemplate(data.template, data.variables), id: uuid }
+      data: { template: processTemplate(data.template, data.variables), id: uuid, title: data.title, imageUrl: data.imageUrl }
     })
 
     resolve(createStream(uuid))

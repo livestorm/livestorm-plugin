@@ -1,4 +1,4 @@
-import { Streams, When } from '../../../dist'
+import { Streams } from '../../../dist'
 
 import fixtureStream from '../streams.json'
 
