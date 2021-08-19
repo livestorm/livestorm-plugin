@@ -1,4 +1,6 @@
 export default function processTemplate(content: string, variables: Record<string, unknown> = {}): string {
+  if (variables.interpolateVariables === false) return content
+
   // Inject the variables in the global __VARIABLES__
   let injectedVariables
   try {

@@ -32,9 +32,14 @@ describe('processTemplate replaces occurrences', () => {
     expect(processTemplate(template, variables)).toContain("const n = [1,2,3]")
   })
 
-  it('should replace not found variables with empty value', () => {
+  it('should replace not found variables with empty value when given non empty hash', () => {
     const template = '<div>{{ foo }}</div>'
-    expect(processTemplate(template)).toContain("<div></div>")
+    expect(processTemplate(template, { something: 'cool' })).toContain("<div></div>")
+  })
+
+  it('should not replace not found variables with empty value when given interpolateVariables value', () => {
+    const template = '<div>{{ foo }}</div>'
+    expect(processTemplate(template, { interpolateVariables: false })).toContain("<div>{{ foo }}</div>")
   })
 
   it('should replace occurences containing spaces', () => {
