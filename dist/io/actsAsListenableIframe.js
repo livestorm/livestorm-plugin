@@ -24,7 +24,7 @@ function actsAsListenableIframe(eventName, iframe, additionalData = {}) {
         subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => iframe.onMessage(response));
         sendEvent_1.default({
             action: eventName,
-            data: Object.assign({ template: processTemplate_1.default(iframe.template, iframe.variables), id: uuid }, additionalData)
+            data: Object.assign({ template: processTemplate_1.default(iframe.template, iframe.variables || {}), id: uuid }, additionalData)
         });
         resolve(createInstance(uuid));
     });
