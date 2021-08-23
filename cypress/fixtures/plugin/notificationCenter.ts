@@ -1,5 +1,4 @@
 
-import cypress from 'cypress'
 import { NotificationCenter } from '../../../dist'
 
 import fixtureNotificationCenter from '../notificationCenter.json'
