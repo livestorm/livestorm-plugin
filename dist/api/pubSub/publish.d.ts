@@ -1,3 +1,4 @@
+import { PublishedMessage } from '../../types/pubSub';
 /**
  *
  * Publish an event to any connected Subscriber via websockets.
@@ -11,4 +12,4 @@
  * @doc https://developers.livestorm.co/docs/pubsub#publish
  *
  */
-export default function Publish(event: string, data: Record<string, unknown>): void;
+export default function Publish(event: string, data: PublishedMessage): void;

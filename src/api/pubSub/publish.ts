@@ -1,4 +1,5 @@
 import sendEvent from '@/io/sendEvent'
+import { PublishedMessage } from '@/types/pubSub'
 
 /**
  * 
@@ -13,7 +14,7 @@ import sendEvent from '@/io/sendEvent'
  * @doc https://developers.livestorm.co/docs/pubsub#publish
  * 
  */
-export default function Publish(event: string, data: Record<string, unknown>): void {
+export default function Publish(event: string, data: PublishedMessage): void {
   sendEvent({
     action: 'publish-event',
     data: {
