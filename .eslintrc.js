@@ -8,9 +8,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
   ],
-  "rules": {
+  ignorePatterns: ["cypress/**/*", "**/vendor/*.js"],
+  rules: {
     "indent"           : [1, 2,],
     "semi"             : [1, "never"],
-    "space-unary-ops"  : 2
+    "space-unary-ops"  : 2,
+    "@typescript-eslint/explicit-module-boundary-types": 0
   }
 };

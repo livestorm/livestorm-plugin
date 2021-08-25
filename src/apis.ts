@@ -3,6 +3,7 @@ import * as Chat from '@/api/chat'
 import * as Streams from '@/api/streams'
 import * as Stage from '@/api/stage'
 import * as Theme from '@/api/theme'
+import * as Settings from '@/api/settings'
 import * as NotificationCenter from '@/api/notificationCenter'
 import * as Storage from '@/api/storage'
 import * as Users from '@/api/users'
@@ -23,5 +24,6 @@ export {
   Theme,
   Users,
   When,
+  Settings,
   register,
 }
