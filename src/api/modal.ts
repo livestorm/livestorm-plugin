@@ -18,7 +18,7 @@ import { ListenableIframeParams } from '@/types/listenableIframe'
  */ 
 export function showIframe(data: { size?: 'normal' | 'large' | 'extraLarge' } & ListenableIframeParams) {
   return actsAsListenableIframe('modal-show-iframe',
-    { template: data.template, variables: data.variables },
+    { template: data.template, variables: data.variables, onMessage: data.onMessage },
     { size: data.size }
   )
 }

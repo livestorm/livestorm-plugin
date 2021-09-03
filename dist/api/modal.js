@@ -18,7 +18,7 @@ const actsAsListenableIframe_1 = require("../io/actsAsListenableIframe");
  *
  */
 function showIframe(data) {
-    return actsAsListenableIframe_1.default('modal-show-iframe', { template: data.template, variables: data.variables }, { size: data.size });
+    return actsAsListenableIframe_1.default('modal-show-iframe', { template: data.template, variables: data.variables, onMessage: data.onMessage }, { size: data.size });
 }
 exports.showIframe = showIframe;
 //# sourceMappingURL=modal.js.map
