@@ -12,7 +12,7 @@ export default function addButtonDefaultListeners <T extends DefaultButtonOption
   })
   
   // TODO: we should suffix the eventName with the type of event, here it would be `${eventName}-${uuid}-click`
-  subscribeToEvent(`${eventName}-${uuid}`, () => onClick())
+  subscribeToEvent(`${eventName}-${uuid}`, (payload) => onClick(payload))
   
   return uuid
 }
