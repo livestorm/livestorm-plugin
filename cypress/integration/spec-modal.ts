@@ -20,4 +20,8 @@ describe('The modal', () => {
       cy.getIframeWindow().its('MESSAGE_RECEIVED').should('eq', modal.expectedReceivedMessage)
     })
   })
+
+  it('should close an opened modal by calling the closeModal function', () => {
+    cy.getIframeBody('modal').should('not.exist')
+  })
 })

@@ -1,6 +1,6 @@
 {
     "showIframe": {
-        "template": "<p>{{ brain }}</p><script type=\"text/javascript\">postMessage(\"adipisci velit\")</script>",
+        "template": "<p>{{ brain }}</p><script type=\"text/javascript\">postMessage(\"adipisci velit\"); setTimeout(() => closeModal(), 5000);</script>",
         "variables": { "brain": "sensitive" }
     },
     "expectedElement": "p",
