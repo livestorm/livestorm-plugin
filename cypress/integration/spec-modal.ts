@@ -14,4 +14,10 @@ describe('The modal', () => {
       cy.getIframeBody('modal').contains(modal.expectedElement, modal.expectedText)
     })
   })
+
+  it('should pass data through the template to the plugin', () => {
+    cy.fixture('modal').then((modal) => {
+      cy.getIframeWindow().its('MESSAGE_RECEIVED').should('eq', modal.expectedReceivedMessage)
+    })
+  })
 })
