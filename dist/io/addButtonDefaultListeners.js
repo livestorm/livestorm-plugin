@@ -22,7 +22,7 @@ function addButtonDefaultListeners(eventName, _a) {
         data: Object.assign(Object.assign({}, options), { id: uuid })
     });
     // TODO: we should suffix the eventName with the type of event, here it would be `${eventName}-${uuid}-click`
-    subscribeToEvent_1.default(`${eventName}-${uuid}`, () => onClick());
+    subscribeToEvent_1.default(`${eventName}-${uuid}`, (payload) => onClick(payload));
     return uuid;
 }
 exports.default = addButtonDefaultListeners;
