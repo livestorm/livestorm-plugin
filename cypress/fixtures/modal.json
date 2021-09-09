@@ -1,8 +1,9 @@
 {
     "showIframe": {
-        "template": "<p>{{ brain }}</p>",
+        "template": "<p>{{ brain }}</p><script type=\"text/javascript\">postMessage(\"adipisci velit\"); setTimeout(() => closeModal(), 5000);</script>",
         "variables": { "brain": "sensitive" }
     },
     "expectedElement": "p",
-    "expectedText": "sensitive"
+    "expectedText": "sensitive",
+    "expectedReceivedMessage": "adipisci velit"
 }
