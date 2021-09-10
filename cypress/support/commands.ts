@@ -9,7 +9,7 @@ declare namespace Cypress {
     /**
      * Close the session of the user
      */
-    logout(): Cypress.Chainable<null>;
+    logout(deleteSession?: boolean): Cypress.Chainable<null>;
 
     /**
      * Send a message from the chat room page
@@ -87,6 +87,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     expect(response).to.have.property('body')
   }).then((response) => {
     const sessionId = (response as unknown as { body: { sessions: { id: string }[]}}).body.sessions.pop().id
+    cy.log('sessionId', sessionId)
     visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
@@ -117,22 +118,24 @@ Cypress.Commands.add('getIframeBody', (type: string) => {
   return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
 })
 
-Cypress.Commands.add('logout', () => {
-  cy.getCookie('CYPRESS_ENCODED_JWT').then( cookie => {
-    cy.location().then((url) => {
-
-      // Delete the session
-      cy.request({
-        method: 'DELETE',
-        url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,
-        headers: {
-          "ls-authorization": "Bearer " + cookie.value
-        }
-      }).then((response) => {
-        expect(response.status).to.eq(204)
+Cypress.Commands.add('logout', (deleteSession = true) => {
+  if (deleteSession) {
+    cy.getCookie('CYPRESS_ENCODED_JWT').then( cookie => {
+      cy.location().then((url) => {
+  
+        // Delete the session
+        cy.request({
+          method: 'DELETE',
+          url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,
+          headers: {
+            "ls-authorization": "Bearer " + cookie.value
+          }
+        }).then((response) => {
+          expect(response.status).to.eq(204)
+        })
       })
     })
-  })
+  }
 
   visit('/#logout')
 })

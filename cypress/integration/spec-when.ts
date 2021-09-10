@@ -4,7 +4,7 @@ describe('The When', () => {
   })
   
   after( () => {
-    cy.logout()
+    cy.logout(false)
   })
   
   // @eventStarts
