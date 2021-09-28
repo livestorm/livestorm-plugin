@@ -1,0 +1,25 @@
+@import "checkbox-radio";
+
+.ls-checkbox input:checked:not(:disabled)~label .input-custom {
+    background-color: rgba(42, 94, 228, 1);
+    background-color: var(--color-livestorm-600);
+    border-color: rgba(42, 94, 228, 1);
+    border-color: var(--color-livestorm-600);
+}
+
+.ls-checkbox .input-custom {
+    border-radius: 2.4px;
+}
+
+/* Align * for HTML custom consent required */
+
+.ls-checkbox .label-custom>span p:last-child {
+    display: inline;
+}
+
+/* Darker border for consent checkbox */
+
+.ls-checkbox-consent .input-custom {
+    border-color: rgba(119, 118, 123, 1);
+    border-color: var(--color-grey-600)
+}

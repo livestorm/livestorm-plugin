@@ -1,0 +1,38 @@
+@import "checkbox-radio";
+
+.ls-radio input:checked~label .input-custom {
+    border-width: 2px;
+}
+
+.ls-radio input:checked~label .input-custom .check-radio {
+    border-radius: 9999px;
+}
+
+.ls-radio input:checked:not(:disabled)~label .input-custom {
+    border-color: rgba(42, 94, 228, 1);
+    border-color: var(--color-livestorm-600);
+}
+
+.ls-radio input:checked:not(:disabled)~label .input-custom .check-radio {
+    background-color: rgba(42, 94, 228, 1);
+    background-color: var(--color-livestorm-600);
+}
+
+.ls-radio input:checked:disabled~label .input-custom {
+    border-color: rgba(119, 118, 123, 1);
+    border-color: var(--color-grey-600);
+}
+
+.ls-radio input:checked:disabled~label .input-custom .check-radio {
+    background-color: rgba(119, 118, 123, 1);
+    background-color: var(--color-grey-600);
+}
+
+.ls-radio input:disabled:not(:checked)~label .input-custom {
+    border-color: rgba(192, 192, 197, 1);
+    border-color: var(--color-grey-500);
+}
+
+.ls-radio .input-custom {
+    border-radius: 9999px;
+}
