@@ -7,3 +7,6 @@ export interface BroadcastMessageOptions {
     text?: string;
     html?: string;
 }
+export declare type ChatMessage = {
+    content: string;
+};

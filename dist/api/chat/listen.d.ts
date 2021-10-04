@@ -1,3 +1,4 @@
+import { ChatMessage } from '../../types/chat';
 /**
  *
  * Be notified whenever someone posts a message in the chat.
@@ -8,6 +9,6 @@
  * @doc https://developers.livestorm.co/docs/chat#listen
  *
  */
-export default function Listen(callback: (message: Record<string, unknown>) => void, options?: {
+export default function Listen(callback: (message: ChatMessage) => void, options?: {
     everyone?: boolean;
 }): void;

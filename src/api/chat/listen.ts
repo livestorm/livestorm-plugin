@@ -1,3 +1,5 @@
+import { ChatMessage } from '@/types/chat'
+
 import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
@@ -13,12 +15,12 @@ import subscribeToEvent from '@/io/subscribeToEvent'
  * 
  */
 
-export default function Listen(callback: (message: Record<string, unknown>) => void, options?: { everyone?: boolean }): void {
+export default function Listen(callback: (message: ChatMessage) => void, options?: { everyone?: boolean }): void {
   const uuid = uuidv4()
   sendEvent({
     action: `chat-listen${options?.everyone ? '-everyone' : '' }`,
     data:  { id: uuid }
   })
 
-  subscribeToEvent(`chat-listener-${options?.everyone ? 'everyone-' : '' }${uuid}`, (data) => callback(data))
+  subscribeToEvent<ChatMessage>(`chat-listener-${options?.everyone ? 'everyone-' : '' }${uuid}`, (data) => callback(data))
 }

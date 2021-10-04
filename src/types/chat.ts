@@ -8,3 +8,7 @@ export interface BroadcastMessageOptions {
     text?: string,
     html?: string
 }
+
+export type ChatMessage = {
+    content: string;
+}

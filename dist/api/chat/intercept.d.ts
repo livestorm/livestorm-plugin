@@ -1,3 +1,4 @@
+import { ChatMessage } from '../../types/chat';
 /**
  *
  * Intercept Chat messages matching a specific regex.
@@ -9,4 +10,4 @@
  * @doc https://developers.livestorm.co/docs/chat#intercept
  *
  */
-export default function Intercept(matcher: RegExp, callback: (message: Record<string, unknown>) => void): void;
+export default function Intercept(matcher: RegExp, callback: (message: ChatMessage) => void): void;
