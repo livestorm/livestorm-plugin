@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/livestorm/livestorm-plugin-example#readme",
   "devDependencies": {
-    "@livestorm/cli": "^0.2.0",
+    "@livestorm/cli": "https://github.com/livestorm/livestorm-plugin-cli#c58343b",
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",

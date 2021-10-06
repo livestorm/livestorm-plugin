@@ -520,11 +520,22 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@livestorm/cli@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@livestorm/cli/-/cli-0.2.0.tgz#b2a2498b3f985dfbadc47cca515f18eb097b7c21"
-  integrity sha512-h21SMiYK3V5FWDwO0YXMNG/tuHErUAF6mz2IrnkeqQXev6pnka2XcVDtW3KtO6HICRj659w0Mv558k+xrSEbWg==
+"@livestorm/cli@https://github.com/livestorm/livestorm-plugin-cli":
+  version "0.3.4"
+  resolved "https://github.com/livestorm/livestorm-plugin-cli#c85471791eb6b5485b022f387e596a625b55f93a"
   dependencies:
+    adm-zip "^0.5.5"
+    cliff "^0.1.10"
+    command-line-args "^5.1.1"
+    node-fetch "^2.6.1"
+    prompts "^2.4.0"
+    rimraf "^3.0.2"
+
+"@livestorm/cli@https://github.com/livestorm/livestorm-plugin-cli#c58343b":
+  version "0.3.4"
+  resolved "https://github.com/livestorm/livestorm-plugin-cli#c58343be8adc1d11bc034b0c0c0ed4a6ebb2fb58"
+  dependencies:
+    adm-zip "^0.5.5"
     cliff "^0.1.10"
     command-line-args "^5.1.1"
     node-fetch "^2.6.1"
@@ -970,6 +981,11 @@ acorn@^8.0.4:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.0.4.tgz#7a3ae4191466a6984eee0fe3407a4f3aa9db8354"
   integrity sha512-XNP0PqF1XD19ZlLKvB7cMmnZswW4C/03pRHgirB30uSJTaS3A3V1/P4sS3HPvFmjoriPCJQs+JDSbm4bL1TxGQ==
+
+adm-zip@^0.5.5:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.7.tgz#86d73d2c9b7766024e47f736b31af71e253b6d8d"
+  integrity sha512-QLEo3eoC2B0i3+g/G5nNzKbGoVOjW2ingZ4TXl7/YeDM+FAl3SiHSNnokTZLFEuVHBn5CbZ42KJcIIsRji1EgQ==
 
 aggregate-error@^3.0.0:
   version "3.1.0"
