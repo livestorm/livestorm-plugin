@@ -16,6 +16,9 @@ const createInstance = (id) => ({
             action: `iframe-message-to-${id}`,
             data: { data, id }
         });
+    },
+    getId() {
+        return id;
     }
 });
 function actsAsListenableIframe(eventName, iframe, additionalData = {}) {
