@@ -10,6 +10,7 @@ export type StageButtonWrapper = {
 }
 
 export interface StageButtonOptions extends DefaultButtonOptions {
+    darkImageSource?: string,
     tooltip?: string,
     dropdownActions?: Array<{ name?: string, label: string, imageSource?: string }>,
     dropdownActionsTextClasses?: string,
