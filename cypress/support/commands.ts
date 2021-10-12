@@ -46,7 +46,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   cy.intercept('/api/v1/auth/strong/token').as('token')
 
   // LogIn
-  cy.request('POST', '/api/v1/auth/strong/session', {
+  cy.request('POST', `/api/v1/auth/strong/session?${Cypress.env('MAGIC_PARAMETER')}`, {
     "email": Cypress.env('TEAM_MEMBER_EMAIL'),
     "password": Cypress.env('TEAM_MEMBER_PASSWORD'),
     "provider": "email_password"
