@@ -85,4 +85,5 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_PLUGIN_IFRAME_NAME: ${{ secrets.PLUGIN_IFRAME_NAME }}
+          CYPRESS_MAGIC_PARAMETER: ${{ secrets.MAGIC_PARAMETER }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
