@@ -1,4 +1,5 @@
 import { ListenableIframeParams } from '../types/listenableIframe';
+import { ModalWrapper } from '../types/modal';
 /**
  *
  * Display a modal with custom HTML content.
@@ -16,4 +17,4 @@ import { ListenableIframeParams } from '../types/listenableIframe';
  */
 export declare function showIframe(data: {
     size?: 'normal' | 'large' | 'extraLarge';
-} & ListenableIframeParams): Promise<import("../types/listenableIframe").ListenableIframe>;
+} & ListenableIframeParams): Promise<ModalWrapper>;
