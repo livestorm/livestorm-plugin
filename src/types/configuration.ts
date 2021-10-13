@@ -1,8 +1,12 @@
 export type ConfigurationData = {
-    eventTypeId: string
-    sessionId: string
-    organizationId: string
-    pluginId: string
-    pluginHost: string
-    pluginName: string
-  }
+  eventTypeId: string
+  isPublished: boolean
+  locale: string
+  organizationId: string
+  origin: string
+  pluginHost: string
+  pluginId: string
+  pluginName: string
+  queryString: { s: string }
+  sessionId: string
+}
