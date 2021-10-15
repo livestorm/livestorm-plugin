@@ -56,12 +56,8 @@ describe('index', () => {
 
   it('exports Theme correctly', () => {
     expect(Livestorm.Theme).toBeDefined()
-    expect(Livestorm.Theme.setBackground).toBeDefined()
-  })
-
-  it('exports Theme correctly', () => {
-    expect(Livestorm.Theme).toBeDefined()
-    expect(Livestorm.Theme.setBackground).toBeDefined()
+    expect(Livestorm.Theme.setBackgroundColor).toBeDefined()
+    expect(Livestorm.Theme.setBackgroundImage).toBeDefined()
   })
 
   it('exports Users correctly', () => {
