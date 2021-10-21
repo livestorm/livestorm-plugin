@@ -18,6 +18,10 @@ const createInstance = (id: string): ListenableIframe => ({
       action: `iframe-message-to-${id}`,
       data: { data, id }
     })
+  },
+
+  getId(): string {
+    return id
   }
 })
 

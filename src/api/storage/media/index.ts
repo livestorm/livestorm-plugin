@@ -6,7 +6,7 @@ interface UploadParams {
 }
 
 export async function upload(params: UploadParams): Promise<string> {
-  const request = `${Configuration.pluginHost}/api/v1/medias`
+  const request = `${Configuration.get('pluginHost')}/api/v1/medias`
   const [ fileName, fileExtension ] = params.fileName.split('.')
 
   const response = await fetch(

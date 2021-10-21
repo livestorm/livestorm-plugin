@@ -4,10 +4,10 @@ import * as Media from './media'
 import Configuration from '@/configuration'
 
 function getScopeId(scope = 'event') {
-  if (scope === 'event') return Configuration.eventTypeId
-  else if (scope === 'session') return Configuration.sessionId
-  else if (scope === 'organization') return Configuration.organizationId
-  else return Configuration.eventTypeId
+  if (scope === 'event') return Configuration.get('eventTypeId')
+  else if (scope === 'session') return Configuration.get('sessionId')
+  else if (scope === 'organization') return Configuration.get('organizationId')
+  else return Configuration.get('eventTypeId')
 }
 
 /**
@@ -20,7 +20,9 @@ function getScopeId(scope = 'event') {
  * 
  */
 export async function setItem(key: string, value: string, options = { scope: 'event' }): Promise<Response> {
-  const { organizationId, pluginId, pluginHost } = Configuration
+  const organizationId = Configuration.get('organizationId')
+  const pluginHost = Configuration.get('pluginHost')
+  const pluginId = Configuration.get('pluginId')
 
   return await fetch(`${pluginHost}/api/v1/storage_keys`, {
     method: 'POST',
@@ -47,8 +49,10 @@ export async function setItem(key: string, value: string, options = { scope: 'ev
  * 
  */
 export async function getItem(key: string, options = { scope: 'event' }): Promise<string> {
-  const { organizationId, pluginId, pluginHost } = Configuration
-
+  const organizationId = Configuration.get('organizationId')
+  const pluginHost = Configuration.get('pluginHost')
+  const pluginId = Configuration.get('pluginId')
+  
   const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`)
   const body = await res.json()
 

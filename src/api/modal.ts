@@ -1,5 +1,9 @@
 import actsAsListenableIframe from '@/io/actsAsListenableIframe'
+import sendEvent from '@/io/sendEvent'
+
 import { ListenableIframeParams } from '@/types/listenableIframe'
+import { ModalWrapper } from '@/types/modal'
+
 
 /**
  * 
@@ -16,9 +20,19 @@ import { ListenableIframeParams } from '@/types/listenableIframe'
  * @doc https://developers.livestorm.co/docs/modal#showiframe
  * 
  */ 
-export function showIframe(data: { size?: 'normal' | 'large' | 'extraLarge' } & ListenableIframeParams) {
-  return actsAsListenableIframe('modal-show-iframe',
+export async function showIframe(data: { size?: 'normal' | 'large' | 'extraLarge' } & ListenableIframeParams): Promise<ModalWrapper> {
+  const listenableIframe =  await actsAsListenableIframe('modal-show-iframe',
     { template: data.template, variables: data.variables, onMessage: data.onMessage },
     { size: data.size }
   )
+  
+  return {
+    ...listenableIframe,
+    close: () => {
+      sendEvent({
+        action: `close-modal-${listenableIframe.getId()}`,
+        data: null
+      })
+    }
+  }
 }

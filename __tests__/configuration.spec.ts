@@ -5,34 +5,50 @@ import Configuration from '../src/configuration'
 describe('Configuration', () => {
   const data: ConfigurationData = {
     'eventTypeId': 'eventTypeId',
+    isPublished: true,
+    locale: 'fr',
     'organizationId': 'organizationId',
+    origin: 'origin',
     'pluginHost': 'pluginHost',
     'pluginId': 'pluginId',
     'pluginName': 'pluginName',
+    queryString: { s: 's' },
     'sessionId': 'sessionId',
-  } as ConfigurationData
+  }
 
   it('should store accessible data', () => {
     Configuration.set(data)
 
-    // eventTypeId
-    expect(Configuration.eventTypeId).toBe('eventTypeId')
-    
-    // organizationId
-    expect(Configuration.organizationId).toBe('organizationId')
+    expect(Configuration.get('eventTypeId')).toBe(data.eventTypeId)
+    expect(Configuration.get('isPublished')).toBe(data.isPublished)
+    expect(Configuration.get('locale')).toBe(data.locale)
+    expect(Configuration.get('organizationId')).toBe(data.organizationId)
+    expect(Configuration.get('origin')).toBe(data.origin)
+    expect(Configuration.get('pluginHost')).toBe(data.pluginHost)
+    expect(Configuration.get('pluginId')).toBe(data.pluginId)
+    expect(Configuration.get('pluginName')).toBe(data.pluginName)
+    expect(Configuration.get('queryString')).toBe(data.queryString)
+    expect(Configuration.get('sessionId')).toBe(data.sessionId)
+  })
 
-    // pluginHost
-    expect(Configuration.pluginHost).toBe('pluginHost')
-    
-    // pluginId
-    expect(Configuration.pluginId).toBe('pluginId')
+  it('should update the data', () => {
+    const dataToUpdate: ConfigurationData = {
+      'eventTypeId': 'eventTypeIdUpdated',
+    } as ConfigurationData
+    Configuration.set(dataToUpdate)
 
-    // pluginName
-    expect(Configuration.pluginName).toBe('pluginName')
-    
-    // sessionId
-    expect(Configuration.sessionId).toBe('sessionId')
+    // Check the updated data
+    expect(Configuration.get('eventTypeId')).toBe(dataToUpdate.eventTypeId)
 
-    
+    // Check the previous data has not been lost
+    expect(Configuration.get('isPublished')).toBe(data.isPublished)
+    expect(Configuration.get('locale')).toBe(data.locale)
+    expect(Configuration.get('organizationId')).toBe(data.organizationId)
+    expect(Configuration.get('origin')).toBe(data.origin)
+    expect(Configuration.get('pluginHost')).toBe(data.pluginHost)
+    expect(Configuration.get('pluginId')).toBe(data.pluginId)
+    expect(Configuration.get('pluginName')).toBe(data.pluginName)
+    expect(Configuration.get('queryString')).toBe(data.queryString)
+    expect(Configuration.get('sessionId')).toBe(data.sessionId)
   })
 })

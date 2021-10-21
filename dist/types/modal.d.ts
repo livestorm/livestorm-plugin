@@ -1,3 +1,4 @@
-export declare type Modal = {
-    sendMessage: (data: Record<string, unknown>) => void;
+import { ListenableIframe } from '../types/listenableIframe';
+export declare type ModalWrapper = ListenableIframe & {
+    close: () => void;
 };

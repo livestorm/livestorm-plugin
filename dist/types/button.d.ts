@@ -8,6 +8,7 @@ export declare type StageButtonWrapper = {
     remove: () => void;
 };
 export interface StageButtonOptions extends DefaultButtonOptions {
+    darkImageSource?: string;
     tooltip?: string;
     dropdownActions?: Array<{
         name?: string;

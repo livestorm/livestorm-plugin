@@ -13,7 +13,7 @@ exports.upload = void 0;
 const configuration_1 = require("../../../configuration");
 function upload(params) {
     return __awaiter(this, void 0, void 0, function* () {
-        const request = `${configuration_1.default.pluginHost}/api/v1/medias`;
+        const request = `${configuration_1.default.get('pluginHost')}/api/v1/medias`;
         const [fileName, fileExtension] = params.fileName.split('.');
         const response = yield fetch(request, {
             method: 'POST',
