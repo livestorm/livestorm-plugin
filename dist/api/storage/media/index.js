@@ -24,7 +24,7 @@ function upload(params) {
             }),
             headers: { 'Content-Type': 'Application/JSON', }
         });
-        const url = yield response.json();
+        const { url } = yield response.json();
         return url;
     });
 }
