@@ -21,7 +21,7 @@ export async function upload(params: UploadParams): Promise<string> {
       headers: { 'Content-Type': 'Application/JSON', }
     }
   )
-  const url = await response.json()
+  const { url } = await response.json()
 
   return url
 }
