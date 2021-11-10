@@ -5,6 +5,7 @@ import * as Stage from '@/api/stage'
 import * as Theme from '@/api/theme'
 import * as Settings from '@/api/settings'
 import * as NotificationCenter from '@/api/notificationCenter'
+import * as Sidebar from '@/api/sidebar'
 import * as Storage from '@/api/storage'
 import * as Users from '@/api/users'
 import * as Modal from '@/api/modal'
@@ -15,15 +16,16 @@ import register from '@/api/register'
 export {
   Configuration,
   Chat,
-  NotificationCenter,
   Modal,
+  NotificationCenter,
   PubSub,
+  Settings,
+  Sidebar,
   Stage,
   Storage,
   Streams,
   Theme,
   Users,
   When,
-  Settings,
   register,
 }
