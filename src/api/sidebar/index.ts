@@ -4,8 +4,7 @@ import sendEvent from '@/io/sendEvent'
 import actsAsListenableIframe from '@/io/actsAsListenableIframe'
 
 export async function registerPanel(options: PanelOptions): Promise<PanelWrapper> {
-  const listenableIframe =  await actsAsListenableIframe('register-sidebar-panel', options,
-  )
+  const listenableIframe =  await actsAsListenableIframe('register-sidebar-panel', options)
 
   const uuid = listenableIframe.getId()
   
