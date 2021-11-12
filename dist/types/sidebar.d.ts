@@ -1,8 +1,11 @@
-export interface PanelOptions {
+import { ListenableIframe, ListenableIframeParams } from "./listenableIframe";
+import { RemovableWrapper } from "./wrapper";
+export declare type PanelOptions = ListenableIframeParams & {
     label: string;
     imageSource?: string;
     icon?: string;
-    template: string;
     slug: string;
-    variables?: Record<string, unknown>;
-}
+};
+export declare type PanelWrapper = RemovableWrapper & ListenableIframe & {
+    focus: () => void;
+};

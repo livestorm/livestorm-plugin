@@ -1,12 +1,11 @@
+import { RemovableWrapper } from "./wrapper";
 export interface DefaultButtonOptions {
     label: string;
     icon?: string;
     imageSource?: string;
     onClick?: (payload?: Record<string, unknown>) => unknown;
 }
-export declare type StageButtonWrapper = {
-    remove: () => void;
-};
+export declare type StageButtonWrapper = RemovableWrapper;
 export interface StageButtonOptions extends DefaultButtonOptions {
     darkImageSource?: string;
     tooltip?: string;

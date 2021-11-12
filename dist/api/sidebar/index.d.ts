@@ -1,2 +1,2 @@
-import { PanelOptions } from '../../types/sidebar';
-export declare function registerPanel(options: PanelOptions): void;
+import { PanelOptions, PanelWrapper } from '../../types/sidebar';
+export declare function registerPanel(options: PanelOptions): Promise<PanelWrapper>;
