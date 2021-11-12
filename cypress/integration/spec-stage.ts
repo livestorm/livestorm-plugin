@@ -8,7 +8,7 @@ describe('The stage', () => {
   })
 
   it('should display the share button', () => {
-    cy.get('.share-dropdown button').click({ force: true })
+    cy.get('[data-testid="sharing-dropdown"] button').click({ force: true })
 
     cy.fixture('stage').then((stage) => {
       cy.contains(stage.registerShareButton.label)
