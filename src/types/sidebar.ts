@@ -4,6 +4,7 @@ import { RemovableWrapper } from "./wrapper"
 export type PanelOptions = ListenableIframeParams & {
     label: string
     imageSource?: string
+    darkImageSource?: string;
     icon?: string
     slug: string
 }
