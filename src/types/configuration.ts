@@ -7,6 +7,7 @@ export type ConfigurationData = {
   pluginHost: string
   pluginId: string
   pluginName: string
+  token: string
   queryString: { s: string }
   sessionId: string
 }

@@ -20,11 +20,13 @@ export async function setItem(key: string, value: string, options = { scope: 'ev
   const organizationId = Configuration.get('organizationId')
   const pluginHost = Configuration.get('pluginHost')
   const pluginId = Configuration.get('pluginId')
+  const token = Configuration.get('token')
 
   return await fetch(`${pluginHost}/api/v1/storage_keys`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': token,
     },
     body: JSON.stringify({
       key,
@@ -49,8 +51,13 @@ export async function getItem(key: string, options = { scope: 'event' }): Promis
   const organizationId = Configuration.get('organizationId')
   const pluginHost = Configuration.get('pluginHost')
   const pluginId = Configuration.get('pluginId')
+  const token = Configuration.get('token')
   
-  const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`)
+  const res = await fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`, {
+    headers: {
+      'Authorization': token
+    }
+  })
   const body = await res.json()
 
   return body.storageKey ? body.storageKey.value : null
