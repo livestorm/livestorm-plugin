@@ -1,6 +1,7 @@
 interface MessageParam {
     user: {
         id?: string;
+        color?: string;
         firstName?: string;
         lastName?: string;
         tag?: string;
