@@ -3,6 +3,7 @@ import intercept from './intercept'
 import send from './send'
 import broadcast from './broadcast'
 import registerMessageAction from './registerMessageAction'
+import registerCommand from './registerCommand'
 import * as Buttons from './buttons'
 
 export {
@@ -11,5 +12,6 @@ export {
   send,
   broadcast,
   registerMessageAction,
+  registerCommand,
   Buttons
 }
