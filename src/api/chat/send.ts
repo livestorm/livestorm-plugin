@@ -11,6 +11,7 @@ interface MessageParam {
     tag?: string,
     avatarUrl?: string
   },
+  visibility?: string,
   text?: string,
   html?: string
 }
