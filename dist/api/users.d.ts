@@ -40,4 +40,4 @@ export declare function everyone(): Promise<User[]>;
  * @doc https://developers.livestorm.co/docs/users#registerpeopletabaction
  *
  */
-export default function registerMessageAction(options: DefaultButtonOptions): void;
+export declare function registerPeopleTabAction(options: DefaultButtonOptions): void;

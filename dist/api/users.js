@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.everyone = exports.teamMembers = exports.me = void 0;
+exports.registerPeopleTabAction = exports.everyone = exports.teamMembers = exports.me = void 0;
 const addButtonDefaultListeners_1 = require("../io/addButtonDefaultListeners");
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
@@ -67,8 +67,8 @@ exports.everyone = everyone;
  * @doc https://developers.livestorm.co/docs/users#registerpeopletabaction
  *
  */
-function registerMessageAction(options) {
+function registerPeopleTabAction(options) {
     addButtonDefaultListeners_1.default('users-register-people-tab-action', options);
 }
-exports.default = registerMessageAction;
+exports.registerPeopleTabAction = registerPeopleTabAction;
 //# sourceMappingURL=users.js.map

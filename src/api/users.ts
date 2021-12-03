@@ -70,7 +70,7 @@ export function everyone(): Promise<User[]> {
  * @doc https://developers.livestorm.co/docs/users#registerpeopletabaction
  * 
  */
-export default function registerMessageAction (options: DefaultButtonOptions): void {
+export function registerPeopleTabAction (options: DefaultButtonOptions): void {
   addButtonDefaultListeners('users-register-people-tab-action', options)
 }
 
