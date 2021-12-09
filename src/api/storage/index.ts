@@ -1,3 +1,6 @@
+
+import * as Media from './media'
+
 import Configuration from '@/configuration'
 
 function getScopeId(scope = 'event') {
@@ -61,4 +64,8 @@ export async function getItem(key: string, options = { scope: 'event' }): Promis
   const body = await res.json()
 
   return body.storageKey ? body.storageKey.value : null
+}
+
+export { 
+  Media
 }

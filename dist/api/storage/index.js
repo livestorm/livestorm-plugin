@@ -9,8 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getItem = exports.setItem = void 0;
-const configuration_1 = require("../configuration");
+exports.Media = exports.getItem = exports.setItem = void 0;
+const Media = require("./media");
+exports.Media = Media;
+const configuration_1 = require("../../configuration");
 function getScopeId(scope = 'event') {
     if (scope === 'event')
         return configuration_1.default.get('eventTypeId');
@@ -78,4 +80,4 @@ function getItem(key, options = { scope: 'event' }) {
     });
 }
 exports.getItem = getItem;
-//# sourceMappingURL=storage.js.map
+//# sourceMappingURL=index.js.map

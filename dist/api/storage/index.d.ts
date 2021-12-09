@@ -1,3 +1,4 @@
+import * as Media from './media';
 /**
  *
  * Store a value under a specific key. This storage is persistant and shared across participants of the event
@@ -22,3 +23,4 @@ export declare function setItem(key: string, value: string, options?: {
 export declare function getItem(key: string, options?: {
     scope: string;
 }): Promise<string>;
+export { Media };

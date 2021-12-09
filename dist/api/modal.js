@@ -27,9 +27,9 @@ const sendEvent_1 = require("../io/sendEvent");
  * @doc https://developers.livestorm.co/docs/modal#showiframe
  *
  */
-function showIframe(data) {
+function showIframe(options) {
     return __awaiter(this, void 0, void 0, function* () {
-        const listenableIframe = yield actsAsListenableIframe_1.default('modal-show-iframe', { template: data.template, variables: data.variables, onMessage: data.onMessage }, { size: data.size });
+        const listenableIframe = yield actsAsListenableIframe_1.default('modal-show-iframe', options);
         return Object.assign(Object.assign({}, listenableIframe), { close: () => {
                 sendEvent_1.default({
                     action: `close-modal-${listenableIframe.getId()}`,
