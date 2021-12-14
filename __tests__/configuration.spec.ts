@@ -12,6 +12,7 @@ describe('Configuration', () => {
     'pluginHost': 'pluginHost',
     'pluginId': 'pluginId',
     'pluginName': 'pluginName',
+    'token': 'xxxxx',
     queryString: { s: 's' },
     'sessionId': 'sessionId',
   }
@@ -28,6 +29,7 @@ describe('Configuration', () => {
     expect(Configuration.get('pluginId')).toBe(data.pluginId)
     expect(Configuration.get('pluginName')).toBe(data.pluginName)
     expect(Configuration.get('queryString')).toBe(data.queryString)
+    expect(Configuration.get('token')).toBe(data.token)
     expect(Configuration.get('sessionId')).toBe(data.sessionId)
   })
 
@@ -48,6 +50,7 @@ describe('Configuration', () => {
     expect(Configuration.get('pluginHost')).toBe(data.pluginHost)
     expect(Configuration.get('pluginId')).toBe(data.pluginId)
     expect(Configuration.get('pluginName')).toBe(data.pluginName)
+    expect(Configuration.get('token')).toBe(data.token)
     expect(Configuration.get('queryString')).toBe(data.queryString)
     expect(Configuration.get('sessionId')).toBe(data.sessionId)
   })

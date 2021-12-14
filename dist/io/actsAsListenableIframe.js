@@ -21,13 +21,13 @@ const createInstance = (id) => ({
         return id;
     }
 });
-function actsAsListenableIframe(eventName, iframe, additionalData = {}) {
+function actsAsListenableIframe(eventName, options) {
     return new Promise((resolve) => {
         const uuid = uuid_1.v4();
-        subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => iframe.onMessage(response));
+        subscribeToEvent_1.default(`iframe-message-for-${uuid}`, (response) => options.onMessage(response));
         sendEvent_1.default({
             action: eventName,
-            data: Object.assign({ template: processTemplate_1.default(iframe.template, iframe.variables || {}), id: uuid }, additionalData)
+            data: Object.assign(Object.assign({}, options), { template: processTemplate_1.default(options.template, options.variables || {}), id: uuid })
         });
         resolve(createInstance(uuid));
     });

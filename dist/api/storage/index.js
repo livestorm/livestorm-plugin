@@ -37,10 +37,12 @@ function setItem(key, value, options = { scope: 'event' }) {
         const organizationId = configuration_1.default.get('organizationId');
         const pluginHost = configuration_1.default.get('pluginHost');
         const pluginId = configuration_1.default.get('pluginId');
+        const token = configuration_1.default.get('token');
         return yield fetch(`${pluginHost}/api/v1/storage_keys`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token,
             },
             body: JSON.stringify({
                 key,
@@ -67,7 +69,12 @@ function getItem(key, options = { scope: 'event' }) {
         const organizationId = configuration_1.default.get('organizationId');
         const pluginHost = configuration_1.default.get('pluginHost');
         const pluginId = configuration_1.default.get('pluginId');
-        const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`);
+        const token = configuration_1.default.get('token');
+        const res = yield fetch(`${pluginHost}/api/v1/storage_keys?organization_id=${organizationId}&session_id=${getScopeId(options.scope)}&plugin_id=${pluginId}&key=${key}`, {
+            headers: {
+                'Authorization': token
+            }
+        });
         const body = yield res.json();
         return body.storageKey ? body.storageKey.value : null;
     });

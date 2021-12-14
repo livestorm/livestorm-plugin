@@ -1,3 +1,5 @@
+import { RemovableWrapper } from "./wrapper"
+
 export interface DefaultButtonOptions {
     label: string,
     icon?: string,
@@ -5,9 +7,7 @@ export interface DefaultButtonOptions {
     onClick?: (payload?: Record<string, unknown>) => unknown
 }
 
-export type StageButtonWrapper = {
-    remove: () => void
-}
+export type StageButtonWrapper = RemovableWrapper
 
 export interface StageButtonOptions extends DefaultButtonOptions {
     darkImageSource?: string,

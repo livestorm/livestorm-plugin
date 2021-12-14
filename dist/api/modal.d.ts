@@ -15,6 +15,6 @@ import { ModalWrapper } from '../types/modal';
  * @doc https://developers.livestorm.co/docs/modal#showiframe
  *
  */
-export declare function showIframe(data: {
+export declare function showIframe(options: {
     size?: 'normal' | 'large' | 'extraLarge';
 } & ListenableIframeParams): Promise<ModalWrapper>;
