@@ -7,10 +7,10 @@ describe('The pubSub', () => {
     cy.logout()
   })
 
-  it('should notify when the subscribed event is publihed', () => {
+  it('should notify when the subscribed event is published', () => {
     cy.getIframeWindow().should('exist')
     cy.fixture('pubSub').then(({ payload }) => {
-      cy.getIframeWindow().its('PUBSUB').should('deep.equal', payload)
+      cy.getIframeWindow().its('PUBSUB').its('data').should('deep.equal', payload.data)
     })
   })
 })
