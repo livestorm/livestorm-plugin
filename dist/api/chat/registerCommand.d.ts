@@ -1,3 +1,4 @@
+import { ChatCommandTrigger } from '../../types/chat';
 /**
  *
  * Register a chat command in the commands menu. Can be used to execute action
@@ -17,5 +18,5 @@ export default function registerCommand({ label, command, params, onTrigger }: {
     label: string;
     command: string;
     params: Array<string>;
-    onTrigger: (any: any) => unknown;
+    onTrigger: (trigger: ChatCommandTrigger) => unknown;
 }): void;

@@ -2,6 +2,8 @@ import { v4 as uuidv4 } from 'uuid'
 import sendEvent from '@/io/sendEvent'
 import subscribeToEvent from '@/io/subscribeToEvent'
 
+import { ChatCommandTrigger } from '@/types/chat'
+
 /**
  * 
  * Register a chat command in the commands menu. Can be used to execute action
@@ -21,7 +23,7 @@ export default function registerCommand ({ label, command, params, onTrigger }: 
     label: string,
     command: string,
     params: Array<string>,
-    onTrigger: (any) => unknown
+    onTrigger: (trigger: ChatCommandTrigger) => unknown
   }): void {
   const uuid = uuidv4()
   sendEvent({
@@ -29,7 +31,7 @@ export default function registerCommand ({ label, command, params, onTrigger }: 
     data:  { label, command, params, id: uuid }
   })
 
-  subscribeToEvent(`chat-register-command-${uuid}`, (data) => {
-    onTrigger(data)
+  subscribeToEvent(`chat-register-command-${uuid}`, (data: unknown) => {
+    onTrigger(<ChatCommandTrigger> data)
   })
 }
