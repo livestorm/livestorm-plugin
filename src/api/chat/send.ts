@@ -5,11 +5,13 @@ import subscribeToEvent from '@/io/subscribeToEvent'
 interface MessageParam {
   user: {
     id?: string,
+    color?: string,
     firstName?: string,
     lastName?: string,
     tag?: string,
     avatarUrl?: string
   },
+  visibility?: string,
   text?: string,
   html?: string
 }

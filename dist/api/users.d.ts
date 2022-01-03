@@ -1,4 +1,5 @@
 import { User } from '../types/user';
+import { DefaultButtonOptions } from '../types/button';
 /**
   * Returns the current user information
   *
@@ -25,3 +26,18 @@ export declare function teamMembers(): Promise<User[]>;
   *
   */
 export declare function everyone(): Promise<User[]>;
+/**
+ *
+ * Register an entry in the context menu of a user in the people tab.
+ * Can be used to trigger any action (sharing custom content, files, videos, etc)
+ *
+ * @example Users.registerPeopleTabAction({
+ *   label: 'Send a private message',
+ *   imageSource: 'http://image/image.png',
+ *   onClick: (user) => console.log('someone clicked this button')
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/users#registerpeopletabaction
+ *
+ */
+export declare function registerPeopleTabAction(options: DefaultButtonOptions): void;

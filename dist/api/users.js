@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.everyone = exports.teamMembers = exports.me = void 0;
+exports.registerPeopleTabAction = exports.everyone = exports.teamMembers = exports.me = void 0;
+const addButtonDefaultListeners_1 = require("../io/addButtonDefaultListeners");
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
   * Returns the current user information
@@ -52,4 +53,22 @@ function everyone() {
     });
 }
 exports.everyone = everyone;
+/**
+ *
+ * Register an entry in the context menu of a user in the people tab.
+ * Can be used to trigger any action (sharing custom content, files, videos, etc)
+ *
+ * @example Users.registerPeopleTabAction({
+ *   label: 'Send a private message',
+ *   imageSource: 'http://image/image.png',
+ *   onClick: (user) => console.log('someone clicked this button')
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/users#registerpeopletabaction
+ *
+ */
+function registerPeopleTabAction(options) {
+    addButtonDefaultListeners_1.default('users-register-people-tab-action', options);
+}
+exports.registerPeopleTabAction = registerPeopleTabAction;
 //# sourceMappingURL=users.js.map

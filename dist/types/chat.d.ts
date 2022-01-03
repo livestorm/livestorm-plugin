@@ -1,3 +1,4 @@
+import { User } from '../types/user';
 export declare type BroadcastedMessage = {
     id: string;
     onIframeMessage: (arg: (data: Record<string, unknown>) => void) => void;
@@ -23,4 +24,14 @@ export declare type ChatMessageWithUser = Omit<ChatMessage, 'content'> & {
 };
 export interface ChatListenOptions {
     everyone?: boolean;
+}
+export interface ChatCommandTrigger {
+    params: Record<string, unknown>;
+    valid: boolean;
+    rawCommand: string;
+    mentions: Array<{
+        replacedWith: string;
+        user: User;
+    }>;
+    scope: null | 'contributors';
 }
