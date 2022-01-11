@@ -1,4 +1,35 @@
 {
-    "user": ["first_name", "id", "last_name", "is_connected", "is_team_member", "is_guest_speaker", "color", "job_title", "company_name", "avatar", "pending", "prepare", "prepare_in_lobby", "prepare_enable_microphone", "prepare_enable_camera"],
-    "withHost": ["first_name", "id", "last_name", "is_connected", "is_team_member", "is_guest_speaker", "color", "job_title", "company_name", "avatar", "pending", "prepare", "prepare_in_lobby", "prepare_enable_microphone", "prepare_enable_camera", "is_host"]
+    "user": [
+        "avatar",
+        "color",
+        "company_name",
+        "first_name",
+        "id",
+        "is_connected",
+        "is_guest_speaker",
+        "is_team_member",
+        "job_title",
+        "last_name",
+        "pending",
+        "prepare",
+        "prepare_enable_camera",
+        "prepare_enable_microphone"
+    ],
+    "withHost": [
+        "avatar",
+        "color",
+        "company_name",
+        "first_name",
+        "id",
+        "is_connected",
+        "is_guest_speaker",
+        "is_team_member",
+        "job_title",
+        "last_name",
+        "pending",
+        "prepare",
+        "prepare_enable_camera",
+        "prepare_enable_microphone",
+        "is_host"
+    ]
 }
