@@ -19,12 +19,7 @@ declare namespace Cypress {
     /**
      * Get the contentWindow of a plugin iframe
      */
-    getIframeWindow(type?: 'modal' | 'notification-center'): Cypress.Chainable<null>;
-
-    /**
-     * Get the body of a plugin iframe
-     */
-    getIframeBody(type?: 'modal' | 'notification-center'): Cypress.Chainable<null>;
+    getIframeContent(iframeType: 'plugin' | 'modal' | 'notification-center', contentType?: 'window' | 'body' | 'element'): Cypress.Chainable<null>;
   }
 }
 
@@ -56,9 +51,9 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   cy.getCookie('refresh_token').should('exist')
 
   cy.wait('@user').then(({ response: { body: { id } } }) => {
-    cy.wait('@token').then(({ response: { body: { data }}}) => {
+    cy.wait('@token').then(({ response: { body: { data } } }) => {
       cy.setCookie('CYPRESS_ENCODED_JWT', data.jwt.encoded)
-  
+
       // Create session from event
       cy.request({
         method: 'POST',
@@ -66,18 +61,19 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
         headers: {
           "ls-authorization": "Bearer " + data.jwt.encoded
         },
-        body: { 
+        body: {
           "sessions": [
-            { "estimated_started_at": new Date((+new Date()+ (365 * 24 * 60 * 60 * 1000))).toISOString(),
+            {
+              "estimated_started_at": new Date((+new Date() + (365 * 24 * 60 * 60 * 1000))).toISOString(),
               "timezone": "Europe/Paris",
               "team_members": [
-                { 
-                  "identity_id": id, 
+                {
+                  "identity_id": id,
                   "is_highlighted": true
                 }
               ],
               "guest_speakers": []
-            }] 
+            }]
         }
       }).as('sessionCreated')
     })
@@ -86,43 +82,45 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   cy.get('@sessionCreated').should((response) => {
     expect(response).to.have.property('body')
   }).then((response) => {
-    const sessionId = (response as unknown as { body: { sessions: { id: string }[]}}).body.sessions.pop().id
+    const sessionId = (response as unknown as { body: { sessions: { id: string }[] } }).body.sessions.pop().id
     cy.log('sessionId', sessionId)
     visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
+  const joinButton = cy.get('.confirm-config-button:not([disabled])')
+
+  joinButton.should('exist')
+
   if (lobbyOnly === false) {
-    cy.get('.confirm-config-button:not([disabled])').click({ force: true })
+    joinButton.click({ force: true })
   }
 })
 
 Cypress.Commands.add('sendChatRoomMessage', message => {
-  cy.get('.tchat-wrap').find('.tchat-form__textarea').type(message, { force: true}).then(() => {
-    cy.get('.tchat-wrap').find('.message-action-button').last().click({ force: true})
+  cy.get('.tchat-wrap').find('.tchat-form__textarea').type(message, { force: true }).then(() => {
+    cy.get('.tchat-wrap').find('.message-action-button').last().click({ force: true })
     cy.wait(1000)
   })
 })
 
-Cypress.Commands.add('getIframeWindow', (type: string) => {
-  if (type) {
-    return cy.get(`iframe[data-type="${type}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentWindow')
-  }
-  return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentWindow')
-})
+Cypress.Commands.add('getIframeContent', (iframeType: 'plugin' | 'modal' | 'notification-center', contentType: 'window' | 'body' | 'element') => {
+  let element = cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
 
-
-Cypress.Commands.add('getIframeBody', (type: string) => {
-  if (type) {
-    return cy.get(`iframe[data-type="${type}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
+  if (iframeType !== 'plugin' ) {
+    element = cy.get(`iframe[data-type="${iframeType}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
   }
-  return cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`).its('0.contentDocument').its('body')
+
+  if (contentType === 'element') return element
+
+  if (contentType === 'window') return element.its('0.contentWindow')
+  if (contentType === 'body') return element.its('0.contentDocument').its('body')
 })
 
 Cypress.Commands.add('logout', (deleteSession = true) => {
   if (deleteSession) {
-    cy.getCookie('CYPRESS_ENCODED_JWT').then( cookie => {
+    cy.getCookie('CYPRESS_ENCODED_JWT').then(cookie => {
       cy.location().then((url) => {
-  
+
         // Delete the session
         cy.request({
           method: 'DELETE',

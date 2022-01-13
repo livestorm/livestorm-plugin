@@ -9,7 +9,7 @@ describe('The storage', () => {
   
   it('should retrieve a stored value ', () => {
     cy.fixture('storage').then(({ value }) => {
-      cy.getIframeWindow().its('RESULT').should('eq', value)
+      cy.getIframeContent('plugin', 'window').its('RESULT').should('eq', value)
     })
   })
 })
