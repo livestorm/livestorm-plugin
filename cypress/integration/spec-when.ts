@@ -9,7 +9,7 @@ describe('The When', () => {
   
   // @eventStarts
   it('should notify when the event start', () => {
-    cy.getIframeWindow('plugin', 'window').its('eventStarted').should('eq', false)
+    cy.getIframeContent('plugin', 'window').its('eventStarted').should('eq', false)
 
     cy.get('button.start-button').click({ force: true})
     cy.get('#modal-start').check({ force: true })
@@ -19,7 +19,7 @@ describe('The When', () => {
     cy.get('.end-button', {
       timeout: 20000
     })
-    cy.getIframeWindow('plugin', 'window').its('eventStarted').should('eq', true)
+    cy.getIframeContent('plugin', 'window').its('eventStarted').should('eq', true)
   })
 
   // @eventEnds
@@ -27,6 +27,6 @@ describe('The When', () => {
     cy.get('.end-button').click({ force: true})
     cy.get('.modal-end input[type="checkbox"]').check({ force: true })
     cy.get('.modal-end button').eq(1).click({ force: true})
-    cy.getIframeWindow('plugin', 'window').its('eventEnded').should('eq', true)
+    cy.getIframeContent('plugin', 'window').its('eventEnded').should('eq', true)
   })
 })
