@@ -10,7 +10,7 @@ describe('The notification center', () => {
   // @showIframe
   it('should display a modal with an iframe inside', () => {
     cy.fixture('notificationCenter').then((notificationCenter) => {
-      cy.getIframeBody('notification-center').contains(notificationCenter.expectedElement, notificationCenter.expectedText)
+      cy.getIframeContent('notification-center', 'body').contains(notificationCenter.expectedElement, notificationCenter.expectedText)
     })
   })
 })

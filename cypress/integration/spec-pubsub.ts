@@ -8,9 +8,9 @@ describe('The pubSub', () => {
   })
 
   it('should notify when the subscribed event is published', () => {
-    cy.getIframeWindow().should('exist')
+    cy.getIframeWindow('plugin', 'window').should('exist')
     cy.fixture('pubSub').then(({ payload }) => {
-      cy.getIframeWindow().its('PUBSUB').its('data').should('deep.equal', payload.data)
+      cy.getIframeWindow('plugin', 'window').its('PUBSUB').its('data').should('deep.equal', payload.data)
     })
   })
 })
