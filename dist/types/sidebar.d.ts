@@ -1,12 +1,13 @@
 import { ListenableIframe, ListenableIframeParams } from "./listenableIframe";
 import { RemovableWrapper } from "./wrapper";
-export declare type PanelOptions = ListenableIframeParams & {
+export declare type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
     imageSource?: string;
     darkImageSource?: string;
     icon?: string;
     slug: string;
 };
-export declare type PanelWrapper = RemovableWrapper & ListenableIframe & {
+export declare type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
     focus: () => void;
+    close: () => void;
 };

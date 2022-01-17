@@ -27,6 +27,12 @@ function registerPanel(options) {
                     action: 'focus-sidebar-panel',
                     data: { slug: options.slug, id: uuid }
                 });
+            },
+            close() {
+                sendEvent_1.default({
+                    action: 'close-sidebar-panel',
+                    data: { slug: options.slug, id: uuid }
+                });
             } });
     });
 }
