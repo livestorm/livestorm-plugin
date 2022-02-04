@@ -1,4 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
+
+type IframeType = 'plugin' | 'modal' | 'notification-center' | 'sidebar-panel'
+
 declare namespace Cypress {
   interface Chainable<Subject> {
     /**
@@ -19,7 +22,12 @@ declare namespace Cypress {
     /**
      * Get the contentWindow of a plugin iframe
      */
-    getIframeContent(iframeType: 'plugin' | 'modal' | 'notification-center', contentType?: 'window' | 'body' | 'element'): Cypress.Chainable<null>;
+    getIframeContent(iframeType: IframeType, contentType?: 'window' | 'body' | 'element'): Cypress.Chainable<null>;
+
+    /**
+     * Open the "more apps" menu
+     */
+    openMoreAppsMenu(): Cypress.Chainable<null>;
   }
 }
 
@@ -103,7 +111,7 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
   })
 })
 
-Cypress.Commands.add('getIframeContent', (iframeType: 'plugin' | 'modal' | 'notification-center', contentType: 'window' | 'body' | 'element') => {
+Cypress.Commands.add('getIframeContent', (iframeType: IframeType, contentType: 'window' | 'body' | 'element') => {
   let element = cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
 
   if (iframeType !== 'plugin' ) {
@@ -114,6 +122,11 @@ Cypress.Commands.add('getIframeContent', (iframeType: 'plugin' | 'modal' | 'noti
 
   if (contentType === 'window') return element.its('0.contentWindow')
   if (contentType === 'body') return element.its('0.contentDocument').its('body')
+})
+
+Cypress.Commands.add('openMoreAppsMenu', () => {
+  cy.get('[data-testid="sidebar-button-more-apps"]').click()
+  cy.get('.more-apps-popover').should('exist')
 })
 
 Cypress.Commands.add('logout', (deleteSession = true) => {
