@@ -20,7 +20,7 @@ declare namespace Cypress {
     sendChatRoomMessage(message: string): Cypress.Chainable<null>;
 
     /**
-     * Get the contentWindow of a plugin iframe
+     * Get the (window or body or element) of a plugin iframe
      */
     getIframeContent(iframeType: IframeType, contentType?: 'window' | 'body' | 'element'): Cypress.Chainable<null>;
 
@@ -28,6 +28,11 @@ declare namespace Cypress {
      * Open the "more apps" menu
      */
     openMoreAppsMenu(): Cypress.Chainable<null>;
+
+    /**
+     * Retrieve a sidebar button by text
+     */
+    getSidebarButton(text: string): Cypress.Chainable<JQuery<HTMLElement | null>>;
   }
 }
 
@@ -127,6 +132,10 @@ Cypress.Commands.add('getIframeContent', (iframeType: IframeType, contentType: '
 Cypress.Commands.add('openMoreAppsMenu', () => {
   cy.get('[data-testid="sidebar-button-more-apps"]').click({ force: true })
   cy.get('.more-apps-popover').should('exist')
+})
+
+Cypress.Commands.add('getSidebarButton', (text: string): Cypress.Chainable<JQuery<HTMLElement | null>> => {
+  return cy.get(`[data-testid^="sidebar-button"]`).filter(`:contains("${text}")`)
 })
 
 Cypress.Commands.add('logout', (deleteSession = true) => {

@@ -6,10 +6,6 @@ after(() => {
   cy.logout()
 })
 
-function getSidebarButton(text: string): Cypress.Chainable<JQuery<HTMLElement>> {
-  return cy.get(`[data-testid^="sidebar-button"]`).filter(`:contains("${text}")`)
-}
-
 describe('The Sidebar', () => {
 
   describe('when register a panel', () => {
@@ -22,13 +18,13 @@ describe('The Sidebar', () => {
 
     it('should display a sidebar button', function () {
       cy.openMoreAppsMenu()
-      const sidebarButton = getSidebarButton(this.sidebarPanelOptions.label)
+      const sidebarButton = cy.getSidebarButton(this.sidebarPanelOptions.label)
       sidebarButton.should('exist')
       sidebarButton.contains(this.sidebarPanelOptions.label)
     })
 
     it('should display an iframe when the button is clicked', function () {
-        getSidebarButton(this.sidebarPanelOptions.label).click()
+        cy.getSidebarButton(this.sidebarPanelOptions.label).click()
         cy.get('[data-testid="sidebar-header"]').contains(this.sidebarPanelOptions.label)
 
         cy.getIframeContent('sidebar-panel', 'element').should('exist')
@@ -53,7 +49,7 @@ describe('The Sidebar', () => {
       })
   
       it('should still display the sidebar button', function () {
-        getSidebarButton(this.sidebarPanelOptions.label).should('exist')
+        cy.getSidebarButton(this.sidebarPanelOptions.label).should('exist')
       })
     })
 
@@ -75,7 +71,7 @@ describe('The Sidebar', () => {
       })
 
       it('should not display the sidebar button anymore', function () {
-        getSidebarButton(this.sidebarPanelOptions.label).should('not.exist')
+        cy.getSidebarButton(this.sidebarPanelOptions.label).should('not.exist')
       })
     })
   })
