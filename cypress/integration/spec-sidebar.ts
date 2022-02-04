@@ -7,7 +7,7 @@ after(() => {
 })
 
 function getSidebarButton(text: string): Cypress.Chainable<JQuery<HTMLElement>> {
-  return cy.get(`[data-testid^="sidebar-button"]`).contains(text).parents('button')
+  return cy.get(`[data-testid^="sidebar-button"]`).filter(`:contains("${text}")`)
 }
 
 describe('The Sidebar', () => {
