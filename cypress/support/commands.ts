@@ -114,7 +114,7 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
 Cypress.Commands.add('getIframeContent', (iframeType: IframeType, contentType: 'window' | 'body' | 'element') => {
   let element = cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
 
-  if (iframeType !== 'plugin' ) {
+  if (iframeType !== 'plugin') {
     element = cy.get(`iframe[data-type="${iframeType}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
   }
 
@@ -125,7 +125,7 @@ Cypress.Commands.add('getIframeContent', (iframeType: IframeType, contentType: '
 })
 
 Cypress.Commands.add('openMoreAppsMenu', () => {
-  cy.get('[data-testid="sidebar-button-more-apps"]').click()
+  cy.get('[data-testid="sidebar-button-more-apps"]').click({ force: true })
   cy.get('.more-apps-popover').should('exist')
 })
 
