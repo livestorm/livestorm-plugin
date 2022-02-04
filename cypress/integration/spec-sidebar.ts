@@ -28,6 +28,8 @@ describe('The Sidebar', () => {
       cy.get('[data-testid="sidebar-header"]').contains(this.sidebarPanelOptions.label)
 
       cy.getIframeContent('sidebar-panel', 'element').should('exist')
+      
+      cy.wait(1000)
       cy.getIframeContent('sidebar-panel', 'body').contains(this.sidebarPanelOptions.template)
 
       cy.url().should('contain', this.sidebarPanelOptions.slug)

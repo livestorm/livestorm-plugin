@@ -130,8 +130,10 @@ Cypress.Commands.add('getIframeContent', (iframeType: IframeType, contentType: '
 })
 
 Cypress.Commands.add('openMoreAppsMenu', () => {
-  cy.get('[data-testid="sidebar-button-more-apps"]').click({ force: true })
-  cy.get('.more-apps-popover').should('exist')
+  if (cy.get('.more-apps-popover').should('not.exist')) {
+    cy.get('[data-testid="sidebar-button-more-apps"]').click({ force: true })
+    cy.get('.more-apps-popover').should('exist')
+  }
 })
 
 Cypress.Commands.add('getSidebarButton', (text: string): Cypress.Chainable<JQuery<HTMLElement | null>> => {
