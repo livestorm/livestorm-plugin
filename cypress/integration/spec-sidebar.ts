@@ -24,21 +24,20 @@ describe('The Sidebar', () => {
     })
 
     it('should display an iframe when the button is clicked', function () {
-        cy.getSidebarButton(this.sidebarPanelOptions.label).click()
-        cy.get('[data-testid="sidebar-header"]').contains(this.sidebarPanelOptions.label)
+      cy.getSidebarButton(this.sidebarPanelOptions.label).click()
+      cy.get('[data-testid="sidebar-header"]').contains(this.sidebarPanelOptions.label)
 
-        cy.getIframeContent('sidebar-panel', 'element').should('exist')
-        cy.getIframeContent('sidebar-panel', 'body').contains(this.sidebarPanelOptions.template)
+      cy.getIframeContent('sidebar-panel', 'element').should('exist')
+      cy.getIframeContent('sidebar-panel', 'body').contains(this.sidebarPanelOptions.template)
 
-        cy.url().should('contain', this.sidebarPanelOptions.slug)
+      cy.url().should('contain', this.sidebarPanelOptions.slug)
     })
 
     it('should be able to pass data to its parent plugin', function () {
       const messageToSend = 'foo'
       cy.getIframeContent('sidebar-panel', 'window').invoke('postMessage', messageToSend)
       cy.getIframeContent('plugin', 'window').its('__messageReceived__').should('eq', messageToSend)
-      
-  })
+    })
 
     describe('on close', () => {
 
@@ -47,8 +46,9 @@ describe('The Sidebar', () => {
         cy.getIframeContent('sidebar-panel', 'element').should('not.exist')
         cy.url().should('not.contain', this.sidebarPanelOptions.slug)
       })
-  
+
       it('should still display the sidebar button', function () {
+        cy.openMoreAppsMenu()
         cy.getSidebarButton(this.sidebarPanelOptions.label).should('exist')
       })
     })
