@@ -1,4 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
+
+type IframeType = 'plugin' | 'modal' | 'notification-center' | 'sidebar-panel'
+
 declare namespace Cypress {
   interface Chainable<Subject> {
     /**
@@ -17,9 +20,19 @@ declare namespace Cypress {
     sendChatRoomMessage(message: string): Cypress.Chainable<null>;
 
     /**
-     * Get the contentWindow of a plugin iframe
+     * Get the (window or body or element) of a plugin iframe
      */
-    getIframeContent(iframeType: 'plugin' | 'modal' | 'notification-center', contentType?: 'window' | 'body' | 'element'): Cypress.Chainable<null>;
+    getIframeContent(iframeType: IframeType, contentType?: 'window' | 'body' | 'element'): Cypress.Chainable<null>;
+
+    /**
+     * Open the "more apps" menu
+     */
+    openMoreAppsMenu(): Cypress.Chainable<null>;
+
+    /**
+     * Retrieve a sidebar button by text
+     */
+    getSidebarButton(text: string): Cypress.Chainable<JQuery<HTMLElement | null>>;
   }
 }
 
@@ -103,10 +116,10 @@ Cypress.Commands.add('sendChatRoomMessage', message => {
   })
 })
 
-Cypress.Commands.add('getIframeContent', (iframeType: 'plugin' | 'modal' | 'notification-center', contentType: 'window' | 'body' | 'element') => {
+Cypress.Commands.add('getIframeContent', (iframeType: IframeType, contentType: 'window' | 'body' | 'element') => {
   let element = cy.get(`iframe[name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
 
-  if (iframeType !== 'plugin' ) {
+  if (iframeType !== 'plugin') {
     element = cy.get(`iframe[data-type="${iframeType}"][data-parent-plugin-name="${Cypress.env('PLUGIN_IFRAME_NAME')}"]`)
   }
 
@@ -114,6 +127,17 @@ Cypress.Commands.add('getIframeContent', (iframeType: 'plugin' | 'modal' | 'noti
 
   if (contentType === 'window') return element.its('0.contentWindow')
   if (contentType === 'body') return element.its('0.contentDocument').its('body')
+})
+
+Cypress.Commands.add('openMoreAppsMenu', () => {
+  if (cy.get('.more-apps-popover').should('not.exist')) {
+    cy.get('[data-testid="sidebar-button-more-apps"]').click({ force: true })
+    cy.get('.more-apps-popover').should('exist')
+  }
+})
+
+Cypress.Commands.add('getSidebarButton', (text: string): Cypress.Chainable<JQuery<HTMLElement | null>> => {
+  return cy.get(`[data-testid^="sidebar-button"]`).filter(`:contains("${text}")`)
 })
 
 Cypress.Commands.add('logout', (deleteSession = true) => {
