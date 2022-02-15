@@ -1,9 +1,23 @@
 {
     "showIframe": {
-        "template": "<p>{{ brain }}</p><script type=\"text/javascript\">postMessage(\"adipisci velit\");</script>",
-        "variables": { "brain": "sensitive" }
+        "template": "<p>{{ brain }} {{ inquiry }} {{ seem }} {{ care }} {{ building }}</p><script type=\"text/javascript\">postMessage(\"adipisci velit\");</script>",
+        "variables": {
+            "brain": "sensitive",
+            "inquiry": {
+                "value": "building",
+                "replace": true
+            },
+            "seem": {
+                "value": "seem",
+                "replace": false
+            },
+            "care": {
+                "value": "continental",
+                "replace": false
+            }
+        }
     },
     "expectedElement": "p",
-    "expectedText": "sensitive",
+    "expectedText": "sensitive building {{ seem }} {{ care }} {{ building }}",
     "expectedReceivedMessage": "adipisci velit"
 }
