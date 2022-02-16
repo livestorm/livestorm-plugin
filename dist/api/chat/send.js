@@ -48,7 +48,10 @@ function Send(data) {
                 action: `iframe-message-to-${id}`,
                 data: { data, id }
             });
-        }
+        },
+        onDelete(callback) {
+            subscribeToEvent_1.default(`chat-message-deleted-${id}`, () => callback());
+        },
     };
 }
 exports.default = Send;

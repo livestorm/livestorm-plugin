@@ -20,7 +20,8 @@ interface MessageInstance {
   id: string,
   destroy: () => void,
   onIframeMessage: (Function) => void,
-  sendMessage: (any) => void
+  sendMessage: (any) => void,
+  onDelete: (callback: () => void) => void
 }
 
 /**
@@ -75,6 +76,10 @@ export default function Send(data: MessageParam): MessageInstance {
         action: `iframe-message-to-${id}`,
         data: { data, id }
       })
-    }
+    },
+
+    onDelete(callback) {
+      subscribeToEvent(`chat-message-deleted-${id}`, () => callback())
+    },
   }
 }
