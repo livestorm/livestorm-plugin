@@ -29,7 +29,7 @@ function Send(data) {
         id,
         destroy() {
             sendEvent_1.default({
-                action: `chat-delete-${id}`,
+                action: 'chat-delete',
                 data: Object.assign({ id }, data)
             });
         },

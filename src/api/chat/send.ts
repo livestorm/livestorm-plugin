@@ -54,7 +54,7 @@ export default function Send(data: MessageParam): MessageInstance {
     id,
     destroy() {
       sendEvent({
-        action: `chat-delete-${id}`,
+        action: 'chat-delete',
         data: {
           id,
           ...data
