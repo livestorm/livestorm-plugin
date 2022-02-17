@@ -41,6 +41,12 @@ describe('The Sidebar', () => {
       cy.getIframeContent('plugin', 'window').its('__messageReceived__').should('eq', messageToSend)
     })
 
+    // To activate when button is available on the app
+    // it('should be notified when the minimize button is clicked', function () {
+    //   cy.get('[data-testid="sidebar-header-minimize"]').contains(this.sidebarPanelOptions.label)
+    //   cy.getIframeContent('plugin', 'window').its('__onMinimizeTriggered__').should('eq', true)
+    // })
+
     describe('on close', () => {
 
       it('should not be displayed', function () {
