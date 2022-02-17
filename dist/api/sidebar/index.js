@@ -18,8 +18,8 @@ function registerPanel(options) {
         const listenableIframe = yield actsAsListenableIframe_1.default('register-sidebar-panel', options);
         const uuid = listenableIframe.getId();
         const data = { slug: options.slug, id: uuid };
-        const { minimized, onMinimize } = options;
-        if (minimized && onMinimize) {
+        const { minimize, onMinimize } = options;
+        if (minimize && onMinimize) {
             subscribeToEvent_1.default(`minimize-sidebar-panel-${uuid}`, () => onMinimize());
         }
         return Object.assign(Object.assign({}, listenableIframe), { remove() {

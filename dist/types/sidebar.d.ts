@@ -6,7 +6,7 @@ export declare type SidebarPanelOptions = ListenableIframeParams & {
     darkImageSource?: string;
     icon?: string;
     slug: string;
-    minimized?: boolean;
+    minimize?: boolean;
     onMinimize?: () => void;
 };
 export declare type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
