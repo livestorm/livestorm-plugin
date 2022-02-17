@@ -6,8 +6,10 @@ export declare type SidebarPanelOptions = ListenableIframeParams & {
     darkImageSource?: string;
     icon?: string;
     slug: string;
+    minimized?: boolean;
 };
 export declare type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
     focus: () => void;
     close: () => void;
+    onMinimize: (callback: () => void) => void;
 };
