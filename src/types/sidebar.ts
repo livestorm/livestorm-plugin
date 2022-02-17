@@ -8,10 +8,10 @@ export type SidebarPanelOptions = ListenableIframeParams & {
     icon?: string;
     slug: string;
     minimized?: boolean;
+    onMinimize?: () => void;
 }
 
 export type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
     focus: () => void;
     close: () => void;
-    onMinimize: (callback: () => void) => void;
 }

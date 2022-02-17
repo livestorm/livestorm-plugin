@@ -18,6 +18,10 @@ function registerPanel(options) {
         const listenableIframe = yield actsAsListenableIframe_1.default('register-sidebar-panel', options);
         const uuid = listenableIframe.getId();
         const data = { slug: options.slug, id: uuid };
+        const { minimized, onMinimize } = options;
+        if (minimized && onMinimize) {
+            subscribeToEvent_1.default(`minimize-sidebar-panel-${uuid}`, () => onMinimize());
+        }
         return Object.assign(Object.assign({}, listenableIframe), { remove() {
                 sendEvent_1.default({
                     action: 'remove-sidebar-panel',
@@ -35,9 +39,6 @@ function registerPanel(options) {
                     action: 'close-sidebar-panel',
                     data,
                 });
-            },
-            onMinimize(callback) {
-                subscribeToEvent_1.default(`minimize-sidebar-panel-${uuid}`, () => callback());
             } });
     });
 }

@@ -10,6 +10,12 @@ export async function registerPanel(options: SidebarPanelOptions): Promise<Sideb
   const uuid = listenableIframe.getId()
 
   const data = { slug: options.slug, id: uuid }
+
+  const { minimized, onMinimize } = options
+
+  if (minimized && onMinimize) {
+    subscribeToEvent(`minimize-sidebar-panel-${uuid}`, () => onMinimize())
+  }
   
   return {
     ...listenableIframe,
@@ -30,9 +36,6 @@ export async function registerPanel(options: SidebarPanelOptions): Promise<Sideb
         action: 'close-sidebar-panel',
         data,
       })     
-    },
-    onMinimize (callback: () => void) {
-      subscribeToEvent(`minimize-sidebar-panel-${uuid}`, () => callback())
     }
   }
 }
