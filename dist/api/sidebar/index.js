@@ -15,23 +15,23 @@ const actsAsListenableIframe_1 = require("../../io/actsAsListenableIframe");
 function registerPanel(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const listenableIframe = yield actsAsListenableIframe_1.default('register-sidebar-panel', options);
-        const uuid = listenableIframe.getId();
+        const id = listenableIframe.getId();
         return Object.assign(Object.assign({}, listenableIframe), { remove() {
                 sendEvent_1.default({
                     action: 'remove-sidebar-panel',
-                    data: { slug: options.slug, id: uuid }
+                    data: { slug: options.slug, id, }
                 });
             },
             focus() {
                 sendEvent_1.default({
                     action: 'focus-sidebar-panel',
-                    data: { slug: options.slug, id: uuid }
+                    data: { slug: options.slug, id, }
                 });
             },
             close() {
                 sendEvent_1.default({
                     action: 'close-sidebar-panel',
-                    data: { slug: options.slug, id: uuid }
+                    data: { slug: options.slug, id, }
                 });
             } });
     });

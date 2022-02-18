@@ -1,5 +1,4 @@
 import * as Buttons from './buttons';
-import { ListenableIframe } from "../../types/listenableIframe";
-import { StageHTMLContentOptions } from '../../types/stage';
-export declare function insertHTML(options: StageHTMLContentOptions): Promise<ListenableIframe>;
+import { StageCustomContentWrapper, StageCustomContentOptions } from '../../types/stage';
+export declare function registerCustomContent(options: StageCustomContentOptions): Promise<StageCustomContentWrapper>;
 export { Buttons };

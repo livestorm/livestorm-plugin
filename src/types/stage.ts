@@ -1,6 +1,7 @@
-import { ListenableIframeParams } from "./listenableIframe"
+import { ListenableIframe, ListenableIframeParams } from "./listenableIframe"
+import { RemovableWrapper } from "./wrapper"
 
-export type StageHTMLContentOptions =  ListenableIframeParams & {
+export type StageCustomContentOptions =  ListenableIframeParams & {
     position?: {
         top?: number;
         right?: number;
@@ -14,4 +15,9 @@ export type StageHTMLContentOptions =  ListenableIframeParams & {
         left?: number | 'auto';
     },
     wrap?: boolean,
+}
+
+export type StageCustomContentWrapper = ListenableIframe & RemovableWrapper & {
+    hide: () => void,
+    show: () => void,
 }

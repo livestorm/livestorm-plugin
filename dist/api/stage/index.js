@@ -9,15 +9,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Buttons = exports.insertHTML = void 0;
+exports.Buttons = exports.registerCustomContent = void 0;
 const Buttons = require("./buttons");
 exports.Buttons = Buttons;
+const sendEvent_1 = require("../../io/sendEvent");
 const actsAsListenableIframe_1 = require("../../io/actsAsListenableIframe");
-function insertHTML(options) {
+function registerCustomContent(options) {
     return __awaiter(this, void 0, void 0, function* () {
-        const listenableIframe = yield actsAsListenableIframe_1.default('stage-insert-html', options);
-        return Object.assign({}, listenableIframe);
+        const listenableIframe = yield actsAsListenableIframe_1.default('stage-register-custom-content', options);
+        const id = listenableIframe.getId();
+        return Object.assign(Object.assign({}, listenableIframe), { hide() {
+                sendEvent_1.default({
+                    action: 'stage-hide-custom-content',
+                    data: { id }
+                });
+            },
+            show() {
+                sendEvent_1.default({
+                    action: 'stage-show-custom-content',
+                    data: { id }
+                });
+            },
+            remove() {
+                sendEvent_1.default({
+                    action: 'stage-remove-custom-content',
+                    data: { id }
+                });
+            } });
     });
 }
-exports.insertHTML = insertHTML;
+exports.registerCustomContent = registerCustomContent;
 //# sourceMappingURL=index.js.map
