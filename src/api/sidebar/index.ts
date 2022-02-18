@@ -27,6 +27,18 @@ export async function registerPanel(options: SidebarPanelOptions): Promise<Sideb
         action: 'close-sidebar-panel',
         data:  { slug: options.slug, id: uuid }
       })     
-    }
+    },
+    setNotificationCount (count) {
+      sendEvent({
+        action: 'set-notification-count-sidebar-panel',
+        data:  { slug: options.slug, id: uuid, count }
+      })     
+    },
+    clearNotificationCount () {
+      sendEvent({
+        action: 'set-notification-count-sidebar-panel',
+        data:  { slug: options.slug, id: uuid, count: 0 }
+      })     
+    },
   }
 }
