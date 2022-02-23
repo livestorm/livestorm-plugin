@@ -29,7 +29,7 @@ function Send(data) {
         id,
         destroy() {
             sendEvent_1.default({
-                action: `chat-delete-${id}`,
+                action: 'chat-delete',
                 data: Object.assign({ id }, data)
             });
         },
@@ -48,7 +48,10 @@ function Send(data) {
                 action: `iframe-message-to-${id}`,
                 data: { data, id }
             });
-        }
+        },
+        onDelete(callback) {
+            subscribeToEvent_1.default(`chat-message-deleted-${id}`, () => callback());
+        },
     };
 }
 exports.default = Send;

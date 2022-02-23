@@ -16,6 +16,7 @@ interface MessageInstance {
     destroy: () => void;
     onIframeMessage: (Function: any) => void;
     sendMessage: (any: any) => void;
+    onDelete: (callback: () => void) => void;
 }
 /**
  *
