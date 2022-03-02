@@ -12,26 +12,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerPanel = void 0;
 const sendEvent_1 = require("../../io/sendEvent");
 const actsAsListenableIframe_1 = require("../../io/actsAsListenableIframe");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 function registerPanel(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const listenableIframe = yield actsAsListenableIframe_1.default('register-sidebar-panel', options);
         const uuid = listenableIframe.getId();
+        const data = { slug: options.slug, id: uuid };
+        const { minimize, onMinimize } = options;
+        if (minimize && onMinimize) {
+            subscribeToEvent_1.default(`minimize-sidebar-panel-${uuid}`, () => onMinimize());
+        }
         return Object.assign(Object.assign({}, listenableIframe), { remove() {
                 sendEvent_1.default({
                     action: 'remove-sidebar-panel',
-                    data: { slug: options.slug, id: uuid }
+                    data,
                 });
             },
             focus() {
                 sendEvent_1.default({
                     action: 'focus-sidebar-panel',
-                    data: { slug: options.slug, id: uuid }
+                    data,
                 });
             },
             close() {
                 sendEvent_1.default({
                     action: 'close-sidebar-panel',
-                    data: { slug: options.slug, id: uuid }
+                    data,
                 });
             },
             setNotificationCount(count) {

@@ -3,6 +3,7 @@
         "label": "Facilisis sed",
         "slug": "facilisis-sed",
         "imageSource": "volutpat.png",
-        "template": "Dignissim convallis aenean et tortor at risus viverra"
+        "template": "Dignissim convallis aenean et tortor at risus viverra",
+        "minimize": true
     }
 }
