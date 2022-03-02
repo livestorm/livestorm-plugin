@@ -33,6 +33,18 @@ function registerPanel(options) {
                     action: 'close-sidebar-panel',
                     data: { slug: options.slug, id, }
                 });
+            },
+            setNotificationCount(count) {
+                sendEvent_1.default({
+                    action: 'set-notification-count-sidebar-panel',
+                    data: { slug: options.slug, id, count }
+                });
+            },
+            clearNotificationCount() {
+                sendEvent_1.default({
+                    action: 'set-notification-count-sidebar-panel',
+                    data: { slug: options.slug, id, count: 0 }
+                });
             } });
     });
 }

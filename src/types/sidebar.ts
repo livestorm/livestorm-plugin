@@ -12,4 +12,6 @@ export type SidebarPanelOptions = ListenableIframeParams & {
 export type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
     focus: () => void;
     close: () => void;
+    setNotificationCount: (count: number) => void
+    clearNotificationCount: () => void
 }
