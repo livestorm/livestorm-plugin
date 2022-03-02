@@ -14,10 +14,14 @@ const Buttons = require("./buttons");
 exports.Buttons = Buttons;
 const sendEvent_1 = require("../../io/sendEvent");
 const actsAsListenableIframe_1 = require("../../io/actsAsListenableIframe");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 function registerCustomContent(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const listenableIframe = yield actsAsListenableIframe_1.default('stage-register-custom-content', options);
         const id = listenableIframe.getId();
+        if (options.onClose) {
+            subscribeToEvent_1.default(`close-stage-custom-content-${id}`, () => options.onClose());
+        }
         return Object.assign(Object.assign({}, listenableIframe), { hide() {
                 sendEvent_1.default({
                     action: 'stage-hide-custom-content',

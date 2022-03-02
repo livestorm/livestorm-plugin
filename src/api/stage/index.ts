@@ -3,12 +3,17 @@ import * as Buttons from './buttons'
 import sendEvent from '@/io/sendEvent'
 import actsAsListenableIframe from '@/io/actsAsListenableIframe'
 import { StageCustomContentWrapper, StageCustomContentOptions } from '@/types/stage'
+import subscribeToEvent from '@/io/subscribeToEvent'
 
 
 export async function registerCustomContent (options: StageCustomContentOptions): Promise<StageCustomContentWrapper> {
   const listenableIframe =  await actsAsListenableIframe('stage-register-custom-content', options)
 
   const id = listenableIframe.getId()
+
+  if (options.onClose) {
+    subscribeToEvent(`close-stage-custom-content-${id}`, () => options.onClose())
+  }
 
   return {
     ...listenableIframe,
