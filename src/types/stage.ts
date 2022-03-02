@@ -12,7 +12,8 @@ export type StageCustomContentOptions = ListenableIframeParams & {
         width: string;
         height: string;
     },
-    wrap?: boolean,
+    wrap?: boolean;
+    onClose?: () => void;
 }
 
 export type StageCustomContentWrapper = ListenableIframe & RemovableWrapper & {
