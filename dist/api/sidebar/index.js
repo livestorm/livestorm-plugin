@@ -43,13 +43,13 @@ function registerPanel(options) {
             setNotificationCount(count) {
                 sendEvent_1.default({
                     action: 'set-notification-count-sidebar-panel',
-                    data: { slug: options.slug, id: uuid, count }
+                    data: Object.assign(Object.assign({}, data), { count })
                 });
             },
             clearNotificationCount() {
                 sendEvent_1.default({
                     action: 'set-notification-count-sidebar-panel',
-                    data: { slug: options.slug, id: uuid, count: 0 }
+                    data: Object.assign(Object.assign({}, data), { count: 0 })
                 });
             } });
     });
