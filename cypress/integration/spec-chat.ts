@@ -46,17 +46,18 @@ describe('The chat', () => {
   })
 
   // @Buttons.registerShareButton
-  // it('should display the share button', () => {
-  //   cy.fixture('chat').then((chat) => {
-  //     cy.get('.tchat-wrap').find('[data-testid="open-chat-commands-button"]').click({force: true})
-  //     cy.get('[data-testid="chat-commands"] .additionnal-chat-commands').contains(chat.registerChatShareButton.label)
-  //   })
-  // })
+  it('should display the share button', () => {
+    cy.fixture('chat').then((chat) => {
+      cy.get('.tchat-wrap').find('[data-testid="open-chat-commands-button"]').click({force: true})
+      cy.get('[data-testid="chat-commands"] .additionnal-chat-commands').contains(chat.registerChatShareButton.label)
+    })
+  })
 
   // @registerMessageAction
   it('should display the message action', () => {
     cy.fixture('chat').then((chat) => {
-      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .toggle').eq(2).click({ force: true })
+
+      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .toggle').eq(0).click({ force: true })
       cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
     })
   })
