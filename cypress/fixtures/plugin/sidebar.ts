@@ -10,6 +10,10 @@ export default async function sidebar (): Promise<void> {
     onMessage: (message: string) => {
       // @ts-expect-error
       window.__messageReceived__ = message
+    },
+    onMinimize: () => {
+      // @ts-expect-error
+      window.__onMinimizeTriggered__ = true
     }
   })
 
