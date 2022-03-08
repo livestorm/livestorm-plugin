@@ -12,9 +12,13 @@ export async function registerPanel(options: SidebarPanelOptions): Promise<Sideb
   const data = { slug: options.slug, id: uuid }
 
   const { minimize, onMinimize } = options
-
   if (minimize && onMinimize) {
     subscribeToEvent(`minimize-sidebar-panel-${uuid}`, () => onMinimize())
+  }
+
+  const { onClose } = options
+  if (onClose) {
+    subscribeToEvent(`close-sidebar-panel-${uuid}`, () => onClose())
   }
   
   return {
