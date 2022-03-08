@@ -22,6 +22,10 @@ function registerPanel(options) {
         if (minimize && onMinimize) {
             subscribeToEvent_1.default(`minimize-sidebar-panel-${uuid}`, () => onMinimize());
         }
+        const { onClose } = options;
+        if (onClose) {
+            subscribeToEvent_1.default(`close-sidebar-panel-${uuid}`, () => onClose());
+        }
         return Object.assign(Object.assign({}, listenableIframe), { remove() {
                 sendEvent_1.default({
                     action: 'remove-sidebar-panel',
