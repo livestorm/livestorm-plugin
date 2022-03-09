@@ -12,38 +12,48 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerPanel = void 0;
 const sendEvent_1 = require("../../io/sendEvent");
 const actsAsListenableIframe_1 = require("../../io/actsAsListenableIframe");
+const subscribeToEvent_1 = require("../../io/subscribeToEvent");
 function registerPanel(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const listenableIframe = yield actsAsListenableIframe_1.default('register-sidebar-panel', options);
         const id = listenableIframe.getId();
+        const data = { slug: options.slug, id };
+        const { minimize, onMinimize } = options;
+        if (minimize && onMinimize) {
+            subscribeToEvent_1.default(`minimize-sidebar-panel-${id}`, () => onMinimize());
+        }
+        const { onClose } = options;
+        if (onClose) {
+            subscribeToEvent_1.default(`close-sidebar-panel-${id}`, () => onClose());
+        }
         return Object.assign(Object.assign({}, listenableIframe), { remove() {
                 sendEvent_1.default({
                     action: 'remove-sidebar-panel',
-                    data: { slug: options.slug, id, }
+                    data,
                 });
             },
             focus() {
                 sendEvent_1.default({
                     action: 'focus-sidebar-panel',
-                    data: { slug: options.slug, id, }
+                    data,
                 });
             },
             close() {
                 sendEvent_1.default({
                     action: 'close-sidebar-panel',
-                    data: { slug: options.slug, id, }
+                    data,
                 });
             },
             setNotificationCount(count) {
                 sendEvent_1.default({
                     action: 'set-notification-count-sidebar-panel',
-                    data: { slug: options.slug, id, count }
+                    data: Object.assign(Object.assign({}, data), { count })
                 });
             },
             clearNotificationCount() {
                 sendEvent_1.default({
                     action: 'set-notification-count-sidebar-panel',
-                    data: { slug: options.slug, id, count: 0 }
+                    data: Object.assign(Object.assign({}, data), { count: 0 })
                 });
             } });
     });

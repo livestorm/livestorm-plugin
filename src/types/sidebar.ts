@@ -5,8 +5,11 @@ export type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
     imageSource?: string;
     darkImageSource?: string;
-    icon?: string
-    slug: string
+    icon?: string;
+    slug: string;
+    minimize?: boolean;
+    onMinimize?: () => void;
+    onClose?: () => void;
 }
 
 export type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
