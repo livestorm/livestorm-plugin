@@ -7,51 +7,57 @@ import subscribeToEvent from '@/io/subscribeToEvent'
 export async function registerPanel(options: SidebarPanelOptions): Promise<SidebarPanelWrapper> {
   const listenableIframe = await actsAsListenableIframe('register-sidebar-panel', options)
 
-  const uuid = listenableIframe.getId()
+  const id = listenableIframe.getId()
 
-  const data = { slug: options.slug, id: uuid }
+  const data = { slug: options.slug, id }
 
   const { minimize, onMinimize } = options
   if (minimize && onMinimize) {
-    subscribeToEvent(`minimize-sidebar-panel-${uuid}`, () => onMinimize())
+    subscribeToEvent(`minimize-sidebar-panel-${id}`, () => onMinimize())
   }
 
   const { onClose } = options
   if (onClose) {
-    subscribeToEvent(`close-sidebar-panel-${uuid}`, () => onClose())
+    subscribeToEvent(`close-sidebar-panel-${id}`, () => onClose())
   }
-  
+
   return {
     ...listenableIframe,
-    remove () {
+    remove() {
       sendEvent({
         action: 'remove-sidebar-panel',
         data,
       })
     },
-    focus () {
+    focus() {
       sendEvent({
         action: 'focus-sidebar-panel',
         data,
       })
     },
-    close () {
+    close() {
       sendEvent({
         action: 'close-sidebar-panel',
         data,
-      })     
+      })
     },
-    setNotificationCount (count) {
+    setNotificationCount(count) {
       sendEvent({
         action: 'set-notification-count-sidebar-panel',
-        data:  { slug: options.slug, id: uuid, count }
-      })     
+        data: {
+          ...data,
+          count,
+        }
+      })
     },
-    clearNotificationCount () {
+    clearNotificationCount() {
       sendEvent({
         action: 'set-notification-count-sidebar-panel',
-        data:  { slug: options.slug, id: uuid, count: 0 }
-      })     
+        data: {
+          ...data,
+          count: 0,
+        }
+      })
     },
   }
 }

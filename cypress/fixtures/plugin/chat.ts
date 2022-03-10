@@ -17,16 +17,16 @@ export default function chat (): void {
     //
   })
 
+  Chat.send({
+    user: fixtureChat.send.user,
+    text: fixtureChat.send.text
+  })
+
   Chat.broadcast({
     text: fixtureChat.broadcast.text
   })
   Chat.broadcast({
     html: fixtureChat.broadcast.html
-  })
-
-  Chat.send({
-    user: fixtureChat.send.user,
-    text: fixtureChat.send.text
   })
 
   // Actions
