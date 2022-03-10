@@ -13,7 +13,7 @@ import { User } from '@/types/user'
  * @doc https://developers.livestorm.co/docs/when#eventends
  * 
  */
-export function eventEnds (callback: (params: Record<string, unknown>) => void): void {
+export function eventEnds(callback: (params: Record<string, unknown>) => void): void {
   simpleCallbackHandler({
     action: 'event-ends',
     listener: 'event-ends-listener',
@@ -33,7 +33,7 @@ export function eventEnds (callback: (params: Record<string, unknown>) => void):
  * @doc https://developers.livestorm.co/docs/when#eventstarts
  * 
  */
-export function eventStarts (callback: (params: Record<string, unknown>) => void): void {
+export function eventStarts(callback: (params: Record<string, unknown>) => void): void {
   simpleCallbackHandler({
     action: 'event-starts',
     listener: 'event-starts-listener',
@@ -52,7 +52,7 @@ export function eventStarts (callback: (params: Record<string, unknown>) => void
  * @doc https://developers.livestorm.co/docs/when#userjoins
  * 
  */
-export function userJoins (callback: (params: { content: User }) => void): void {
+export function userJoins(callback: (params: { content: User }) => void): void {
   simpleCallbackHandler({ action: 'user-joins', callback })
 }
 
@@ -67,6 +67,25 @@ export function userJoins (callback: (params: { content: User }) => void): void 
  * @doc https://developers.livestorm.co/docs/when#userleaves
  * 
  */
-export function userLeaves (callback: (params: { content: User }) => void): void {
+export function userLeaves(callback: (params: { content: User }) => void): void {
   simpleCallbackHandler({ action: 'user-leaves', callback })
+}
+
+/**
+ * 
+ * Be notified when the current user mutes/unmutes the notifications
+ * 
+ * @example When.currentUserMutesNotifications( ({ muted }) => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#currentusermutesnotifications
+ * 
+ */
+export function currentUserMutesNotifications(callback: (mutes: { muted: boolean }) => void): void {
+  simpleCallbackHandler({
+    action: 'current-user-mutes-notifications',
+    listener: 'current-user-mutes-notifications-listener',
+    callback
+  })
 }
