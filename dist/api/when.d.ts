@@ -53,3 +53,17 @@ export declare function userJoins(callback: (params: {
 export declare function userLeaves(callback: (params: {
     content: User;
 }) => void): void;
+/**
+ *
+ * Be notified when the current user mutes/unmutes the notifications
+ *
+ * @example When.currentUserMutesNotifications( ({ muted }) => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#currentusermutesnotifications
+ *
+ */
+export declare function currentUserMutesNotifications(callback: (mutes: {
+    muted: boolean;
+}) => void): void;

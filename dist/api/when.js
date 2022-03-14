@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userLeaves = exports.userJoins = exports.eventStarts = exports.eventEnds = void 0;
+exports.currentUserMutesNotifications = exports.userLeaves = exports.userJoins = exports.eventStarts = exports.eventEnds = void 0;
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
  *
@@ -72,4 +72,23 @@ function userLeaves(callback) {
     simpleCallbackHandler_1.default({ action: 'user-leaves', callback });
 }
 exports.userLeaves = userLeaves;
+/**
+ *
+ * Be notified when the current user mutes/unmutes the notifications
+ *
+ * @example When.currentUserMutesNotifications( ({ muted }) => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#currentusermutesnotifications
+ *
+ */
+function currentUserMutesNotifications(callback) {
+    simpleCallbackHandler_1.default({
+        action: 'current-user-mutes-notifications',
+        listener: 'current-user-mutes-notifications-listener',
+        callback
+    });
+}
+exports.currentUserMutesNotifications = currentUserMutesNotifications;
 //# sourceMappingURL=when.js.map
