@@ -67,3 +67,16 @@ export declare function userLeaves(callback: (params: {
 export declare function currentUserMutesNotifications(callback: (mutes: {
     muted: boolean;
 }) => void): void;
+/**
+ *
+ * Be notified when the autoplay is allowed
+ * Usefull to autoplay music or video with sound
+ *
+ * @example When.autoplayallowed( () => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#autoplayallowed
+ *
+ */
+export declare function autoplayIsAllowed(callback: () => void): void;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.currentUserMutesNotifications = exports.userLeaves = exports.userJoins = exports.eventStarts = exports.eventEnds = void 0;
+exports.autoplayIsAllowed = exports.currentUserMutesNotifications = exports.userLeaves = exports.userJoins = exports.eventStarts = exports.eventEnds = void 0;
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
  *
@@ -91,4 +91,24 @@ function currentUserMutesNotifications(callback) {
     });
 }
 exports.currentUserMutesNotifications = currentUserMutesNotifications;
+/**
+ *
+ * Be notified when the autoplay is allowed
+ * Usefull to autoplay music or video with sound
+ *
+ * @example When.autoplayallowed( () => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#autoplayallowed
+ *
+ */
+function autoplayIsAllowed(callback) {
+    simpleCallbackHandler_1.default({
+        action: 'autoplay-is-allowed',
+        listener: 'autoplay-is-allowed-listener',
+        callback
+    });
+}
+exports.autoplayIsAllowed = autoplayIsAllowed;
 //# sourceMappingURL=when.js.map

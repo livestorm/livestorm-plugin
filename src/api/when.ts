@@ -89,3 +89,24 @@ export function currentUserMutesNotifications(callback: (mutes: { muted: boolean
     callback
   })
 }
+
+
+/**
+ * 
+ * Be notified when the autoplay is allowed
+ * Usefull to autoplay music or video with sound
+ * 
+ * @example When.autoplayallowed( () => {
+ *  // do something
+ * })
+ *
+ * @doc https://developers.livestorm.co/docs/when#autoplayallowed
+ * 
+ */
+export function autoplayIsAllowed(callback: () => void): void {
+  simpleCallbackHandler({
+    action: 'autoplay-is-allowed',
+    listener: 'autoplay-is-allowed-listener',
+    callback
+  })
+}
