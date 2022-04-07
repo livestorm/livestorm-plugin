@@ -70,7 +70,7 @@ export declare function currentUserMutesNotifications(callback: (mutes: {
 /**
  *
  * Be notified when the autoplay is allowed
- * Usefull to autoplay music or video with sound
+ * Usefull to know when you can autoplay music or videogit
  *
  * @example When.autoplayallowed( () => {
  *  // do something
