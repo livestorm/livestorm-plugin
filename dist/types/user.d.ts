@@ -10,6 +10,7 @@ export interface User {
     };
     color?: string;
     company_name?: string;
+    country_code?: string;
     first_name?: string;
     id?: string;
     is_connected?: boolean;
