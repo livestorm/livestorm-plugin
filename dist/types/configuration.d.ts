@@ -12,4 +12,8 @@ export declare type ConfigurationData = {
         s: string;
     };
     sessionId: string;
+    design: {
+        backgroundColor: string;
+        primaryColor: string;
+    };
 };

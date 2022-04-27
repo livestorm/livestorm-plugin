@@ -10,4 +10,8 @@ export type ConfigurationData = {
   token: string
   queryString: { s: string }
   sessionId: string
+  design: {
+    backgroundColor: string
+    primaryColor: string
+  }
 }

@@ -15,6 +15,10 @@ describe('Configuration', () => {
     'token': 'xxxxx',
     queryString: { s: 's' },
     'sessionId': 'sessionId',
+    'design': {
+      backgroundColor: '#abdcde',
+      'primaryColor': '#fghijk'
+    }
   }
 
   it('should store accessible data', () => {
@@ -31,6 +35,7 @@ describe('Configuration', () => {
     expect(Configuration.get('queryString')).toBe(data.queryString)
     expect(Configuration.get('token')).toBe(data.token)
     expect(Configuration.get('sessionId')).toBe(data.sessionId)
+    expect(Configuration.get('design')).toBe(data.design)
   })
 
   it('should update the data', () => {
@@ -53,5 +58,6 @@ describe('Configuration', () => {
     expect(Configuration.get('token')).toBe(data.token)
     expect(Configuration.get('queryString')).toBe(data.queryString)
     expect(Configuration.get('sessionId')).toBe(data.sessionId)
+    expect(Configuration.get('design')).toBe(data.design)
   })
 })
