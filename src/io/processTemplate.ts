@@ -2,8 +2,8 @@ import { VariableValue, AugmentedVariableValue } from '@/types/listenableIframe'
 
 function isAugmentedVariableValue(value: VariableValue): value is AugmentedVariableValue {
   return value && typeof value === 'object'
-         && ('value' in (value as AugmentedVariableValue))
-         && (('inject' in (value as AugmentedVariableValue)) || ('replace' in (value as AugmentedVariableValue)))
+    && ('value' in (value as AugmentedVariableValue))
+    && (('inject' in (value as AugmentedVariableValue)) || ('replace' in (value as AugmentedVariableValue)))
 }
 
 export default function processTemplate(content: string, variables: Record<string, VariableValue> = {}): string {
@@ -25,7 +25,7 @@ export default function processTemplate(content: string, variables: Record<strin
       } else {
         variablesToReplace[variable] = value.value
       }
-      
+
     } else {
       variablesToInject[variable] = value
       variablesToReplace[variable] = value
@@ -39,7 +39,7 @@ export default function processTemplate(content: string, variables: Record<strin
   }
 
   // Replace all occurences of {{ variable }} with the variable value
-  const replacedOccurrences = content.replace(/({{)([0-9a-zA-Z-\s]+)(}})/g, (fullMatch, match1, match2) => {
+  const replacedOccurrences = content.replace(/({{)([\w\s]+)(}})/g, (fullMatch, match1, match2) => {
     const variable = match2.trim()
     const value = variable in variables ? (variablesNotToReplace.includes(variable) ? fullMatch : variablesToReplace[variable]) : fullMatch
 
