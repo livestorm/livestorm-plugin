@@ -36,7 +36,7 @@ function processTemplate(content, variables = {}) {
         throw new Error('The variables could not been injected: ' + e);
     }
     // Replace all occurences of {{ variable }} with the variable value
-    const replacedOccurrences = content.replace(/({{)([0-9a-zA-Z-\s]+)(}})/g, (fullMatch, match1, match2) => {
+    const replacedOccurrences = content.replace(/({{)([\w\s]+)(}})/g, (fullMatch, match1, match2) => {
         const variable = match2.trim();
         const value = variable in variables ? (variablesNotToReplace.includes(variable) ? fullMatch : variablesToReplace[variable]) : fullMatch;
         if (typeof value === "object") {

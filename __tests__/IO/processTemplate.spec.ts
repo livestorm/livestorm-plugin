@@ -89,6 +89,16 @@ describe('processTemplate replaces occurrences', () => {
     expect(processTemplate(template, variables)).toContain("<div>bar qux corge garply fred</div>")
   })
 
+  it('should replace variables containing underscores', () => {
+    const variables = {
+      foo: 'bar',
+      qux_qux: 'baz',
+      corge_corge: 'quux',
+    }
+    const template = '<div>{{ foo }} {{ qux_qux }} {{ corge_corge }}</div>'
+    expect(processTemplate(template, variables)).toContain("<div>bar baz quux</div>")
+  })
+
   it('should replace occurences when explicitely asked', () => {
     const variables = {
       foo: 'bar',
