@@ -100,7 +100,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
-  const joinButton = cy.get('.confirm-config-button:not([disabled])')
+  const joinButton = cy.get('.confirm-config-button:not([disabled])', { timeout: 30000 })
 
   joinButton.should('exist')
 
