@@ -2,6 +2,7 @@ import { ListenableIframe, ListenableIframeParams } from "./listenableIframe";
 import { RemovableWrapper } from "./wrapper";
 export declare type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
+    secondaryLabel?: string;
     imageSource?: string;
     darkImageSource?: string;
     icon?: string;
