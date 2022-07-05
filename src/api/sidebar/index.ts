@@ -1,4 +1,4 @@
-import { SidebarPanelOptions, SidebarPanelWrapper } from '@/types/sidebar'
+import { SidebarHeaderButton, SidebarPanelOptions, SidebarPanelWrapper } from '@/types/sidebar'
 
 import sendEvent from '@/io/sendEvent'
 import actsAsListenableIframe from '@/io/actsAsListenableIframe'
@@ -20,6 +20,12 @@ export async function registerPanel(options: SidebarPanelOptions): Promise<Sideb
   if (onClose) {
     subscribeToEvent(`close-sidebar-panel-${id}`, () => onClose())
   }
+
+  const { onHeaderButtonClick, headerButtons } = options
+  if (onHeaderButtonClick && headerButtons?.length > 0) {
+    subscribeToEvent(`click-sidebar-panel-header-button-${id}`, (headerButton: SidebarHeaderButton) => onHeaderButtonClick(headerButton))
+  }
+
 
   return {
     ...listenableIframe,

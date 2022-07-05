@@ -26,6 +26,10 @@ function registerPanel(options) {
         if (onClose) {
             subscribeToEvent_1.default(`close-sidebar-panel-${id}`, () => onClose());
         }
+        const { onHeaderButtonClick, headerButtons } = options;
+        if (onHeaderButtonClick && (headerButtons === null || headerButtons === void 0 ? void 0 : headerButtons.length) > 0) {
+            subscribeToEvent_1.default(`click-sidebar-panel-header-button-${id}`, (headerButton) => onHeaderButtonClick(headerButton));
+        }
         return Object.assign(Object.assign({}, listenableIframe), { remove() {
                 sendEvent_1.default({
                     action: 'remove-sidebar-panel',
