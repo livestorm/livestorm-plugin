@@ -4,7 +4,6 @@ import { RemovableWrapper } from "./wrapper"
 type Translatable = {
     en: string;
     fr: string;
-    es?: string;
     [key: string]: string;
 }
 
@@ -16,6 +15,7 @@ export type SidebarHeaderButton = {
 export type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
     slug: string;
+    secondaryLabel?: string;
     imageSource?: string;
     darkImageSource?: string;
     icon?: string;

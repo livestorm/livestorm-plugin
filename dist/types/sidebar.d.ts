@@ -3,7 +3,6 @@ import { RemovableWrapper } from "./wrapper";
 declare type Translatable = {
     en: string;
     fr: string;
-    es?: string;
     [key: string]: string;
 };
 export declare type SidebarHeaderButton = {
@@ -13,6 +12,7 @@ export declare type SidebarHeaderButton = {
 export declare type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
     slug: string;
+    secondaryLabel?: string;
     imageSource?: string;
     darkImageSource?: string;
     icon?: string;
