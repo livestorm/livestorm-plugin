@@ -17,5 +17,5 @@ Check out our [getting started Guide](https://developers.livestorm.co/docs/getti
 
 ### You need a hand or want to contribute?
 
-We are here to help, feel free to drop an issue to our [Github repo](https://github.com/livestorm/livestorm-plugin), or to contact us directly at [plugins@livestorm.co](mailto:plugins@livestorm.co) 
+We are here to help, feel free to drop an [issue](https://github.com/livestorm/livestorm-plugin/issues), or to contact us directly at [plugins@livestorm.co](mailto:plugins@livestorm.co) 
 
