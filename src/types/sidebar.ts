@@ -7,9 +7,14 @@ type Translatable = {
     [key: string]: string;
 }
 
-export type SidebarHeaderButton = {
-    label: Translatable;
-    icon: string;
+interface SidebarHeaderButtonProps {
+    key: string;
+    label?: Translatable;
+    icon?: string;
+}
+
+export type SidebarHeaderButton = Required<SidebarHeaderButtonProps> & {
+    children?: SidebarHeaderButtonProps[]
 }
 
 export type SidebarPanelOptions = ListenableIframeParams & {

@@ -5,9 +5,13 @@ declare type Translatable = {
     fr: string;
     [key: string]: string;
 };
-export declare type SidebarHeaderButton = {
-    label: Translatable;
-    icon: string;
+interface SidebarHeaderButtonProps {
+    key: string;
+    label?: Translatable;
+    icon?: string;
+}
+export declare type SidebarHeaderButton = Required<SidebarHeaderButtonProps> & {
+    children?: SidebarHeaderButtonProps[];
 };
 export declare type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
