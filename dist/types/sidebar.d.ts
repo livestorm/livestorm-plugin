@@ -1,15 +1,30 @@
 import { ListenableIframe, ListenableIframeParams } from "./listenableIframe";
 import { RemovableWrapper } from "./wrapper";
+declare type Translatable = {
+    en: string;
+    fr: string;
+    [key: string]: string;
+};
+interface SidebarHeaderButtonProps {
+    key: string;
+    label?: Translatable;
+    icon?: string;
+}
+export declare type SidebarHeaderButton = Required<SidebarHeaderButtonProps> & {
+    children?: SidebarHeaderButtonProps[];
+};
 export declare type SidebarPanelOptions = ListenableIframeParams & {
     label: string;
+    slug: string;
     secondaryLabel?: string;
     imageSource?: string;
     darkImageSource?: string;
     icon?: string;
-    slug: string;
     minimize?: boolean;
     onMinimize?: () => void;
     onClose?: () => void;
+    onHeaderButtonClick?: (headerButton: SidebarHeaderButton) => void;
+    headerButtons?: SidebarHeaderButton[];
 };
 export declare type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & {
     focus: () => void;
@@ -17,3 +32,4 @@ export declare type SidebarPanelWrapper = RemovableWrapper & ListenableIframe & 
     setNotificationCount: (count: number) => void;
     clearNotificationCount: () => void;
 };
+export {};
