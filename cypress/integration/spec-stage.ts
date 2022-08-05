@@ -2,8 +2,8 @@ describe('The stage', () => {
   before(() => {
     cy.roomEnter()
   })
-  
-  after( () => {
+
+  after(() => {
     cy.logout()
   })
 
@@ -19,8 +19,7 @@ describe('The stage', () => {
   it('should display the stage action button', () => {
     cy.fixture('stage').then((stage) => {
 
-      cy.get(`button[aria-label="${stage.registerStageButton.label}"] img`).as('stageActionButtonImage')
-  
+      cy.get(`.stage-control-button-wrap`).contains(stage.registerStageButton.label).find('img').as('stageActionButtonImage')
       cy.get('@stageActionButtonImage').invoke('attr', 'src').should('eq', stage.registerStageButton.imageSource)
     })
   })
