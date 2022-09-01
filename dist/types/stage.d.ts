@@ -13,6 +13,7 @@ export declare type StageCustomContentOptions = ListenableIframeParams & {
     };
     widget?: boolean;
     onClose?: () => void;
+    removeOnClose?: boolean;
     pointerEvents?: string;
 };
 export declare type StageCustomContentWrapper = ListenableIframe & RemovableWrapper & {
