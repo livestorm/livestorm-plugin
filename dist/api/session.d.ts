@@ -1,10 +1,10 @@
 import { Session } from '../types/session';
 /**
-  * Returns the session information
+  * Returns the current session information
   *
-  * @example await Livestorm.Session()
+  * @example await Livestorm.Session.current()
   *
   * @returns a promise that resolves with the session information as a hash
   *
   */
-export declare function Session(): Promise<Session>;
+export declare function current(): Promise<Session>;

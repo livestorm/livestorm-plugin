@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Session = void 0;
+exports.current = void 0;
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
-  * Returns the session information
+  * Returns the current session information
   *
-  * @example await Livestorm.Session()
+  * @example await Livestorm.Session.current()
   *
   * @returns a promise that resolves with the session information as a hash
   *
   */
-function Session() {
+function current() {
     return new Promise((resolve) => {
         simpleCallbackHandler_1.default({
             action: 'session-data',
@@ -18,5 +18,5 @@ function Session() {
         });
     });
 }
-exports.Session = Session;
+exports.current = current;
 //# sourceMappingURL=session.js.map
