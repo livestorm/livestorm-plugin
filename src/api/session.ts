@@ -9,7 +9,7 @@ import simpleCallbackHandler from '@/io/simpleCallbackHandler'
   * @returns a promise that resolves with the session information as a hash
   * 
   */
-export default function Session(): Promise<Session> {
+export function Session(): Promise<Session> {
   return new Promise((resolve) => {
     simpleCallbackHandler<{ session: Session }>({
       action: 'session-data',

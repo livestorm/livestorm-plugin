@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Session = void 0;
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
   * Returns the session information
@@ -17,5 +18,5 @@ function Session() {
         });
     });
 }
-exports.default = Session;
+exports.Session = Session;
 //# sourceMappingURL=session.js.map

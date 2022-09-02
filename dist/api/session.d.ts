@@ -7,4 +7,4 @@ import { Session } from '../types/session';
   * @returns a promise that resolves with the session information as a hash
   *
   */
-export default function Session(): Promise<Session>;
+export declare function Session(): Promise<Session>;
