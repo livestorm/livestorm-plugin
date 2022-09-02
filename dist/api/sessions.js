@@ -19,4 +19,4 @@ function current() {
     });
 }
 exports.current = current;
-//# sourceMappingURL=session.js.map
+//# sourceMappingURL=sessions.js.map
