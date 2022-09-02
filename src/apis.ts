@@ -7,6 +7,7 @@ import * as Settings from '@/api/settings'
 import * as NotificationCenter from '@/api/notificationCenter'
 import * as Sidebar from '@/api/sidebar'
 import * as Storage from '@/api/storage'
+import * as Session from '@/api/session'
 import * as Users from '@/api/users'
 import * as Modal from '@/api/modal'
 import Configuration from '@/configuration'
@@ -19,6 +20,7 @@ export {
   Modal,
   NotificationCenter,
   PubSub,
+  Session,
   Settings,
   Sidebar,
   Stage,
