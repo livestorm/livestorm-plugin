@@ -9,7 +9,7 @@ import type { DashboardEvent } from '../../types/dashboard/event';
  *     fr: '# de réactions emoji',
  *   },
  *   key: 'nb-of-emoji-reactions',
- *
+ *   datatype: 'increment',
  * })
  *
  * @doc https://developers.livestorm.co/docs/storage#setitem

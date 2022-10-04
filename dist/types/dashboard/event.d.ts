@@ -5,5 +5,5 @@ export declare type DashboardEvent = {
         [key: string]: string;
     };
     datatype: 'increment' | 'text' | 'array' | 'average';
-    value: string | number | Record<string, unknown>;
+    value?: string | number | Record<string, unknown>;
 };
