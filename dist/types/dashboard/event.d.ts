@@ -2,10 +2,8 @@ export declare type DashboardEvent = {
     key: string;
     name: {
         en: string;
-        [key: string]: any;
+        [key: string]: string;
     };
     datatype: 'increment' | 'text' | 'array' | 'average';
-    value: string | number | {
-        [key: string]: any;
-    };
+    value: string | number | Record<string, unknown>;
 };

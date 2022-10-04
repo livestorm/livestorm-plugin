@@ -41,6 +41,7 @@ function track(options) {
             },
             body: JSON.stringify({
                 key: options.key,
+                name: options.name,
                 value: options.value,
                 datatype: options.datatype,
                 organization_id: organizationId,

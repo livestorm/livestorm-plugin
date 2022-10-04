@@ -30,6 +30,7 @@ export async function track(options: DashboardEvent): Promise<Response> {
     },
     body: JSON.stringify({
       key: options.key,
+      name: options.name,
       value: options.value,
       datatype: options.datatype,
       organization_id: organizationId,
