@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = exports.When = exports.Users = exports.Theme = exports.Streams = exports.Storage = exports.Stage = exports.Sidebar = exports.Settings = exports.Sessions = exports.PubSub = exports.NotificationCenter = exports.Modal = exports.Chat = exports.Configuration = void 0;
+exports.register = exports.When = exports.Users = exports.Theme = exports.Streams = exports.Storage = exports.Stage = exports.Sidebar = exports.Settings = exports.Sessions = exports.PubSub = exports.NotificationCenter = exports.Modal = exports.Dashboard = exports.Chat = exports.Configuration = void 0;
 const PubSub = require("./api/pubSub");
 exports.PubSub = PubSub;
 const Chat = require("./api/chat");
 exports.Chat = Chat;
 const Streams = require("./api/streams");
 exports.Streams = Streams;
+const Dashboard = require("./api/dashboard");
+exports.Dashboard = Dashboard;
 const Stage = require("./api/stage");
 exports.Stage = Stage;
 const Theme = require("./api/theme");
