@@ -101,9 +101,10 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   })
 
   let joinButton = cy.get('[data-testid="access-steps"] [data-testid="viewer"]', { timeout: 30000 })
-  joinButton.should('exist')
-
+  cy.wait(5000)
   joinButton = cy.get('[data-testid="access-steps"] [data-testid="viewer"]:not([disabled])', { timeout: 30000 })
+
+  joinButton.should('exist')
 
   if (lobbyOnly === false) {
     joinButton.click({ force: true })
