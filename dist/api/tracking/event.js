@@ -29,7 +29,7 @@ function track(options) {
         const pluginHost = configuration_1.default.get('pluginHost');
         const pluginId = configuration_1.default.get('pluginId');
         const token = configuration_1.default.get('token');
-        return yield fetch(`${pluginHost}/api/v1/dashboard/events`, {
+        return yield fetch(`${pluginHost}/api/v1/tracking/events`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

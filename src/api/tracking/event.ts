@@ -18,7 +18,7 @@ export async function track(options: TrackingEvent): Promise<Response> {
   const pluginId = Configuration.get('pluginId')
   const token = Configuration.get('token')
 
-  return await fetch(`${pluginHost}/api/v1/dashboard/events`, {
+  return await fetch(`${pluginHost}/api/v1/tracking/events`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
