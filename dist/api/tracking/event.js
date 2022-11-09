@@ -13,14 +13,14 @@ exports.track = void 0;
 const configuration_1 = require("../../configuration");
 /**
  *
- * Store a value under a specific key. This storage is persistant and shared across participants of the event
+ * Track an event to make it visible in the dashboard
  *
  * @example Tracking.Event.track({
  *   key: 'emoji-reactions',
  *   value: 'joy'
  * })
  *
- * @doc https://developers.livestorm.co/docs/storage#setitem
+ * @doc https://developers.livestorm.co/docs/tracking#track
  *
  */
 function track(options) {
