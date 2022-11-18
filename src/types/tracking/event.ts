@@ -1,4 +1,4 @@
-export type TrackingEvent = {
+export type TrackingEvent<T> = {
     key: string;
-    value?: string | number | Record<string, unknown>;
+    value?: T;
 }

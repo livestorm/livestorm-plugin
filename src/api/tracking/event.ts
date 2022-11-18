@@ -12,7 +12,7 @@ import type { TrackingEvent } from '@/types/tracking/event'
  * @doc https://developers.livestorm.co/docs/tracking#track
  * 
  */
-export async function track(options: TrackingEvent): Promise<Response> {
+export async function track<T extends string | number | Record<string, unknown>>(options: TrackingEvent<T>): Promise<Response> {
   const organizationId = Configuration.get('organizationId')
   const pluginHost = Configuration.get('pluginHost')
   const pluginId = Configuration.get('pluginId')

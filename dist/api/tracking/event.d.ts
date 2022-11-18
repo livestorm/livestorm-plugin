@@ -11,4 +11,4 @@ import type { TrackingEvent } from '../../types/tracking/event';
  * @doc https://developers.livestorm.co/docs/tracking#track
  *
  */
-export declare function track(options: TrackingEvent): Promise<Response>;
+export declare function track<T extends string | number | Record<string, unknown>>(options: TrackingEvent<T>): Promise<Response>;
