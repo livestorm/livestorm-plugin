@@ -1,6 +1,7 @@
 import * as PubSub from '@/api/pubSub'
 import * as Chat from '@/api/chat'
 import * as Streams from '@/api/streams'
+import * as Tracking from '@/api/tracking'
 import * as Stage from '@/api/stage'
 import * as Theme from '@/api/theme'
 import * as Settings from '@/api/settings'
@@ -17,6 +18,7 @@ import register from '@/api/register'
 export {
   Configuration,
   Chat,
+  Tracking,
   Modal,
   NotificationCenter,
   PubSub,
