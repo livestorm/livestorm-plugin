@@ -57,8 +57,7 @@ describe('The chat', () => {
   it('should display the message action', () => {
     cy.fixture('chat').then((chat) => {
 
-      // Use `first` selector to get the last one since `vue-recycle-scroller` reverses the order of the messages in the DOM
-      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .toggle').first().click({ force: true })
+      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .toggle').last().click({ force: true })
       cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
     })
   })
