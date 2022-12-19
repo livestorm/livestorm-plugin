@@ -112,8 +112,8 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
 })
 
 Cypress.Commands.add('sendChatRoomMessage', message => {
-  cy.get('.tchat-wrap').find('.tchat-form__textarea').type(message, { force: true }).then(() => {
-    cy.get('.tchat-wrap').find('.message-action-button').last().click({ force: true })
+  cy.get('.tchat-wrap').find('[data-testid="chat-input"]').type(message, { force: true }).then(() => {
+    cy.get('.tchat-wrap').find('[data-testid="post-message-button"]').last().click({ force: true })
     cy.wait(1000)
   })
 })
