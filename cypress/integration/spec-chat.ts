@@ -48,8 +48,8 @@ describe('The chat', () => {
   // @Buttons.registerShareButton
   it('should display the share button', () => {
     cy.fixture('chat').then((chat) => {
-      cy.get('.tchat-wrap').find('[data-testid="open-chat-commands-button"]').click({force: true})
-      cy.get('[data-testid="chat-commands"] .additionnal-chat-commands').contains(chat.registerChatShareButton.label)
+      cy.get('.tchat-wrap').find('[data-testid="open-more-actions-button"]').click({force: true})
+      cy.get('[data-testid="chat-commands"] .afixdditionnal-chat-commands').contains(chat.registerChatShareButton.label)
     })
   })
 
