@@ -48,7 +48,7 @@ describe('The chat', () => {
   // @Buttons.registerShareButton
   it('should display the share button', () => {
     cy.fixture('chat').then((chat) => {
-      cy.get('.tchat-wrap').find('[data-testid="open-chat-commands-button"]').click({force: true})
+      cy.get('.tchat-wrap').find('[data-testid="open-more-actions-button"]').click({force: true})
       cy.get('[data-testid="chat-commands"] .additionnal-chat-commands').contains(chat.registerChatShareButton.label)
     })
   })
@@ -57,8 +57,7 @@ describe('The chat', () => {
   it('should display the message action', () => {
     cy.fixture('chat').then((chat) => {
 
-      // Use `first` selector to get the last one since `vue-recycle-scroller` reverses the order of the messages in the DOM
-      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .toggle').first().click({ force: true })
+      cy.get('.tchat-wrap').find('[data-testid="chat-msg"] .base-dropdown-menu .toggle').last().click({ force: true })
       cy.get('.v-popover-item').contains(chat.registerMessageAction.label)
     })
   })
