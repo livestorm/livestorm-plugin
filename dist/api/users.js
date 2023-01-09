@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerPeopleTabAction = exports.everyone = exports.teamMembers = exports.me = void 0;
+exports.registerPeopleTabAction = exports.connectedCount = exports.everyone = exports.teamMembers = exports.me = void 0;
 const addButtonDefaultListeners_1 = require("../io/addButtonDefaultListeners");
 const simpleCallbackHandler_1 = require("../io/simpleCallbackHandler");
 /**
@@ -53,6 +53,21 @@ function everyone() {
     });
 }
 exports.everyone = everyone;
+/**
+  * Returns the number of the connected users
+  *
+  * @example await Livestorm.Users.connectedCount()
+  * @returns a promise that resolves with the number of the connected users
+  */
+function connectedCount() {
+    return new Promise((resolve) => {
+        simpleCallbackHandler_1.default({
+            action: 'users-connected-count',
+            callback: ({ count }) => resolve(count)
+        });
+    });
+}
+exports.connectedCount = connectedCount;
 /**
  *
  * Register an entry in the context menu of a user in the people tab.

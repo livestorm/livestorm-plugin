@@ -57,6 +57,21 @@ export function everyone(): Promise<User[]> {
 }
 
 /**
+  * Returns the number of the connected users
+  * 
+  * @example await Livestorm.Users.connectedCount()
+  * @returns a promise that resolves with the number of the connected users
+  */
+export function connectedCount(): Promise<number> {
+  return new Promise((resolve) => {
+    simpleCallbackHandler<{ count: number }>({
+      action: 'users-connected-count',
+      callback: ({ count }) => resolve(count)
+    })
+  })
+}
+
+/**
  * 
  * Register an entry in the context menu of a user in the people tab.
  * Can be used to trigger any action (sharing custom content, files, videos, etc) 
