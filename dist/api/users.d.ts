@@ -47,4 +47,6 @@ export declare function connectedCount(): Promise<number>;
  * @doc https://developers.livestorm.co/docs/users#registerpeopletabaction
  *
  */
-export declare function registerPeopleTabAction(options: DefaultButtonOptions): void;
+export declare function registerPeopleTabAction(options: DefaultButtonOptions & {
+    actionScope: 'chat' | 'qa' | 'people' | 'polls';
+}): void;
