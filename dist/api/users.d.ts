@@ -48,5 +48,5 @@ export declare function connectedCount(): Promise<number>;
  *
  */
 export declare function registerPeopleTabAction(options: DefaultButtonOptions & {
-    actionScope: 'chat' | 'qa' | 'people' | 'polls';
+    actionScope?: 'chat' | 'qa' | 'people' | 'polls';
 }): void;
