@@ -9,10 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerPanel = void 0;
+exports.focusBuiltInPanel = exports.registerPanel = void 0;
 const sendEvent_1 = require("../../io/sendEvent");
 const actsAsListenableIframe_1 = require("../../io/actsAsListenableIframe");
 const subscribeToEvent_1 = require("../../io/subscribeToEvent");
+const simpleCallbackHandler_1 = require("../../io/simpleCallbackHandler");
 function registerPanel(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const listenableIframe = yield actsAsListenableIframe_1.default('register-sidebar-panel', options);
@@ -63,4 +64,18 @@ function registerPanel(options) {
     });
 }
 exports.registerPanel = registerPanel;
+function focusBuiltInPanel(tab) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve) => {
+            simpleCallbackHandler_1.default({
+                action: 'sidebar-focus-built-in-panel',
+                data: {
+                    tab,
+                },
+                callback: () => resolve()
+            });
+        });
+    });
+}
+exports.focusBuiltInPanel = focusBuiltInPanel;
 //# sourceMappingURL=index.js.map
