@@ -3,6 +3,7 @@ import { SidebarHeaderButton, SidebarPanelOptions, SidebarPanelWrapper } from '@
 import sendEvent from '@/io/sendEvent'
 import actsAsListenableIframe from '@/io/actsAsListenableIframe'
 import subscribeToEvent from '@/io/subscribeToEvent'
+import simpleCallbackHandler from '@/io/simpleCallbackHandler'
 
 export async function registerPanel(options: SidebarPanelOptions): Promise<SidebarPanelWrapper> {
   const listenableIframe = await actsAsListenableIframe('register-sidebar-panel', options)
@@ -66,4 +67,16 @@ export async function registerPanel(options: SidebarPanelOptions): Promise<Sideb
       })
     },
   }
+}
+
+export async function focusBuiltInPanel(tab: 'chat'|'people'|'qa'|'polls'): Promise<void> {
+  return new Promise((resolve) => {
+    simpleCallbackHandler({
+      action: 'sidebar-focus-built-in-panel',
+      data: {
+        tab,
+      },
+      callback: () => resolve()
+    })
+  })
 }
