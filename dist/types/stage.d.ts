@@ -15,7 +15,7 @@ export declare type StageCustomContentOptions = ListenableIframeParams & {
     onClose?: () => void;
     persistOnClose?: boolean;
     pointerEvents?: string;
-    disableMinimizable?: boolean;
+    minimizable?: boolean;
 };
 export declare type StageCustomContentWrapper = ListenableIframe & RemovableWrapper & {
     hide: () => void;
