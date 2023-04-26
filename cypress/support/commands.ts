@@ -135,7 +135,7 @@ Cypress.Commands.add('logout', (deleteSession = true) => {
         method: 'DELETE',
         url: `https://api.livestorm.co/v1/sessions/${new URLSearchParams(url.search).get('s')}`,
         headers: {
-          "Authorization: ": Cypress.env('PUBLIC_API_KEY')
+          "Authorization": Cypress.env('PUBLIC_API_KEY')
         }
       }).then((response) => {
         expect(response.status).to.eq(204)
