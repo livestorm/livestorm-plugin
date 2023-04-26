@@ -66,14 +66,16 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     method: 'POST',
     url: `https://api.livestorm.co/v1/events/${Cypress.env('EVENT_ID')}/sessions`,
     headers: {
-      "Authorization: ": Cypress.env('PUBLIC_API_KEY')
+      "Authorization": Cypress.env('PUBLIC_API_KEY')
     },
     body: {
-      "sessions": [
-        {
+      "data": {
+        "type": "sessions",
+        "attributes": {
           "estimated_started_at": new Date((+new Date() + (365 * 24 * 60 * 60 * 1000))).toISOString(),
-          "timezone": "Europe/Paris",
-        }]
+          "timezone": "America/New_York"
+        }
+      }
     }
   }).as('sessionCreated')
 
