@@ -68,7 +68,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     headers: {
       "Authorization": Cypress.env('PUBLIC_API_KEY')
     },
-    body: {
+    body: JSON.stringify({
       "data": {
         "type": "sessions",
         "attributes": {
@@ -76,7 +76,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
           "timezone": "America/New_York"
         }
       }
-    }
+    })
   }).as('sessionCreated')
 
   cy.get('@sessionCreated').should((response) => {
