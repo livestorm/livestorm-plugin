@@ -82,6 +82,7 @@ jobs:
           CYPRESS_TEAM_MEMBER_EMAIL: ${{ secrets[format('TEAM_MEMBER_EMAIL_{0}', matrix.site)] }}
           CYPRESS_TEAM_MEMBER_PASSWORD: ${{ secrets[format('TEAM_MEMBER_PASSWORD_{0}', matrix.site)] }}
           CYPRESS_EVENT_ID: ${{ secrets[format('EVENT_ID_{0}', matrix.site)] }}
+          CYPRESS_PUPLIC_API_KEY: ${{ secrets[format('PUPLIC_API_KEY_{0}', matrix.site)] }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_PLUGIN_IFRAME_NAME: ${{ secrets.PLUGIN_IFRAME_NAME }}
