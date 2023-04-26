@@ -64,7 +64,7 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   // Create session from event
   cy.request({
     method: 'POST',
-    url: `https://api.livestorm.co/v1/events/${Cypress.env('EVENT_ID')}/sessions`,
+    url: `${Cypress.env('PUBLIC_API_BASE_URL')}/v1/events/${Cypress.env('EVENT_ID')}/sessions`,
     headers: {
       "Authorization": Cypress.env('PUBLIC_API_KEY')
     },
@@ -79,10 +79,10 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     }
   }).as('sessionCreated')
 
-  cy.get('@sessionCreated').should((response) => {
+  cy.get<{ data: { id: string } }>('@sessionCreated').should((response) => {
     expect(response).to.have.property('body')
   }).then((response) => {
-    const sessionId = (response as unknown as { body: { sessions: { id: string }[] } }).body.sessions.pop().id
+    const sessionId = response.data.id
     cy.log('sessionId', sessionId)
     visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
@@ -135,7 +135,7 @@ Cypress.Commands.add('logout', (deleteSession = true) => {
       // Delete the session
       cy.request({
         method: 'DELETE',
-        url: `https://api.livestorm.co/v1/sessions/${new URLSearchParams(url.search).get('s')}`,
+        url: `${Cypress.env('PUBLIC_API_BASE_URL')}/v1/sessions/${new URLSearchParams(url.search).get('s')}`,
         headers: {
           "Authorization": Cypress.env('PUBLIC_API_KEY')
         }
