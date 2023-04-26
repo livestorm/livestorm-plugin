@@ -79,11 +79,10 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     }
   }).as('sessionCreated')
 
-  cy.get<{ data: { id: string } }>('@sessionCreated').should((response) => {
+  cy.get<{ body: { data: { id: string } } }>('@sessionCreated').should((response) => {
     expect(response).to.have.property('body')
   }).then((response) => {
-    const sessionId = response.data.id
-    cy.log('sessionId', sessionId)
+    const sessionId = response.body.data.id
     visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
