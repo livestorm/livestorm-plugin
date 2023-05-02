@@ -50,9 +50,6 @@ const visit = path => {
 }
 
 Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
-  cy.intercept('/api/v1/team_members/current').as('user')
-  cy.intercept('/api/v1/auth/strong/token').as('token')
-
   // LogIn
   cy.request('POST', `/api/v1/auth/strong/session?${Cypress.env('MAGIC_PARAMETER')}`, {
     "email": Cypress.env('TEAM_MEMBER_EMAIL'),
@@ -63,40 +60,29 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   visit('/')
   cy.getCookie('refresh_token').should('exist')
 
-  cy.wait('@user').then(({ response: { body: { id } } }) => {
-    cy.wait('@token').then(({ response: { body: { data } } }) => {
-      cy.setCookie('CYPRESS_ENCODED_JWT', data.jwt.encoded)
 
-      // Create session from event
-      cy.request({
-        method: 'POST',
-        url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions`,
-        headers: {
-          "ls-authorization": "Bearer " + data.jwt.encoded
-        },
-        body: {
-          "sessions": [
-            {
-              "estimated_started_at": new Date((+new Date() + (365 * 24 * 60 * 60 * 1000))).toISOString(),
-              "timezone": "Europe/Paris",
-              "team_members": [
-                {
-                  "identity_id": id,
-                  "is_highlighted": true
-                }
-              ],
-              "guest_speakers": []
-            }]
+  // Create session from event
+  cy.request({
+    method: 'POST',
+    url: `${Cypress.env('PUBLIC_API_BASE_URL')}/v1/events/${Cypress.env('EVENT_ID')}/sessions`,
+    headers: {
+      "Authorization": Cypress.env('PUBLIC_API_KEY')
+    },
+    body: {
+      "data": {
+        "type": "sessions",
+        "attributes": {
+          "estimated_started_at": new Date((+new Date() + (365 * 24 * 60 * 60 * 1000))).toISOString(),
+          "timezone": "America/New_York"
         }
-      }).as('sessionCreated')
-    })
-  })
+      }
+    }
+  }).as('sessionCreated')
 
-  cy.get('@sessionCreated').should((response) => {
+  cy.get<{ body: { data: { id: string } } }>('@sessionCreated').should((response) => {
     expect(response).to.have.property('body')
   }).then((response) => {
-    const sessionId = (response as unknown as { body: { sessions: { id: string }[] } }).body.sessions.pop().id
-    cy.log('sessionId', sessionId)
+    const sessionId = response.body.data.id
     visit(`/p/${Cypress.env('EVENT_ID')}/live?s=${sessionId}`)
   })
 
@@ -144,19 +130,16 @@ Cypress.Commands.add('getSidebarButton', (text: string): Cypress.Chainable<JQuer
 
 Cypress.Commands.add('logout', (deleteSession = true) => {
   if (deleteSession) {
-    cy.getCookie('CYPRESS_ENCODED_JWT').then(cookie => {
-      cy.location().then((url) => {
-
-        // Delete the session
-        cy.request({
-          method: 'DELETE',
-          url: `/api/v1/event_types/${Cypress.env('EVENT_ID')}/sessions/${new URLSearchParams(url.search).get('s')}?get_session_item=true`,
-          headers: {
-            "ls-authorization": "Bearer " + cookie.value
-          }
-        }).then((response) => {
-          expect(response.status).to.eq(204)
-        })
+    cy.location().then((url) => {
+      // Delete the session
+      cy.request({
+        method: 'DELETE',
+        url: `${Cypress.env('PUBLIC_API_BASE_URL')}/v1/sessions/${new URLSearchParams(url.search).get('s')}`,
+        headers: {
+          "Authorization": Cypress.env('PUBLIC_API_KEY')
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(204)
       })
     })
   }
