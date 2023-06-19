@@ -55,6 +55,9 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
     "email": Cypress.env('TEAM_MEMBER_EMAIL'),
     "password": Cypress.env('TEAM_MEMBER_PASSWORD'),
     "provider": "email_password"
+  }).then((response) => {
+    expect(response.body).to.have.property('data')
+    cy.setCookie('refreshToken', response.body.data.refresh_token)
   })
 
   visit('/')
