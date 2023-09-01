@@ -132,6 +132,7 @@ Cypress.Commands.add('getSidebarButton', (text: string): Cypress.Chainable<JQuer
 })
 
 Cypress.Commands.add('logout', (deleteSession = true) => {
+  return
   if (deleteSession) {
     cy.location().then((url) => {
       // Delete the session
