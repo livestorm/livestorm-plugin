@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        site: ["PROD"]
+        site: ["STAGING", "PROD"]
     needs: publish-plugin
     steps:
       - uses: actions/checkout@v2
