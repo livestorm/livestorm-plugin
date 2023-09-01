@@ -58,11 +58,11 @@ Cypress.Commands.add('roomEnter', (lobbyOnly = false) => {
   }).then((response) => {
     expect(response.status).to.eq(200)
     expect(response.body).to.have.property('data')
-    cy.setCookie('refresh_token', response.body.data.refresh_token)
+    cy.setCookie('refreshToken', response.body.data.refresh_token)
   })
 
   visit('/')
-  cy.getCookie('refresh_token').should('exist')
+  cy.getCookie('refreshToken').should('exist')
 
 
   // Create session from event
